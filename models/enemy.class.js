@@ -1,7 +1,9 @@
-class Enemie extends MovableObject {
+class Enemy extends MovableObject {
     constructor() {
         super();
         this.loadImage('../img/spider/walk1.png');
+        this.x = 400 + Math.random() * 500;
+        this.y = 420;
     }
 
     walkAttackRight() {
