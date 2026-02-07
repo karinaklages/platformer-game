@@ -14,9 +14,10 @@ class World {
         new BackgroundObject("../img/backgrounds/clouds2.png", 0),
         new BackgroundObject("../img/backgrounds/rocks1.png", 0),
         new BackgroundObject("../img/backgrounds/rocks2.png", 0),
-        new BackgroundObject("../img/backgrounds/rocks3.png", 0),
+        new BackgroundObject("../img/backgrounds/rocks3.png", 0)
     ]
     groundTiles = [];
+    flyingTiles = [];
 
     canvas;
     ctx;
@@ -25,6 +26,7 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.createGroundTiles();
+        this.createFlyingTiles();
         this.draw();
     }
 
@@ -33,6 +35,7 @@ class World {
         this.addObjectsToMap(this.backgroundObjects);
         this.addObjectsToMap(this.clouds);
         this.addObjectsToMap(this.groundTiles);
+        this.addObjectsToMap(this.flyingTiles);
         this.addToMap(this.character);
         this.addObjectsToMap(this.enemies);
         requestAnimationFrame(() => this.draw());
@@ -59,4 +62,17 @@ class World {
             );
         }
     }
+
+    createFlyingTiles() {
+    this.flyingTiles = [
+        new GroundTile("../img/tiles_ground/ground_tile08.png", 300, 400, 50, 50),
+        new GroundTile("../img/tiles_ground/ground_tile10.png", 350, 400, 50, 50),
+        new GroundTile("../img/tiles_ground/ground_tile09.png", 400, 400, 50, 50),
+        new GroundTile("../img/objects/tree3.png", 350, 333, 100, 100),
+        new GroundTile("../img/tiles_ground/ground_tile08.png", 500, 350, 50, 50),
+        new GroundTile("../img/tiles_ground/ground_tile09.png", 550, 350, 50, 50),
+        new GroundTile("../img/tiles_ground/ground_tile27.png", 850, 250, 50, 50),
+        new GroundTile("../img/tiles_ground/ground_tile28.png", 850, 300, 50, 50),
+    ];
+}
 }
