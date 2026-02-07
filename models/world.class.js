@@ -5,9 +5,16 @@ class World {
         new Enemy(),
         new Enemy()
     ]
-    
     clouds = [
         new Clouds(),
+    ]
+    backgroundObjects = [
+        new BackgroundObject("../img/backgrounds/sun.png", 0),
+        new BackgroundObject("../img/backgrounds/clouds1.png", 0),
+        new BackgroundObject("../img/backgrounds/clouds2.png", 0),
+        new BackgroundObject("../img/backgrounds/rocks1.png", 0),
+        new BackgroundObject("../img/backgrounds/rocks2.png", 0),
+        new BackgroundObject("../img/backgrounds/rocks3.png", 0),
     ]
 
     canvas;
@@ -21,13 +28,20 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(this.character.img, this.character.x, this.character.y, this.character.height, this.character.width);
-        this.enemies.forEach(enemy => {
-            this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.height, enemy.width);
-        });
-        this.clouds.forEach(clouds => {
-            this.ctx.drawImage(clouds.img, clouds.x, clouds.y, clouds.height, clouds.width);
-        });
+        this.addObjectsToMap(this.backgroundObjects);
+        this.addObjectsToMap(this.clouds);
+        this.addToMap(this.character);
+        this.addObjectsToMap(this.enemies);
         requestAnimationFrame(() => this.draw());
+    }
+
+    addObjectsToMap(objects) {
+        objects.forEach(object => {
+            this.addToMap(object);
+        });
+    }
+
+    addToMap(motive) {
+        this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
     }
 }
