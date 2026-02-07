@@ -16,6 +16,7 @@ class World {
         new BackgroundObject("../img/backgrounds/rocks2.png", 0),
         new BackgroundObject("../img/backgrounds/rocks3.png", 0),
     ]
+    groundTiles = [];
 
     canvas;
     ctx;
@@ -23,6 +24,7 @@ class World {
     constructor (canvas) {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
+        this.createGroundTiles();
         this.draw();
     }
 
@@ -30,6 +32,7 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.addObjectsToMap(this.backgroundObjects);
         this.addObjectsToMap(this.clouds);
+        this.addObjectsToMap(this.groundTiles);
         this.addToMap(this.character);
         this.addObjectsToMap(this.enemies);
         requestAnimationFrame(() => this.draw());
@@ -43,5 +46,17 @@ class World {
 
     addToMap(motive) {
         this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
+    }
+
+    createGroundTiles() {
+        const tileWidth = 50;
+        const tileHeight = 50;
+        const y = this.canvas.height - tileHeight;
+        const numTiles = Math.ceil(this.canvas.width / tileWidth);
+        for (let i = 0; i < numTiles; i++) {
+            this.groundTiles.push(
+                new GroundTile("../img/tiles_ground/ground_tile07.png", i * tileWidth, y, tileWidth, tileHeight)
+            );
+        }
     }
 }
