@@ -68,7 +68,7 @@ class World {
         new GroundTile("../img/tiles_ground/ground_tile08.png", 300, 400, 50, 50),
         new GroundTile("../img/tiles_ground/ground_tile10.png", 350, 400, 50, 50),
         new GroundTile("../img/tiles_ground/ground_tile09.png", 400, 400, 50, 50),
-        new GroundTile("../img/objects/tree3.png", 350, 333, 100, 100),
+        // new GroundTile("../img/objects/tree3.png", 350, 333, 100, 100),
         new GroundTile("../img/tiles_ground/ground_tile08.png", 500, 350, 50, 50),
         new GroundTile("../img/tiles_ground/ground_tile09.png", 550, 350, 50, 50),
         new GroundTile("../img/tiles_ground/ground_tile27.png", 850, 250, 50, 50),

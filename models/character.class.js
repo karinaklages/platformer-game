@@ -1,7 +1,27 @@
 class Character extends MovableObject {
+    IMAGES_WALK = [
+        'img/knight/walk1.png',
+        'img/knight/walk2.png',
+        'img/knight/walk3.png',
+        'img/knight/walk4.png',
+        'img/knight/walk5.png',
+        'img/knight/walk6.png',
+    ];
+
     constructor() {
         super();
-        this.loadImage('../img/knight/walk1.png');
+        this.loadImage('img/knight/walk1.png');
+        this.loadImages(this.IMAGES_WALK);
+        this.animate();
+    }
+
+    animate() {
+        setInterval(() => {
+            let i = this.currentImage % this.IMAGES_WALK.length;
+            let path = this.IMAGES_WALK[i];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+        }, 150);
     }
 
     jump() {
