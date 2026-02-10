@@ -6,6 +6,8 @@ class MovableObject {
     height = 120;
     imageCache = {};
     currentImage = 0;
+    speed= 0.15;
+    direction = false; // false = right, true = left
 
     loadImage(path) {
         this.img = new Image();
@@ -20,12 +22,14 @@ class MovableObject {
         });
     }
 
-    walkRight() {
+    moveRight() {
         this.x += 5;
     }
-
-    walkLeft() {
-        this.x -= 5;
+        
+    moveLeft() {
+        setInterval(() => {
+            this.x -= this.speed;
+        }, 1000 / 60);
     }
 
     idle() {

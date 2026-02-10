@@ -12,12 +12,14 @@ class Enemy extends MovableObject {
         super();
         this.loadImage('img/spider/walk1.png');
         this.loadImages(this.IMAGES_WALK);
-        this.x = 400 + Math.random() * 500;
+        this.x = 400 + Math.random() * 700;
+        this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 420;
         this.animate();
     }
 
     animate() {
+        this.moveLeft();
         setInterval(() => {
             let i = this.currentImage % this.IMAGES_WALK.length;
             let path = this.IMAGES_WALK[i];

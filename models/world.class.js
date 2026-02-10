@@ -6,7 +6,7 @@ class World {
         new Enemy()
     ]
     clouds = [
-        new Clouds(),
+        new Clouds()
     ]
     backgroundObjects = [
         new BackgroundObject("../img/backgrounds/sun.png", 0),
