@@ -21,13 +21,16 @@ class World {
 
     canvas;
     ctx;
+    keyboard;
 
-    constructor (canvas) {
+    constructor (canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
+        this.keyboard = keyboard;
         this.createGroundTiles();
         this.createFlyingTiles();
         this.draw();
+        this.setWorld();
     }
 
     draw() {
@@ -41,6 +44,10 @@ class World {
         requestAnimationFrame(() => this.draw());
     }
 
+    setWorld() {
+        this.character.world = this;
+    }
+
     addObjectsToMap(objects) {
         objects.forEach(object => {
             this.addToMap(object);
@@ -48,7 +55,15 @@ class World {
     }
 
     addToMap(motive) {
-        this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
+        if (motive.otherDirection) {
+            this.ctx.save();
+            this.ctx.translate(motive.x + motive.width, motive.y);
+            this.ctx.scale(-1, 1);
+            this.ctx.drawImage(motive.img, 0, 0, motive.width, motive.height);
+            this.ctx.restore();
+        } else {
+            this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
+        }
     }
 
     createGroundTiles() {
@@ -64,15 +79,15 @@ class World {
     }
 
     createFlyingTiles() {
-    this.flyingTiles = [
-        new GroundTile("../img/tiles_ground/ground_tile08.png", 300, 400, 50, 50),
-        new GroundTile("../img/tiles_ground/ground_tile10.png", 350, 400, 50, 50),
-        new GroundTile("../img/tiles_ground/ground_tile09.png", 400, 400, 50, 50),
-        // new GroundTile("../img/objects/tree3.png", 350, 333, 100, 100),
-        new GroundTile("../img/tiles_ground/ground_tile08.png", 500, 350, 50, 50),
-        new GroundTile("../img/tiles_ground/ground_tile09.png", 550, 350, 50, 50),
-        new GroundTile("../img/tiles_ground/ground_tile27.png", 850, 250, 50, 50),
-        new GroundTile("../img/tiles_ground/ground_tile28.png", 850, 300, 50, 50),
-    ];
-}
+        this.flyingTiles = [
+            new GroundTile("../img/tiles_ground/ground_tile08.png", 300, 400, 50, 50),
+            new GroundTile("../img/tiles_ground/ground_tile10.png", 350, 400, 50, 50),
+            new GroundTile("../img/tiles_ground/ground_tile09.png", 400, 400, 50, 50),
+            // new GroundTile("../img/objects/tree3.png", 350, 333, 100, 100),
+            new GroundTile("../img/tiles_ground/ground_tile08.png", 500, 350, 50, 50),
+            new GroundTile("../img/tiles_ground/ground_tile09.png", 550, 350, 50, 50),
+            new GroundTile("../img/tiles_ground/ground_tile27.png", 850, 250, 50, 50),
+            new GroundTile("../img/tiles_ground/ground_tile28.png", 850, 300, 50, 50),
+        ];
+    }
 }
