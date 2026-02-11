@@ -22,9 +22,9 @@ class MovableObject {
         });
     }
 
-    moveRight() {
-        this.x += 5;
-    }
+    // moveRight() {
+    //     this.x += 5;
+    // }
         
     moveLeft() {
         setInterval(() => {
@@ -32,15 +32,15 @@ class MovableObject {
         }, 1000 / 60);
     }
 
-    idle() {
+    // idle() {
 
-    }
+    // }
 
-    hurt() {
+    // hurt() {
 
-    }
+    // }
 
-    death() {
+    // death() {
 
-    }
+    // }
 }

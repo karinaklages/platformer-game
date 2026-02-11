@@ -39,35 +39,35 @@ class Character extends MovableObject {
         }, 50);
     }
 
-    jump() {
-        this.y -= 10;
-    }
+    // jump() {
+    //     this.y -= 10;
+    // }
 
-    jumpHigh() {
-        this.y -= 20;
-    }
+    // jumpHigh() {
+    //     this.y -= 20;
+    // }
 
-    walkAttackRight() {
-        this.x += 10;
-    }
+    // walkAttackRight() {
+    //     this.x += 10;
+    // }
 
-    walkAttackLeft() {
-        this.x -= 10;
-    }
+    // walkAttackLeft() {
+    //     this.x -= 10;
+    // }
 
-    runRight() {
-        this.x += 10;
-    }
+    // runRight() {
+    //     this.x += 10;
+    // }
 
-    runLeft() {
-        this.x -= 10;
-    }
+    // runLeft() {
+    //     this.x -= 10;
+    // }
 
-    runAttackRight() {
-        this.x += 20;
-    }
+    // runAttackRight() {
+    //     this.x += 20;
+    // }
 
-    runAttackLeft() {
-        this.x -= 20;
-    }
+    // runAttackLeft() {
+    //     this.x -= 20;
+    // }
 }
