@@ -13,6 +13,7 @@ class Character extends MovableObject {
 
     constructor() {
         super();
+        this.world = world; 
         this.loadImage('img/knight/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.animate();
@@ -28,6 +29,7 @@ class Character extends MovableObject {
                 this.x -= this.speed;
                 this.otherDirection = true;
             }
+            this.world.camera_x = -this.x + 100;
         }, 1000 / 60);
         setInterval(() => {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {

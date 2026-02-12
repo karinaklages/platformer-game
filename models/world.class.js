@@ -1,27 +1,15 @@
 class World {
     character = new Character();
-    enemies = [
-        new Enemy(),
-        new Enemy(),
-        new Enemy()
-    ]
-    clouds = [
-        new Clouds()
-    ]
-    backgroundObjects = [
-        new BackgroundObject("../img/backgrounds/sun.png", 0),
-        new BackgroundObject("../img/backgrounds/clouds1.png", 0),
-        new BackgroundObject("../img/backgrounds/clouds2.png", 0),
-        new BackgroundObject("../img/backgrounds/rocks1.png", 0),
-        new BackgroundObject("../img/backgrounds/rocks2.png", 0),
-        new BackgroundObject("../img/backgrounds/rocks3.png", 0)
-    ]
-    groundTiles = [];
-    flyingTiles = [];
-
+    enemies = level1.enemies;
+    clouds = level1.clouds;
+    backgroundObjects = level1.backgroundObjects;
     canvas;
     ctx;
     keyboard;
+    camera_x = 0;
+
+    groundTiles = [];
+    flyingTiles = [];
 
     constructor (canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -35,12 +23,14 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.backgroundObjects);
         this.addObjectsToMap(this.clouds);
         this.addObjectsToMap(this.groundTiles);
         this.addObjectsToMap(this.flyingTiles);
         this.addToMap(this.character);
         this.addObjectsToMap(this.enemies);
+        this.ctx.translate(-this.camera_x, 0);
         requestAnimationFrame(() => this.draw());
     }
 
