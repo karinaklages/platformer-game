@@ -1,8 +1,6 @@
 class World {
     character = new Character();
-    enemies = level1.enemies;
-    clouds = level1.clouds;
-    backgroundObjects = level1.backgroundObjects;
+    level = level1;
     canvas;
     ctx;
     keyboard;
@@ -24,12 +22,12 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0);
-        this.addObjectsToMap(this.backgroundObjects);
-        this.addObjectsToMap(this.clouds);
+        this.addObjectsToMap(this.level.backgroundObjects);
+        this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.groundTiles);
         this.addObjectsToMap(this.flyingTiles);
         this.addToMap(this.character);
-        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.level.enemies);
         this.ctx.translate(-this.camera_x, 0);
         requestAnimationFrame(() => this.draw());
     }
@@ -60,8 +58,8 @@ class World {
         const tileWidth = 50;
         const tileHeight = 50;
         const y = this.canvas.height - tileHeight;
-        const numTiles = Math.ceil(this.canvas.width / tileWidth);
-        for (let i = 0; i < numTiles; i++) {
+        const numTiles = Math.ceil(this.level.level_end_x + 10 / tileWidth);
+        for (let i = -10; i < numTiles; i++) {
             this.groundTiles.push(
                 new GroundTile("../img/tiles_ground/ground_tile07.png", i * tileWidth, y, tileWidth, tileHeight)
             );
