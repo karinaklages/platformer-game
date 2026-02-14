@@ -21,10 +21,6 @@ class MovableObject {
             this.imageCache[path] = img;
         });
     }
-
-    // moveRight() {
-    //     this.x += 5;
-    // }
         
     moveLeft() {
         setInterval(() => {
@@ -32,15 +28,10 @@ class MovableObject {
         }, 1000 / 60);
     }
 
-    // idle() {
-
-    // }
-
-    // hurt() {
-
-    // }
-
-    // death() {
-
-    // }
+    playAnimation(images) {
+        let i = this.currentImage % this.IMAGES_WALK.length;
+        let path = images[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
+    }
 }

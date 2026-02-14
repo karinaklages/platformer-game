@@ -1,3 +1,12 @@
+/* press-start-2p-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/press-start-2p-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +15,29 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(90deg,rgba(133, 109, 101, 1) 0%, rgba(196, 159, 120, 1) 50%, rgba(247, 224, 178, 1) 100%);
+}
+
+/* body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('../img/backgrounds/background-img3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    transform: scale(1.05);
+    z-index: -1;
+} */
+
+h1 {
+    font-family: 'Press Start 2P';
+    font-weight: 400;
+    font-size: 24px;
+    color:rgb(83, 71, 68);
+    text-shadow: 2px 2px 4px rgba(30, 30, 30, 0.4);
+    margin-bottom: 30px;
 }
 
 canvas {
