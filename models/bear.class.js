@@ -14,7 +14,7 @@ class Bear extends MovableObject {
         super();
         this.loadImage('img/bear/walk1.png');
         this.loadImages(this.IMAGES_WALK);
-        this.x = 2200 + Math.random() * 2700;
+        this.x = 1900 + Math.random() * 2300;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 398;
         this.animate();
