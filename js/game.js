@@ -14,7 +14,7 @@ window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft" || event.key === "a") {
         keyboard.LEFT = true;
     } 
-    if (event.key === "ArrowUp" || event.key === "w") {
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") {
         keyboard.UP = true;
     }
     if (event.key === "ArrowDown" || event.key === "s") {
@@ -33,7 +33,7 @@ window.addEventListener("keyup", (event) => {
     if (event.key === "ArrowLeft" || event.key === "a") {
         keyboard.LEFT = false;
     } 
-    if (event.key === "ArrowUp" || event.key === "w") {
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") {
         keyboard.UP = false;
     }
     if (event.key === "ArrowDown" || event.key === "s") {
