@@ -3,6 +3,9 @@ const level1 = new Level(
     new Spider(),
     new Spider(),
     new Spider(),
+    new Dino(),
+    new Dino(),
+    new Bear(),
     new Endboss()
     ],
     [
