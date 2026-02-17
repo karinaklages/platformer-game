@@ -37,7 +37,8 @@ class World {
         setInterval(() => {
             this.level.enemies.forEach((enemy) => {
                 if(this.character.isColliding(enemy)) {
-                    console.log("Collision with character", enemy)
+                    this.character.hit();
+                    // console.log("Collision with character, energy", this.character.energy)
                 }
             });
         }, 200);
@@ -49,26 +50,19 @@ class World {
         });
     }
 
-    // addToMap(motive) {
-    //     if (motive.otherDirection) {
-    //         this.flipImageLeft(motive);
-    //     } else {
-    //         this.flipImageRight(motive);
-    //     }
-    //     motive.drawFrame(this.ctx)
-    // }
-
     addToMap(motive) {
         if (motive.otherDirection) {
             this.flipImageLeft(motive);
         } else {
             this.flipImageRight(motive);
         }
+
         if (motive instanceof Character || motive instanceof Spider || motive instanceof Dino || motive instanceof Bear || motive instanceof Endboss) {
             this.ctx.beginPath();
             this.ctx.lineWidth = "2";
             this.ctx.strokeStyle = "#9446c1";
-            this.ctx.rect(motive.x, motive.y, motive.width, motive.height);
+            // this.ctx.rect(motive.x, motive.y, motive.width, motive.height);
+            this.ctx.rect(motive.x + motive.offset.left, motive.y + motive.offset.top, motive.width - motive.offset.left - motive.offset.right, motive.height - motive.offset.top - motive.offset.bottom);
             this.ctx.stroke();
         }
     }

@@ -2,6 +2,13 @@ class Spider extends MovableObject {
     width = 100;
     height = 100;
 
+    offset = {
+        top: 30,
+        left: 25,
+        right: 30,
+        bottom: 30
+    };
+
     IMAGES_WALK = [
         'img/spider/walk1.png',
         'img/spider/walk2.png',

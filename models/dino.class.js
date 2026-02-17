@@ -2,6 +2,13 @@ class Dino extends MovableObject {
     width = 100;
     height = 100;
 
+    offset = {
+        top: 25,
+        left: 20,
+        right: 15,
+        bottom: 30
+    };
+
     IMAGES_WALK = [
         'img/dino/walk1.png',
         'img/dino/walk2.png',

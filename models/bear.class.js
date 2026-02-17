@@ -2,6 +2,13 @@ class Bear extends MovableObject {
     width = 120;
     height = 120;
 
+    offset = {
+        top: 50,
+        left: 30,
+        right: 10,
+        bottom: 10
+    };
+
     IMAGES_WALK = [
         'img/bear/walk1.png',
         'img/bear/walk2.png',
@@ -14,8 +21,8 @@ class Bear extends MovableObject {
         super();
         this.loadImage('img/bear/walk1.png');
         this.loadImages(this.IMAGES_WALK);
-        this.x = 1900 + Math.random() * 2300;
-        this.speed = 0.15 + Math.random() * 0.4; 
+        this.x = 1900 + Math.random() * 2100;
+        this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 398;
         this.animate();
     }

@@ -4,6 +4,13 @@ class Character extends MovableObject {
     speed = 5;
     y = 310;
 
+    offset = {
+        top: 50,
+        left: 20,
+        right: 50,
+        bottom: 20
+    };
+
     IMAGES_WALK = [
         'img/knight/walk1.png',
         'img/knight/walk2.png',
@@ -18,8 +25,25 @@ class Character extends MovableObject {
         'img/knight/jump3.png',
         'img/knight/jump4.png',
         'img/knight/jump5.png',
-        'img/knight/jump6.png',
-        'img/knight/jump7.png'
+        'img/knight/jump6.png'
+    ];
+    IMAGES_HURT = [
+        'img/knight/hurt1.png',
+        'img/knight/hurt2.png',
+        'img/knight/hurt3.png',
+        'img/knight/hurt4.png'
+    ];
+    IMAGES_DEAD = [
+        'img/knight/death1.png',
+        'img/knight/death2.png',
+        'img/knight/death3.png',
+        'img/knight/death4.png',
+        'img/knight/death5.png',
+        'img/knight/death6.png',
+        'img/knight/death7.png',
+        'img/knight/death8.png',
+        'img/knight/death9.png',
+        'img/knight/death10.png'
     ];
 
     constructor() {
@@ -28,6 +52,8 @@ class Character extends MovableObject {
         this.loadImage('img/knight/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_JUMP);
+        this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_DEAD);
         this.applyGravity();
         this.animate();
     }
@@ -49,13 +75,17 @@ class Character extends MovableObject {
         }, 1000 / 60);
 
         setInterval(() => {
-            if (this.isAboveGround()) {
+            if(this.isDead()){
+                this.playAnimation(this.IMAGES_DEAD);
+            } else if(this.isHurt()){
+                this.playAnimation(this.IMAGES_HURT);
+            } else if(this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMP);
             } else {
                 if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                     this.playAnimation(this.IMAGES_WALK);
                 }
             }
-        }, 50);
+        }, 80);
     }
 }
