@@ -47,7 +47,7 @@ class Character extends MovableObject {
             }
             this.world.camera_x = -this.x + 70;
         }, 1000 / 60);
-        
+
         setInterval(() => {
             if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMP);
