@@ -11,7 +11,6 @@ class MovableObject {
     speedY = 0;
     acceleration = 2.5;
 
-
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
@@ -55,5 +54,20 @@ class MovableObject {
 
     jump() {
         this.speedY = 25;
+    }
+
+    // drawFrame(ctx) {
+    //     ctx.beginPath();
+    //     ctx.lineWidth = "2";
+    //     ctx.strokeStyle = "#9446c1";
+    //     ctx.rect(this.x, this.y, this.width, this.height);
+    //     ctx.stroke();
+    // }
+
+    isColliding(motive) {
+        return this.x + this.width > motive.x &&
+        this.y + this.height > motive.y &&
+        this.x < motive.x &&
+        this.y < motive.y + motive.height;
     }
 }
