@@ -31,7 +31,7 @@ class Endboss extends MovableObject {
         super();
         this.loadImage('img/boss/walk1.png');
         this.loadImages(this.IMAGES_WALK);
-        this.loadImages(this.IMAGES_ATTACK);
+        // this.loadImages(this.IMAGES_ATTACK);
         this.x = 3700;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 342;

@@ -16,7 +16,7 @@ class Bear extends MovableObject {
         'img/bear/walk4.png',
         'img/bear/walk5.png'
     ];
-    IMAGES_WALK = [
+    IMAGES_ATTACK = [
         'img/bear/attack1.png',
         'img/bear/attack2.png',
         'img/bear/attack3.png',
@@ -28,7 +28,7 @@ class Bear extends MovableObject {
         super();
         this.loadImage('img/bear/walk1.png');
         this.loadImages(this.IMAGES_WALK);
-        this.loadImages(this.IMAGES_ATTACK);
+        // this.loadImages(this.IMAGES_ATTACK);
         this.x = 1900 + Math.random() * 2100;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 398;
