@@ -37,12 +37,7 @@ class Character extends MovableObject {
         'img/knight/death2.png',
         'img/knight/death3.png',
         'img/knight/death4.png',
-        'img/knight/death5.png',
-        'img/knight/death6.png',
-        'img/knight/death7.png',
-        'img/knight/death8.png',
-        'img/knight/death9.png',
-        'img/knight/death10.png'
+        'img/knight/death5.png'
     ];
 
     constructor() {
@@ -75,7 +70,8 @@ class Character extends MovableObject {
 
         setInterval(() => {
             if(this.isDead()){
-                this.playAnimation(this.IMAGES_DEAD);
+                this.playDeadAnimation();
+                return;
             } else if(this.isHurt()){
                 this.playAnimation(this.IMAGES_HURT);
             } else if(this.isAboveGround()) {
@@ -86,5 +82,16 @@ class Character extends MovableObject {
                 }
             }
         }, 80);
+    }
+
+    playDeadAnimation() {
+        if (this.currentImage < this.IMAGES_DEAD.length) {
+            let path = this.IMAGES_DEAD[this.currentImage];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+        } else {
+            let lastImage = this.IMAGES_DEAD[this.IMAGES_DEAD.length - 1];
+            this.img = this.imageCache[lastImage];
+        }
     }
 }

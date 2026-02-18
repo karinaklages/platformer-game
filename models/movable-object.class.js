@@ -62,7 +62,7 @@ class MovableObject {
     }
 
     jump() {
-        this.speedY = 25;
+        this.speedY = 20;
     }
 
     // isColliding(motive) {
