@@ -81,15 +81,6 @@ class MovableObject {
         );
     }
 
-    hit() {
-        this.energy -= 5;
-        if(this.energy < 0) {
-            this.energy = 0;
-        } else {
-            this.lastHit = new Date().getTime();
-        }
-    }
-
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
@@ -98,5 +89,14 @@ class MovableObject {
 
     isDead() {
         return this.energy == 0;
+    }
+
+    hit() {
+        this.energy -= 5;
+        if(this.energy < 0) {
+            this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
+        }
     }
 }

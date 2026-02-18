@@ -17,11 +17,17 @@ class Spider extends MovableObject {
         'img/spider/walk5.png',
         'img/spider/walk6.png',
     ];
+    IMAGES_ATTACK = [
+        'img/spider/attack1.png',
+        'img/spider/attack2.png',
+        'img/spider/attack3.png'
+    ];
 
     constructor() {
         super();
         this.loadImage('img/spider/walk1.png');
         this.loadImages(this.IMAGES_WALK);
+        this.loadImages(this.IMAGES_ATTACK);
         this.x = 400 + Math.random() * 1000;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 436;

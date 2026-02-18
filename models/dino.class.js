@@ -15,11 +15,19 @@ class Dino extends MovableObject {
         'img/dino/walk3.png',
         'img/dino/walk4.png'
     ];
+    IMAGES_ATTACK = [
+        'img/dino/attack1.png',
+        'img/dino/attack2.png',
+        'img/dino/attack3.png',
+        'img/dino/attack4.png',
+        'img/dino/attack5.png'
+    ];
 
     constructor() {
         super();
         this.loadImage('img/dino/walk1.png');
         this.loadImages(this.IMAGES_WALK);
+        this.loadImages(this.IMAGES_ATTACK);
         this.x = 1000 + Math.random() * 1700;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 434;
@@ -30,7 +38,7 @@ class Dino extends MovableObject {
         setInterval(() => {
             this.moveLeft();
         }, 1000 / 60);
-        
+
         setInterval(() => {
             this.playAnimation(this.IMAGES_WALK);
         }, 170);

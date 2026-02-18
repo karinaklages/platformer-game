@@ -2,6 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+const dialog = document.getElementById("imprint");
+
 function init() {
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
@@ -44,3 +46,11 @@ window.addEventListener("keyup", (event) => {
     }
     // console.log(keyboard);
 });
+
+function openDialog() {
+    dialog.showModal();
+}
+
+function closeDialog() {
+    dialog.close();
+}

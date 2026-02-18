@@ -1,15 +1,15 @@
-/* press-start-2p-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Press Start 2P';
+  font-family: 'VT323';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/press-start-2p-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/vt323-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,28 +18,103 @@ body {
     background: linear-gradient(90deg,rgba(133, 109, 101, 1) 0%, rgba(196, 159, 120, 1) 50%, rgba(247, 224, 178, 1) 100%);
 }
 
-/* body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url('../img/backgrounds/background-img3.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(3px);
-    transform: scale(1.05);
-    z-index: -1;
-} */
+.d-none {
+    display: none;
+}
 
-h1 {
-    font-family: 'Press Start 2P';
-    font-weight: 400;
-    font-size: 24px;
-    color:rgb(71, 61, 59);
-    text-shadow: 2px 2px 4px rgba(30, 30, 30, 0.4);
-    margin-bottom: 30px;
+.startscreen {
+    width: 960px;
+    height: 540px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    /* border: 12px solid rgb(236, 216, 192); */
+    border-radius: 12px;
+    box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    0 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+.startscreen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.startscreen h1 {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 canvas {
     background-color: black;
+    margin-bottom: 24px;
+    /* border: 12px solid rgb(236, 216, 192); */
+    border-radius: 12px;
+    box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    0 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+#imprint {
+    background-color: rgb(71, 61, 59);
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 0; 
+    width: 600px;
+    height: 450px; 
+}
+
+h1 {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 42px;
+    color:rgb(71, 61, 59);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(30, 30, 30, 0.5);
+}
+
+p {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 26px;
+    color: rgb(236, 216, 192);
+}
+
+.button-area {
+    width: 960px;
+    display: flex;
+    justify-content: flex-end;
+    /* justify-content: center; */
+    gap: 20px;
+}
+
+.button {
+    position: relative;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.button img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(236, 216, 192);
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 22px;
+    font-weight: bold;
 }

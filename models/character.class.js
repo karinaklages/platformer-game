@@ -2,7 +2,6 @@ class Character extends MovableObject {
     world;
     currentImage = 0;
     speed = 5;
-    y = 310;
 
     offset = {
         top: 50,
