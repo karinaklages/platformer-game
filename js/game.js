@@ -1,7 +1,6 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-
 const dialog = document.getElementById("imprint");
 
 function init() {
