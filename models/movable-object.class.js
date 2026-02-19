@@ -1,11 +1,4 @@
-class MovableObject {
-    x = 10;
-    y = 400;
-    img;
-    width = 120;
-    height = 120;
-    imageCache = {};
-    currentImage = 0;
+class MovableObject extends DrawableObject{
     speed= 0.15;
     otherDirection = false;
     speedY = 0;
@@ -19,19 +12,6 @@ class MovableObject {
         right: 0,
         bottom: 0
     };
-
-    loadImage(path) {
-        this.img = new Image();
-        this.img.src = path;
-    }
-
-    loadImages(arr) {
-        arr.forEach(path => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-        });
-    }
 
     moveRight() {
         this.x += this.speed;
@@ -59,10 +39,6 @@ class MovableObject {
 
     isAboveGround() {
         return this.y < 392;
-    }
-
-    jump() {
-        this.speedY = 20;
     }
 
     // isColliding(motive) {
@@ -98,5 +74,9 @@ class MovableObject {
         } else {
             this.lastHit = new Date().getTime();
         }
+    }
+
+    jump() {
+        this.speedY = 20;
     }
 }
