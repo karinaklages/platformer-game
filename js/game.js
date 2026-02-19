@@ -46,6 +46,16 @@ window.addEventListener("keyup", (event) => {
     // console.log(keyboard);
 });
 
+function showGameInformation() {
+    const startContent = document.querySelector(".content-start");
+    const infoContent = document.querySelector(".content-game-information");
+
+    startContent.classList.add("d-none"); 
+    infoContent.classList.remove("d-none"); 
+}
+
+document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
+
 function openDialog() {
     dialog.showModal();
 }
@@ -53,3 +63,4 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
 }
+

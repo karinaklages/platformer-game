@@ -4,27 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./img/icons/viking.png">
+    <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="styles/information-screen.css">
+    <link rel="stylesheet" href="styles/button-area.css">
+    
     <title>Roots & Dust</title>
 </head>
 <body onload="init()">
-    <div class="startscreen">
+    <section class="startscreen">
         <img src="./img/ui/startscreen.png" alt="Start Screen">
-        <h1>Roots & Dust</h1>
-        <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
-        <div class="button">
-            <img src="./img/ui/button-background-small.png" alt="">
-            <span>Start</span>
+        <div class="content-start">
+            <img class="beige-background" src="./img/ui/beige-area-small.png" alt="Beige Background">
+            <h1>Roots & Dust</h1>
+            <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
+            <div class="button" id="startInformationButton">
+                <img src="./img/ui/button-background-small.png" alt="">
+                <span>More</span>
+            </div>
         </div>
-    </div>
+        <div class="content-game-information d-none">
+            <img class="beige-background-game-information" src="./img/ui/beige-area-big.png" alt="Beige Background">
+            <div class="character-image">
+                <img class="viking-icon-game-information" src="./img/icons/viking.png" alt="Viking Icon">
+            </div>
+            <div class="character-text">
+                <h2>Brave Viking</h2>
+                <p>He once tried to defeat the Dark Knight by challenging him to a beard-growing contest.</p>
+            </div>
+            <table>
+                <tr>
+                    <td>D | ▸</td>
+                    <td><i>Move to the right</i></td>
+                </tr>
+                <tr>
+                    <td>A | ◂</td>
+                    <td><i>Move to the left</i></td>
+                </tr>
+                <tr>
+                    <td>W | ▴ | Space</td>
+                    <td><i>Jump over obstacles</i></td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td><i>Attack enemies</i></td>
+                </tr>
+            </table>
+            <div class="button-game-information" id="starGame">
+                <img src="./img/ui/button-background-small.png" alt="">
+                <span>Play</span>
+            </div>
+        </div>
+    </section>
     <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
-    <div class="button-area">
+    <section class="button-area">
         <div class="button" onclick="openDialog()">
             <img src="./img/ui/button-background-small.png" alt="">
             <span>Imprint</span>
         </div>
-    </div>
+    </section>
     <dialog id="imprint" onclick="closeDialog()"></dialog>
 
     <script src="./models/drawable-object.class.js"></script>

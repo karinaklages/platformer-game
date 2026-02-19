@@ -1,0 +1,103 @@
+.startscreen .content-game-information {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.beige-background-game-information {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: auto;
+    z-index: 1;
+}
+
+.startscreen .button-game-information {
+    position: absolute;
+    top: 69%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.content-game-information h2 {
+    position: absolute;
+    top: 15%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+}
+
+.content-game-information p {
+    position: absolute;
+    width: 200px;
+    top: 26%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.character-image {
+    position: absolute;
+    top: 23.3%;
+    left: 39.5%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.viking-icon-game-information {
+    width: 58px;
+    border: 2px solid #9e8a5b;
+    border-radius: 8px;
+}
+
+table {
+    width: 290px;
+    position: absolute;
+    top: 51%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+td,
+th {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 19px;
+    color:rgb(62, 57, 53);
+}
+
+td {
+    padding: 0px 4px;   /* kleiner machen */
+}
+
+.button-game-information {
+    position: absolute;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+
+.button-game-information img {
+    display: block;
+    height: auto;
+    border-radius: 8px;
+}
+
+.button-game-information span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(62, 57, 53);
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 19px;
+}

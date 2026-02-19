@@ -14,6 +14,38 @@ body {
     display: none;
 }
 
+h1 {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 38px;
+    color:rgb(62, 57, 53);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);
+}
+
+h2 {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 24px;
+    color:rgb(62, 57, 53);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);
+}
+
+p {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 19px;
+    color:rgb(62, 57, 53);
+}
+
+canvas {
+    /* background-color: black; */
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
+}
+
 .startscreen {
     width: 960px;
     height: 540px;
@@ -24,16 +56,40 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
 }
 
-.startscreen img {
+.startscreen > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+}
+
+.startscreen .content-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.beige-background {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: auto;
+    z-index: 1;
+}
+
+.startscreen h1,
+.startscreen h2,
+.startscreen p,
+.startscreen .button {
+    z-index: 2;
 }
 
 .startscreen h1 {
     position: absolute;
-    top: 27%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -42,89 +98,15 @@ body {
     position: absolute;
     width: 260px;
     text-align: center;
-    top: 39%;
+    top: 37%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .startscreen .button {
     position: absolute;
-    top: 52%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-canvas {
-    /* background-color: black; */
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
-}
-
-#imprint {
-    background-color: rgb(71, 61, 59);
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    padding: 0; 
-    width: 600px;
-    height: 450px; 
-}
-
-h1 {
-    font-family: 'VT323';
-    font-weight: 400;
-    font-size: 38px;
-    color:rgb(62, 57, 53);
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(30, 30, 30, 0.5);
-}
-
-p {
-    font-family: 'VT323';
-    font-weight: 400;
-    font-size: 19px;
-    color:rgb(62, 57, 53);
-}
-
-.button-area {
-    width: 960px;
-    height: auto;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.button {
-    position: relative;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.button img {
-    display: block;
-    height: auto;
-    border-radius: 8px;
-}
-
-.button span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(62, 57, 53);
-    font-family: 'VT323';
-    font-weight: 400;
-    font-size: 19px;
-}
-
-.information span {
-    color: rgba(62, 57, 53, 0.5);
-    font-family: 'VT323';
-    font-weight: 400;
-    font-size: 19px;
 }
