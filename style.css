@@ -39,11 +39,37 @@ p {
     color:rgb(62, 57, 53);
 }
 
+a {
+    text-decoration: none;
+    all: unset;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 canvas {
     /* background-color: black; */
     margin-bottom: 20px;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+dialog {
+    background-color: #dfca99;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 0; 
+    width: 600px;
+    height: 500px;
+    padding: 30px 30px 30px 30px; 
+}
+
+dialog::backdrop {
+  background: rgba(158, 151, 136, 0.3);
+  backdrop-filter: blur(6px);
 }
 
 .startscreen {

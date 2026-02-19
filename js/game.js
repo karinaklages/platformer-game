@@ -1,7 +1,7 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-const dialog = document.getElementById("imprint");
+const dialog = document.getElementById("dialog");
 
 function init() {
     canvas = document.getElementById("canvas");
@@ -88,3 +88,7 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
 }
+
+dialog.addEventListener("close", () => {
+    document.body.style.overflow = "";
+});
