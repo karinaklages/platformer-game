@@ -1,11 +1,3 @@
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'VT323';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/vt323-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -28,13 +20,9 @@ body {
     margin-bottom: 24px;
     position: relative;
     overflow: hidden;
-    /* border: 12px solid rgb(236, 216, 192); */
     border-radius: 12px;
-    box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.35),
-    0 10px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
 }
-
 
 .startscreen img {
     width: 100%;
@@ -45,19 +33,34 @@ body {
 
 .startscreen h1 {
     position: absolute;
-    top: 35%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.startscreen p {
+    position: absolute;
+    width: 260px;
+    text-align: center;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.startscreen .button {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
 canvas {
-    background-color: black;
-    margin-bottom: 24px;
-    /* border: 12px solid rgb(236, 216, 192); */
+    /* background-color: black; */
+    margin-bottom: 20px;
     border-radius: 12px;
-    box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.35),
-    0 10px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
 }
 
 #imprint {
@@ -73,8 +76,8 @@ canvas {
 h1 {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 42px;
-    color:rgb(71, 61, 59);
+    font-size: 38px;
+    color:rgb(62, 57, 53);
     margin-bottom: 30px;
     text-shadow: 2px 2px 4px rgba(30, 30, 30, 0.5);
 }
@@ -82,16 +85,15 @@ h1 {
 p {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 26px;
-    color: rgb(236, 216, 192);
+    font-size: 19px;
+    color:rgb(62, 57, 53);
 }
 
 .button-area {
     width: 960px;
+    height: auto;
     display: flex;
     justify-content: flex-end;
-    /* justify-content: center; */
-    gap: 20px;
 }
 
 .button {
@@ -99,12 +101,14 @@ p {
     border: none;
     padding: 0;
     cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .button img {
     display: block;
-    width: 100%;
     height: auto;
+    border-radius: 8px;
 }
 
 .button span {
@@ -112,9 +116,15 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(236, 216, 192);
+    color: rgb(62, 57, 53);
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 19px;
+}
+
+.information span {
+    color: rgba(62, 57, 53, 0.5);
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 19px;
 }

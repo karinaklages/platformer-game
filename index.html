@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./img/icons/knight.png">
+    <link rel="icon" type="image/x-icon" href="./img/icons/viking.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <title>Roots & Dust</title>
 </head>
 <body onload="init()">
-    <!-- <div class="startscreen">
+    <div class="startscreen">
         <img src="./img/ui/startscreen.png" alt="Start Screen">
         <h1>Roots & Dust</h1>
-    </div> -->
-    <canvas id="canvas" width="960" height="540"></canvas>
-    <div class="button-area">
+        <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
         <div class="button">
-            <img src="./img/ui/button-small.png" alt="">
-            <span>Restart</span>
+            <img src="./img/ui/button-background-small.png" alt="">
+            <span>Start</span>
         </div>
+    </div>
+    <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
+    <div class="button-area">
         <div class="button" onclick="openDialog()">
-            <img src="./img/ui/button-small.png" alt="">
+            <img src="./img/ui/button-background-small.png" alt="">
             <span>Imprint</span>
         </div>
     </div>

@@ -11,39 +11,39 @@ class Character extends MovableObject {
     };
 
     IMAGES_WALK = [
-        'img/knight/walk1.png',
-        'img/knight/walk2.png',
-        'img/knight/walk3.png',
-        'img/knight/walk4.png',
-        'img/knight/walk5.png',
-        'img/knight/walk6.png'
+        'img/viking/walk1.png',
+        'img/viking/walk2.png',
+        'img/viking/walk3.png',
+        'img/viking/walk4.png',
+        'img/viking/walk5.png',
+        'img/viking/walk6.png'
     ];
     IMAGES_JUMP = [
-        'img/knight/jump1.png',
-        'img/knight/jump2.png',
-        'img/knight/jump3.png',
-        'img/knight/jump4.png',
-        'img/knight/jump5.png',
-        'img/knight/jump6.png'
+        'img/viking/jump1.png',
+        'img/viking/jump2.png',
+        'img/viking/jump3.png',
+        'img/viking/jump4.png',
+        'img/viking/jump5.png',
+        'img/viking/jump6.png'
     ];
     IMAGES_HURT = [
-        'img/knight/hurt1.png',
-        'img/knight/hurt2.png',
-        'img/knight/hurt3.png',
-        'img/knight/hurt4.png'
+        'img/viking/hurt1.png',
+        'img/viking/hurt2.png',
+        'img/viking/hurt3.png',
+        'img/viking/hurt4.png'
     ];
     IMAGES_DEAD = [
-        'img/knight/death1.png',
-        'img/knight/death2.png',
-        'img/knight/death3.png',
-        'img/knight/death4.png',
-        'img/knight/death5.png'
+        'img/viking/death1.png',
+        'img/viking/death2.png',
+        'img/viking/death3.png',
+        'img/viking/death4.png',
+        'img/viking/death5.png'
     ];
 
     constructor() {
         super();
         this.world = world; 
-        this.loadImage('img/knight/walk1.png');
+        this.loadImage('img/viking/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_JUMP);
         this.loadImages(this.IMAGES_HURT);
