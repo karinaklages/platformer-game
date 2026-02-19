@@ -12,7 +12,7 @@
     <title>Roots & Dust</title>
 </head>
 <body onload="init()">
-    <section class="startscreen">
+    <section class="startscreen" id="startScreen">
         <img src="./img/ui/startscreen.png" alt="Start Screen">
         <div class="content-start">
             <img class="beige-background" src="./img/ui/beige-area-small.png" alt="Beige Background">
@@ -50,7 +50,7 @@
                     <td><i>Attack enemies</i></td>
                 </tr>
             </table>
-            <div class="button-game-information" id="starGame">
+            <div class="button-game-information" id="startGame">
                 <img src="./img/ui/button-background-small.png" alt="">
                 <span>Play</span>
             </div>
@@ -58,6 +58,10 @@
     </section>
     <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
     <section class="button-area">
+        <div class="button" onclick="restartGame()">
+            <img src="./img/ui/button-background-small.png" alt="">
+            <span>Restart</span>
+        </div>
         <div class="button" onclick="openDialog()">
             <img src="./img/ui/button-background-small.png" alt="">
             <span>Imprint</span>

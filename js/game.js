@@ -49,12 +49,37 @@ window.addEventListener("keyup", (event) => {
 function showGameInformation() {
     const startContent = document.querySelector(".content-start");
     const infoContent = document.querySelector(".content-game-information");
-
-    startContent.classList.add("d-none"); 
-    infoContent.classList.remove("d-none"); 
+    startContent.classList.add("d-none");
+    infoContent.classList.remove("d-none");
 }
 
 document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
+
+
+function startGame() {
+    const infoContent = document.querySelector(".content-game-information");
+    const startScreen = document.getElementById("startScreen");
+    const canvas = document.getElementById("canvas");
+    infoContent.classList.add("d-none");
+    startScreen.classList.add("d-none");
+    canvas.classList.remove("d-none");
+    init();
+}
+
+document.getElementById("startGame").addEventListener("click", startGame);
+
+function restartGame() {
+    const startContent = document.querySelector(".content-start");
+    const infoContent = document.querySelector(".content-game-information");
+    const startScreen = document.getElementById("startScreen");
+    const canvas = document.getElementById("canvas");
+    startContent.classList.add("d-none");
+    infoContent.classList.add("d-none");
+    startScreen.classList.add("d-none");
+    canvas.classList.remove("d-none");
+    init();
+}
+
 
 function openDialog() {
     dialog.showModal();
@@ -63,4 +88,3 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
 }
-
