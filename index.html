@@ -52,7 +52,7 @@
             </table>
             <div class="button-game-information" id="startGame">
                 <img src="./img/ui/button-background-small.png" alt="">
-                <span>Play</span>
+                <span onclick="initLevel()">Play</span>
             </div>
         </div>
     </section>
@@ -60,7 +60,7 @@
     <section class="button-area">
         <div class="button" onclick="restartGame()">
             <img src="./img/ui/button-background-small.png" alt="">
-            <span>Restart</span>
+            <span onclick="initLevel()">Restart</span>
         </div>
         <div class="button" onclick="openDialog()">
             <img src="./img/ui/button-background-small.png" alt="">
@@ -92,6 +92,7 @@
     <script src="./models/flying-tile.class.js"></script>
     <script src="./models/nature-objects.class.js"></script>
     <script src="./models/keyboard.class.js"></script>
+    <script src="./models/throwable-object.class.js"></script>
     <script src="./models/level.class.js"></script>
     <script src="./levels/level1.js"></script>
     <script src="./js/game.js"></script>

@@ -8,6 +8,7 @@ class World {
     statusBarHeart = new StatusBarHeart();
     // statusBarCoin = new StatusBarCoin();
     // statusBarCrystal = new StatusBarCrystal();
+    throwableObjects = [];
 
     constructor (canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -15,7 +16,7 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld();
-        this.checkCollisions();
+        this.run();
     }
 
     draw() {
@@ -27,13 +28,12 @@ class World {
         this.addObjectsToMap(this.level.flyingTiles);
         this.addObjectsToMap(this.level.natureObjects);
         this.addToMap(this.character);
+        this.addObjectsToMap(this.throwableObjects);
+        this.addObjectsToMap(this.level.enemies);
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBarHeart);
         // this.addToMap(this.statusBarCoin);
         // this.addToMap(this.statusBarCrystal);
-        this.ctx.translate(this.camera_x, 0);
-        this.addObjectsToMap(this.level.enemies);
-        this.ctx.translate(-this.camera_x, 0);
         requestAnimationFrame(() => this.draw());
     }
 
@@ -41,16 +41,31 @@ class World {
         this.character.world = this;
     }
     
-    checkCollisions() {
+    run() {
         setInterval(() => {
-            this.level.enemies.forEach((enemy) => {
-                if(this.character.isColliding(enemy)) {
-                    this.character.hit();
-                    this.statusBarHeart.setPercentage(this.character.energy);
-                    // console.log("Collision with character, energy", this.character.energy)
-                }
-            });
-        }, 200);
+            this.checkCollisions();
+            this.checkThrowObjects();
+        }, 100);
+    }
+
+    checkCollisions() {
+        this.level.enemies.forEach((enemy) => {
+            if(this.character.isColliding(enemy)) {
+                this.character.hit();
+                this.statusBarHeart.setPercentage(this.character.energy);
+            }
+        });
+    }
+    checkThrowObjects() {
+        if(this.keyboard.THROW) {
+            let direction = this.character.otherDirection ? -1 : 1;
+            let crystal = new ThrowableObject(
+                this.character.x + (direction === 1 ? 80 : -20),
+                this.character.y + 65,
+                direction
+            );
+            this.throwableObjects.push(crystal);
+        }
     }
 
     addObjectsToMap(objects) {
@@ -65,12 +80,10 @@ class World {
         } else {
             this.flipImageRight(motive);
         }
-
         if (motive instanceof Character || motive instanceof Spider || motive instanceof Dino || motive instanceof Bear || motive instanceof Endboss) {
             this.ctx.beginPath();
             this.ctx.lineWidth = "2";
             this.ctx.strokeStyle = "#9446c1";
-            // this.ctx.rect(motive.x, motive.y, motive.width, motive.height);
             this.ctx.rect(motive.x + motive.offset.left, motive.y + motive.offset.top, motive.width - motive.offset.left - motive.offset.right, motive.height - motive.offset.top - motive.offset.bottom);
             this.ctx.stroke();
         }

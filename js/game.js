@@ -4,6 +4,7 @@ let keyboard = new Keyboard();
 const dialog = document.getElementById("dialog");
 
 function init() {
+    initLevel(); 
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
 }
@@ -21,9 +22,9 @@ window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") {
         keyboard.DOWN = true;
     }
-    // if (event.key === "f") {
-    //     keyboard.FIGHT = true;
-    // }
+    if (event.key === "f") {
+        keyboard.THROW = true;
+    }
     if (event.key === "Space") {
         keyboard.SPACE = true;
     }
@@ -43,9 +44,9 @@ window.addEventListener("keyup", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") {
         keyboard.DOWN = false;
     }
-    // if (event.key === "f") {
-    //     keyboard.FIGHT = false;
-    // }
+    if (event.key === "f") {
+        keyboard.THROW = false;
+    }
     if (event.key === "Space") {
         keyboard.SPACE = false;
     }
