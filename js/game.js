@@ -21,6 +21,9 @@ window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") {
         keyboard.DOWN = true;
     }
+    // if (event.key === "f") {
+    //     keyboard.FIGHT = true;
+    // }
     if (event.key === "Space") {
         keyboard.SPACE = true;
     }
@@ -40,6 +43,9 @@ window.addEventListener("keyup", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") {
         keyboard.DOWN = false;
     }
+    // if (event.key === "f") {
+    //     keyboard.FIGHT = false;
+    // }
     if (event.key === "Space") {
         keyboard.SPACE = false;
     }
@@ -54,7 +60,6 @@ function showGameInformation() {
 }
 
 document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
-
 
 function startGame() {
     const infoContent = document.querySelector(".content-game-information");
@@ -79,7 +84,6 @@ function restartGame() {
     canvas.classList.remove("d-none");
     init();
 }
-
 
 function openDialog() {
     dialog.showModal();

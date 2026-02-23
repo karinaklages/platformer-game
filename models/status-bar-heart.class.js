@@ -1,7 +1,7 @@
-class StatusBar extends DrawableObject {
+class StatusBarHeart extends DrawableObject {
     percentage = 100;
 
-    IMAGES_COIN_BAR = [
+    IMAGES_HEART_BAR = [
         'img/ui/heart-0.png',
         'img/ui/heart-20.png',
         'img/ui/heart-40.png',
@@ -12,17 +12,17 @@ class StatusBar extends DrawableObject {
 
     constructor() {
         super();
-        this.loadImages(this.IMAGES_COIN_BAR);
+        this.loadImages(this.IMAGES_HEART_BAR);
         this.x = 30;
         this.y = 20;
-        this.width = 140;
-        this.height = 30;
+        this.width = 130;
+        this.height = 25;
         this.setPercentage(100);
     }
 
     setPercentage(percentage) {
         this.percentage = percentage;
-        let path = this.IMAGES_COIN_BAR[this.resolveImageIndex()];
+        let path = this.IMAGES_HEART_BAR[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
