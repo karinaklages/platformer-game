@@ -62,13 +62,13 @@ class World {
         this.level.coins.forEach((coin, index) => {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(index, 1);
-                this.statusBarCoin.setPercentage(this.statusBarCoin.percentage + 20);
+                this.statusBarCoin.setPercentage(Math.min(this.statusBarCoin.percentage + 20, 100));
             }
         });
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
-                this.statusBarCrystal.setPercentage(this.statusBarCrystal.percentage + 20);
+                this.statusBarCrystal.setPercentage(Math.min(this.statusBarCrystal.percentage + 20, 100));
             }
         });
     }
