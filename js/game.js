@@ -86,6 +86,14 @@ function restartGame() {
     init();
 }
 
+function triggerGameOver() {
+    this.gameOver = true;
+    this.character.speed = 0;
+    let gameOverSound = new Audio('audio/game-over.mp3');
+    gameOverSound.play();
+    this.showGameOverText();
+}
+
 function openDialog() {
     dialog.showModal();
 }

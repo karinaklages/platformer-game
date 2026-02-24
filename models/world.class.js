@@ -6,9 +6,10 @@ class World {
     keyboard;
     camera_x = 0;
     statusBarHeart = new StatusBarHeart();
-    // statusBarCoin = new StatusBarCoin();
-    // statusBarCrystal = new StatusBarCrystal();
+    statusBarCoin = new StatusBarCoin();
+    statusBarCrystal = new StatusBarCrystal();
     throwableObjects = [];
+    gameOver = false;
 
     constructor (canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -30,10 +31,12 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.level.coins);
+        this.addObjectsToMap(this.level.crystals);
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBarHeart);
-        // this.addToMap(this.statusBarCoin);
-        // this.addToMap(this.statusBarCrystal);
+        this.addToMap(this.statusBarCoin);
+        this.addToMap(this.statusBarCrystal);
         requestAnimationFrame(() => this.draw());
     }
 
@@ -49,14 +52,29 @@ class World {
     }
 
     checkCollisions() {
+        if (this.gameOver) return;
         this.level.enemies.forEach((enemy) => {
             if(this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBarHeart.setPercentage(this.character.energy);
             }
         });
+        this.level.coins.forEach((coin, index) => {
+            if (this.character.isColliding(coin)) {
+                this.level.coins.splice(index, 1);
+                this.statusBarCoin.setPercentage(this.statusBarCoin.percentage + 20);
+            }
+        });
+        this.level.crystals.forEach((crystal, index) => {
+            if (this.character.isColliding(crystal)) {
+                this.level.crystals.splice(index, 1);
+                this.statusBarCrystal.setPercentage(this.statusBarCrystal.percentage + 20);
+            }
+        });
     }
+
     checkThrowObjects() {
+        if (this.gameOver) return;
         if(this.keyboard.THROW) {
             let direction = this.character.otherDirection ? -1 : 1;
             let crystal = new ThrowableObject(

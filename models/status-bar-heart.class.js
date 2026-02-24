@@ -14,9 +14,9 @@ class StatusBarHeart extends DrawableObject {
         super();
         this.loadImages(this.IMAGES_HEART_BAR);
         this.x = 30;
-        this.y = 20;
+        this.y = 50;
         this.width = 130;
-        this.height = 25;
+        this.height = 24;
         this.setPercentage(100);
     }
 
