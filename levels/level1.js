@@ -46,7 +46,6 @@ function initLevel() {
         new BackgroundObject("../img/backgrounds/rocks2.png", 2880),
         new BackgroundObject("../img/backgrounds/rocks3.png", 2880)
         ],
-        createGroundTiles(),
         [
         new FlyingTile("../img/tiles_ground/ground_tile08.png", 300, 300, 50, 50),
         new FlyingTile("../img/tiles_ground/ground_tile10.png", 350, 300, 50, 50),
@@ -71,8 +70,21 @@ function initLevel() {
         new FlyingTile("../img/tiles_ground/ground_tile08.png", 2500, 200, 50, 50),
         new FlyingTile("../img/tiles_ground/ground_tile09.png", 2550, 200, 50, 50),
         new FlyingTile("../img/tiles_ground/ground_tile08.png", 2600, 150, 50, 50),
-        new FlyingTile("../img/tiles_ground/ground_tile09.png", 2650, 150, 50, 50)
+        new FlyingTile("../img/tiles_ground/ground_tile09.png", 2650, 150, 50, 50),
+        
+        new FlyingTile("../img/tiles_ground/ground_tile01.png", 3425, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile23.png", 3475, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile06.png", 3525, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile06.png", 3575, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile06.png", 3625, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile06.png", 3675, 453, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile01.png", 3475, 403, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile07.png", 3525, 403, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile07.png", 3575, 403, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile07.png", 3625, 403, 50, 50),
+        new FlyingTile("../img/tiles_ground/ground_tile07.png", 3675, 403, 50, 50)
         ],
+        createGroundTiles(),
         [
         new NatureObjects("../img/dino/sleep2.png", 320, 245, 100, 100),
         new NatureObjects("../img/objects/tree3.png", 620, 185, 100, 100),
@@ -85,7 +97,9 @@ function initLevel() {
         new NatureObjects("../img/objects/door2.png", 1400, 170, 115, 115),
         new NatureObjects("../img/dino/sleep1.png", 1480, 196, 100, 100),
         new NatureObjects("../img/objects/tree2.png", 2290, 223, 100, 100),
-        new NatureObjects("../img/dino/sleep1.png", 2500, 146, 100, 100)
+        new NatureObjects("../img/dino/sleep1.png", 2500, 146, 100, 100),
+        new NatureObjects("../img/objects/tree2.png", 3610, 325, 100, 100),
+        new NatureObjects("../img/bear/attack3.png", 3490, 330, 100, 100)
         ],
         [
             new Coin(120, 420),
