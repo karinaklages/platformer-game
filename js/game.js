@@ -66,6 +66,8 @@ function showGameInformation() {
     const infoContent = document.querySelector(".content-game-information");
     startContent.classList.add("d-none");
     infoContent.classList.remove("d-none");
+    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
+    gameButtonSound.play();
 }
 
 document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
@@ -77,6 +79,8 @@ function startGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    let gameButtonSound = new Audio('audio/moodmode-that-game-arcade.mp3');
+    gameButtonSound.play();
     init();
 }
 
@@ -91,15 +95,21 @@ function restartGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
+    gameButtonSound.play();
     init();
 }
 
 function openDialog() {
     dialog.showModal();
+    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
+    gameButtonSound.play();
 }
 
 function closeDialog() {
     dialog.close();
+    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
+    gameButtonSound.play();
 }
 
 dialog.addEventListener("close", () => {

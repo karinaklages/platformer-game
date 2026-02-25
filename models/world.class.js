@@ -64,6 +64,8 @@ class World {
             if(this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBarHeart.setPercentage(this.character.energy);
+                let gameSound = new Audio('audio/floraphonic-collision.mp3');
+                gameSound.play();
                 if (this.character.isDead()) {
                     this.triggerGameOver();
                 }
@@ -73,12 +75,16 @@ class World {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(index, 1);
                 this.statusBarCoin.setPercentage(Math.min(this.statusBarCoin.percentage + 20, 100));
+                let gameSound = new Audio('audio/floraphonic-game-collect.mp3');
+                gameSound.play();
             }
         });
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
                 this.statusBarCrystal.setPercentage(Math.min(this.statusBarCrystal.percentage + 20, 100));
+                let gameSound = new Audio('audio/floraphonic-game-collect.mp3');
+                gameSound.play();
             }
         });
     }
@@ -93,6 +99,8 @@ class World {
                 direction
             );
             this.throwableObjects.push(crystal);
+            let gameSound = new Audio('audio/floraphonic-throw.mp3');
+            gameSound.play();
         }
     }
 
@@ -136,8 +144,7 @@ class World {
     triggerGameOver() {
         this.gameOver = true;
         this.character.speed = 0;
-        let gameOverSound = new Audio('audio/game-over.mp3');
+        let gameOverSound = new Audio('audio/floraphonic-game-over.mp3');
         gameOverSound.play();
     }
 }
-

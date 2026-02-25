@@ -98,7 +98,7 @@ function initLevel() {
         new NatureObjects("../img/dino/sleep1.png", 1480, 196, 100, 100),
         new NatureObjects("../img/objects/tree2.png", 2290, 223, 100, 100),
         new NatureObjects("../img/dino/sleep1.png", 2500, 146, 100, 100),
-        new NatureObjects("../img/objects/tree2.png", 3610, 325, 100, 100),
+        new NatureObjects("../img/objects/tree2.png", 3600, 325, 100, 100),
         new NatureObjects("../img/bear/attack3.png", 3490, 330, 100, 100)
         ],
         [
