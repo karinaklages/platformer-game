@@ -38,6 +38,13 @@ class World {
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarCrystal);
         requestAnimationFrame(() => this.draw());
+
+        if (this.gameOver) {
+            this.ctx.font = "42px VT323";
+            this.ctx.fillStyle = "rgb(62, 57, 53)";
+            this.ctx.textAlign = "center";
+            this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
+        }
     }
 
     setWorld() {
@@ -57,6 +64,9 @@ class World {
             if(this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBarHeart.setPercentage(this.character.energy);
+                if (this.character.isDead()) {
+                    this.triggerGameOver();
+                }
             }
         });
         this.level.coins.forEach((coin, index) => {
@@ -117,6 +127,13 @@ class World {
 
     flipImageRight(motive) {
         this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
+    }
+
+    triggerGameOver() {
+        this.gameOver = true;
+        this.character.speed = 0;
+        let gameOverSound = new Audio('audio/game-over.mp3');
+        gameOverSound.play();
     }
 }
 

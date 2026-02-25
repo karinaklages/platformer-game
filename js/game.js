@@ -2,6 +2,14 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 const dialog = document.getElementById("dialog");
+canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const dpr = window.devicePixelRatio || 1;
+canvas.width = 960 * dpr;
+canvas.height = 540 * dpr;
+canvas.style.width = "960px";
+canvas.style.height = "540px";
+ctx.scale(dpr, dpr);
 
 function init() {
     initLevel(); 
@@ -84,14 +92,6 @@ function restartGame() {
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
     init();
-}
-
-function triggerGameOver() {
-    this.gameOver = true;
-    this.character.speed = 0;
-    let gameOverSound = new Audio('audio/game-over.mp3');
-    gameOverSound.play();
-    this.showGameOverText();
 }
 
 function openDialog() {
