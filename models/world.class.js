@@ -109,19 +109,23 @@ class World {
             this.flipImageRight(motive);
         }
         if (motive instanceof Character || motive instanceof Spider || motive instanceof Dino || motive instanceof Bear || motive instanceof Endboss) {
+            let offsetLeft = motive.otherDirection ? motive.offset.right : motive.offset.left;
+            let offsetRight = motive.otherDirection ? motive.offset.left : motive.offset.right;
             this.ctx.beginPath();
             this.ctx.lineWidth = "2";
             this.ctx.strokeStyle = "#9446c1";
-            this.ctx.rect(motive.x + motive.offset.left, motive.y + motive.offset.top, motive.width - motive.offset.left - motive.offset.right, motive.height - motive.offset.top - motive.offset.bottom);
+            this.ctx.rect(motive.x + offsetLeft, motive.y + motive.offset.top, motive.width - offsetLeft - offsetRight, motive.height - motive.offset.top - motive.offset.bottom);
             this.ctx.stroke();
         }
     }
 
     flipImageLeft(motive) {
         this.ctx.save();
-        this.ctx.translate(motive.x + motive.width, motive.y);
+        let centerX = motive.x + motive.width / 2;
+        let centerY = motive.y;
+        this.ctx.translate(centerX, centerY);
         this.ctx.scale(-1, 1);
-        this.ctx.drawImage(motive.img, 0, 0, motive.width, motive.height);
+        this.ctx.drawImage(motive.img, -motive.width / 2, 0, motive.width, motive.height);
         this.ctx.restore();
     }
 
