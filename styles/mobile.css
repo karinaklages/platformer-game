@@ -1,0 +1,11 @@
+@media (max-width: 960px) {
+    canvas {
+        width: 100%;
+    }
+}
+
+@media (max-height: 540px) {
+    canvas {
+        height: 100vh;
+    }
+}

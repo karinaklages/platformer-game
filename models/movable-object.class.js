@@ -75,5 +75,9 @@ class MovableObject extends DrawableObject{
 
     jump() {
         this.speedY = 20;
+        let gameSound = new Audio('audio/freesound-jump.mp3');
+        gameSound.volume = 0.4;
+        gameSound.currentTime = 0;
+        gameSound.play();
     }
 }

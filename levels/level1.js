@@ -8,6 +8,8 @@ function initLevel() {
         new Spider(),
         new Dino(),
         new Dino(),
+        new Dino(),
+        new Bear(),
         new Bear(),
         new Endboss()
         ],
