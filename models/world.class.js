@@ -46,24 +46,22 @@ class World {
         this.addToMap(this.statusBarHeart);
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarCrystal);
+        requestAnimationFrame(() => this.draw()); 
 
         if (this.gameOver) {
             this.ctx.font = "42px VT323";
             this.ctx.fillStyle = "rgb(62, 57, 53)";
             this.ctx.textAlign = "center";
             this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
-            return;
         }  
-        requestAnimationFrame(() => this.draw()); 
     }
-
 
     setWorld() {
         this.character.world = this;
     }
     
     run() {
-        setStoppableInterval(() => {
+        setInterval(() => {
             this.checkCollisions();
             this.checkThrowObjects();
         }, 100);

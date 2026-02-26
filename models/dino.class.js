@@ -27,11 +27,11 @@ class Dino extends MovableObject {
     }
 
     animate() {
-        setStoppableInterval(() => {
+        setInterval(() => {
             this.moveLeft();
         }, 1000 / 60);
 
-        setStoppableInterval(() => {
+        setInterval(() => {
             this.playAnimation(this.IMAGES_WALK);
         }, 170);
     }

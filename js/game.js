@@ -104,15 +104,15 @@ function restartGame() {
     init();
 }
 
-function setStoppableInterval(func, time) {
-    let id = setInterval(func, time);
-    intervalIds.push(id);
-}
+// function setStoppableInterval(func, time) {
+//     let id = setInterval(func, time);
+//     intervalIds.push(id);
+// }
 
-function stopGame() {
-    intervalIds.forEach(clearInterval);
-    intervalIds = [];
-}
+// function stopGame() {
+//     intervalIds.forEach(clearInterval);
+//     intervalIds = [];
+// }
 
 function openDialog() {
     dialog.showModal();
