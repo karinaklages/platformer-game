@@ -10,6 +10,7 @@ canvas.height = 540 * dpr;
 canvas.style.width = "960px";
 canvas.style.height = "540px";
 ctx.scale(dpr, dpr);
+let intervalIds = [];
 
 function init() {
     initLevel(); 
@@ -101,6 +102,16 @@ function restartGame() {
     gameButtonSound.currentTime = 0;
     gameButtonSound.play();
     init();
+}
+
+function setStoppableInterval(func, time) {
+    let id = setInterval(func, time);
+    intervalIds.push(id);
+}
+
+function stopGame() {
+    intervalIds.forEach(clearInterval);
+    intervalIds = [];
 }
 
 function openDialog() {
