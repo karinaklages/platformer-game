@@ -10,6 +10,7 @@ class World {
     statusBarCrystal = new StatusBarCrystal();
     throwableObjects = [];
     gameOver = false;
+    availableCrystals = 0;
 
     constructor (canvas, keyboard) {
         this.ctx = canvas.getContext("2d");
@@ -90,7 +91,8 @@ class World {
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
-                this.statusBarCrystal.setPercentage(Math.min(this.statusBarCrystal.percentage + 20, 100));    
+                this.availableCrystals += 1;
+                this.statusBarCrystal.setPercentage(Math.min(this.availableCrystals * 20, 100));    
                 this.gameCollectSound.currentTime = 0;
                 this.gameCollectSound.play();
             }
@@ -99,14 +101,12 @@ class World {
 
     checkThrowObjects() {
         if (this.gameOver) return;
-        if(this.keyboard.THROW) {
+        if (this.keyboard.THROW && this.availableCrystals > 0) {
             let direction = this.character.otherDirection ? -1 : 1;
-            let crystal = new ThrowableObject(
-                this.character.x + (direction === 1 ? 80 : -20),
-                this.character.y + 65,
-                direction
-            );
+            let crystal = new ThrowableObject(this.character.x + (direction === 1 ? 80 : -20), this.character.y + 65, direction);
             this.throwableObjects.push(crystal);
+            this.availableCrystals -= 1;
+            this.statusBarCrystal.setPercentage(this.availableCrystals * 20);
             this.gameThrowSound.currentTime = 0;
             this.gameThrowSound.play();
         }
