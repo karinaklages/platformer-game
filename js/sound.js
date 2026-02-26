@@ -8,7 +8,7 @@ class Sound {
             collision: this.createSound('audio/floraphonic-collision.mp3', 0.6),
             gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.7),
             button: this.createSound('audio/floraphonic-arcade-click.mp3', 1.0),
-            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 1.0)
+            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9)
         };
     }
 
@@ -28,5 +28,17 @@ class Sound {
 
     toggleMute() {
         this.isMuted = !this.isMuted;
+        const onIcon = document.getElementById('soundIconOn');
+        const offIcon = document.getElementById('soundIconOff');
+
+        if (this.isMuted) {
+            onIcon.classList.add('d-none');
+            offIcon.classList.remove('d-none');
+            this.sounds.gameSound.pause();
+        } else {
+            onIcon.classList.remove('d-none');
+            offIcon.classList.add('d-none');
+            this.sounds.gameSound.play();
+        }
     }
 }

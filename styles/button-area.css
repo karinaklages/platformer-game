@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 20px;
 }
 
@@ -30,4 +31,20 @@
     font-family: 'VT323';
     font-weight: 400;
     font-size: 19px;
+}
+
+.sound-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button-area svg {
+    height: 30px;
+    width: 30px;
+    display: block;
+    margin: auto 0;
 }

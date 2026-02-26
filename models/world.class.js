@@ -16,10 +16,10 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.keyboard = keyboard;
+        this.sound = sound; 
         this.draw();
         this.setWorld();
         this.run();
-        this.sound = sound;
     }
 
     draw() {
@@ -66,7 +66,7 @@ class World {
             if(this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBarHeart.setPercentage(this.character.energy);
-                this.sound.play('collision');
+                if (this.sound) this.sound.play('collision');
                 if (this.character.isDead()) {
                     this.triggerGameOver();
                 }
@@ -76,15 +76,15 @@ class World {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(index, 1);
                 this.statusBarCoin.setPercentage(Math.min(this.statusBarCoin.percentage + 20, 100));
-                this.sound.play('collect');
+                if (this.sound) this.sound.play('collect');
             }
         });
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
                 this.availableCrystals += 1;
-                this.statusBarCrystal.setPercentage(Math.min(this.availableCrystals * 20, 100));    
-                this.sound.play('collect');
+                this.statusBarCrystal.setPercentage(Math.min(this.availableCrystals * 20, 100)); 
+                if (this.sound) this.sound.play('collect');   
             }
         });
     }
@@ -97,7 +97,7 @@ class World {
             this.throwableObjects.push(crystal);
             this.availableCrystals -= 1;
             this.statusBarCrystal.setPercentage(this.availableCrystals * 20);
-            this.sound.play('throw');
+            if (this.sound) this.sound.play('throw');
         }
     }
 
@@ -141,6 +141,6 @@ class World {
     triggerGameOver() {
         this.gameOver = true;
         this.character.speed = 0;
-        this.sound.play('gameOver');
+        if (this.sound) this.sound.play('gameOver');
     }
 }

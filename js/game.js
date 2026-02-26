@@ -15,6 +15,9 @@ window.addEventListener("load", () => {
     canvas.style.width = "960px";
     canvas.style.height = "540px";
     ctx.scale(dpr, dpr);
+    sound = new Sound();
+    document.getElementById('soundIconOff').addEventListener('click', () => sound.toggleMute());
+    document.getElementById('soundIconOn').addEventListener('click', () => sound.toggleMute());
 });
 
 window.addEventListener("load", () => {
@@ -28,7 +31,6 @@ function init() {
     initLevel();
     canvas = document.getElementById("canvas");
     keyboard = new Keyboard();
-    sound = new Sound();
     world = new World(canvas, keyboard, sound);
 }
 
@@ -93,7 +95,7 @@ function startGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
-    sound.play('gameSound');
+    if (!sound.isMuted) sound.sounds.gameSound.play();
     init();
 }
 
@@ -108,7 +110,6 @@ function restartGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
-    sound.play('button');
     init();
 }
 
@@ -130,4 +131,9 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
     sound.play('button');
+}
+
+function toggleSound() {
+    if (!sound) return;
+    sound.toggleMute();
 }
