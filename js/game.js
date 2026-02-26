@@ -1,21 +1,35 @@
 let canvas;
 let world;
-let keyboard = new Keyboard();
-const dialog = document.getElementById("dialog");
-canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const dpr = window.devicePixelRatio || 1;
-canvas.width = 960 * dpr;
-canvas.height = 540 * dpr;
-canvas.style.width = "960px";
-canvas.style.height = "540px";
-ctx.scale(dpr, dpr);
+let keyboard;
+let sound;
+let dialog;
 let intervalIds = [];
 
-function init() {
-    initLevel(); 
+window.addEventListener("load", () => {
     canvas = document.getElementById("canvas");
-    world = new World(canvas, keyboard);
+    dialog = document.getElementById("dialog");
+    const ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = 960 * dpr;
+    canvas.height = 540 * dpr;
+    canvas.style.width = "960px";
+    canvas.style.height = "540px";
+    ctx.scale(dpr, dpr);
+});
+
+window.addEventListener("load", () => {
+    dialog = document.getElementById("dialog");
+    dialog.addEventListener("close", () => {
+        document.body.style.overflow = "";
+    });
+});
+
+function init() {
+    initLevel();
+    canvas = document.getElementById("canvas");
+    keyboard = new Keyboard();
+    sound = new Sound();
+    world = new World(canvas, keyboard, sound);
 }
 
 window.addEventListener("keydown", (event) => {
@@ -67,9 +81,7 @@ function showGameInformation() {
     const infoContent = document.querySelector(".content-game-information");
     startContent.classList.add("d-none");
     infoContent.classList.remove("d-none");
-    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
-    gameButtonSound.currentTime = 0;
-    gameButtonSound.play();
+    sound.play('button');
 }
 
 document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
@@ -81,9 +93,7 @@ function startGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
-    let gameSound = new Audio('audio/moodmode-that-game-arcade.mp3');
-    gameSound.currentTime = 0;
-    gameSound.play();
+    sound.play('gameSound');
     init();
 }
 
@@ -98,9 +108,7 @@ function restartGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
-    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
-    gameButtonSound.currentTime = 0;
-    gameButtonSound.play();
+    sound.play('button');
     init();
 }
 
@@ -116,18 +124,10 @@ function restartGame() {
 
 function openDialog() {
     dialog.showModal();
-    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
-    gameButtonSound.currentTime = 0;
-    gameButtonSound.play();
+    sound.play('button');
 }
 
 function closeDialog() {
     dialog.close();
-    let gameButtonSound = new Audio('audio/floraphonic-arcade-click.mp3');
-    gameButtonSound.currentTime = 0;
-    gameButtonSound.play();
+    sound.play('button');
 }
-
-dialog.addEventListener("close", () => {
-    document.body.style.overflow = "";
-});
