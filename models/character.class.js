@@ -10,6 +10,20 @@ class Character extends MovableObject {
         bottom: 20
     };
 
+    IMAGES_IDLE = [
+        'img/viking/idle1.png',
+        'img/viking/idle2.png',
+        'img/viking/idle3.png',
+        'img/viking/idle4.png',
+        'img/viking/idle5.png',
+        'img/viking/idle6.png',
+        'img/viking/idle7.png',
+        'img/viking/idle8.png',
+        'img/viking/idle9.png',
+        'img/viking/idle10.png',
+        'img/viking/idle11.png',
+        'img/viking/idle12.png'
+    ];
     IMAGES_WALK = [
         'img/viking/walk1.png',
         'img/viking/walk2.png',
@@ -43,7 +57,8 @@ class Character extends MovableObject {
     constructor() {
         super();
         this.world = world; 
-        this.loadImage('img/viking/walk1.png');
+        this.loadImage('img/viking/idle1.png');
+        this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_JUMP);
         this.loadImages(this.IMAGES_HURT);
@@ -76,10 +91,10 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_HURT);
             } else if(this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMP);
+            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                this.playAnimation(this.IMAGES_WALK);
             } else {
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    this.playAnimation(this.IMAGES_WALK);
-                }
+                this.playAnimation(this.IMAGES_IDLE);
             }
         }, 80);
     }

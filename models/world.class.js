@@ -48,9 +48,12 @@ class World {
             this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
         }  
     }
-
+    
     setWorld() {
         this.character.world = this;
+        this.level.enemies.forEach(enemy => {
+            enemy.world = this;
+        });
     }
     
     run() {
