@@ -36,12 +36,12 @@ class Bear extends MovableObject {
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_ATTACK);
-        this.x = 1900 + Math.random() * 2400;
+        this.x = 1900 + Math.random() * 2100;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 398;
         this.animate();
     }
-    
+
     animate() {
         setInterval(() => {
             if (this.state === 'walk') {
@@ -71,5 +71,13 @@ class Bear extends MovableObject {
                 this.state = 'walk';
             }
         }, 3000);
+    }
+
+    startAttack() {
+        if (this.state === 'attack') return;
+        this.state = 'attack';
+        setTimeout(() => {
+            this.state = 'walk';
+        }, 800);
     }
 }

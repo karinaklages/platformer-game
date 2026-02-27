@@ -9,6 +9,8 @@ function initLevel() {
         new Dino(),
         new Dino(),
         new Dino(),
+        new Dino(),
+        new Bear(),
         new Bear(),
         new Bear(),
         new Endboss()
