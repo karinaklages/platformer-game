@@ -12,7 +12,6 @@ function initLevel() {
         new Dino(),
         new Bear(),
         new Bear(),
-        new Bear(),
         new Endboss()
         ],
         [
