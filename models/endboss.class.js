@@ -25,16 +25,27 @@ class Endboss extends MovableObject {
         'img/boss/walk5.png',
         'img/boss/walk6.png'
     ];
+    IMAGES_ATTACK = [
+        'img/boss/attack1.png',
+        'img/boss/attack2.png',
+        'img/boss/attack3.png',
+        'img/boss/attack4.png',
+        'img/boss/attack5.png',
+        'img/boss/attack6.png',
+        'img/boss/attack7.png'
+    ];
 
     constructor() {
         super();
         this.loadImage('img/boss/magic_lightning1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_MAGIC_LIGHTNING);
+        this.loadImages(this.IMAGES_ATTACK);
         this.x = 3200;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 342;
         this.animate();
+        this.canAttack = true;
     }
 
     animate() {
@@ -42,7 +53,7 @@ class Endboss extends MovableObject {
             if (this.state === 'walk') {
                 this.moveLeft();
             }
-        }, 1000 / 60);
+        }, 1000 / 400);
         setInterval(() => {
             if (this.state === 'magic') {
                 this.playAnimation(this.IMAGES_MAGIC_LIGHTNING);
@@ -50,11 +61,39 @@ class Endboss extends MovableObject {
                     this.magicTimerStarted = true;
                     setTimeout(() => {
                         this.state = 'walk';
-                    }, 1500);
+                    }, 500);
                 }
             } else if (this.state === 'walk') {
                 this.playAnimation(this.IMAGES_WALK);
+            } else if (this.state === 'attack') {
+                this.playAnimation(this.IMAGES_ATTACK);
             }
         }, 170);
+        setInterval(() => {
+            if (this.isCollidingWithCharacter()) {
+                this.startAttack();
+            }
+        }, 100);
+    }
+
+    startAttack() {
+        if (!this.canAttack) return;
+        this.canAttack = false;
+        this.state = 'attack';
+        setTimeout(() => {
+            this.state = 'walk';
+            this.canAttack = true;
+        }, 800);
+    }
+
+    isCollidingWithCharacter() {
+        const c = this.world.character;
+        if (!c) return false;
+        return (
+            this.x + this.width - this.offset.right > c.x + c.offset.left &&
+            this.x + this.offset.left < c.x + c.width - c.offset.right &&
+            this.y + this.height - this.offset.bottom > c.y + c.offset.top &&
+            this.y + this.offset.top < c.y + c.height - c.offset.bottom
+        );
     }
 }
