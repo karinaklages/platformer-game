@@ -16,7 +16,8 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.keyboard = keyboard;
-        this.sound = sound; 
+        this.sound = sound;
+        this.canThrow = true; 
         this.draw();
         this.setWorld();
         this.run();
@@ -94,13 +95,17 @@ class World {
 
     checkThrowObjects() {
         if (this.gameOver) return;
-        if (this.keyboard.THROW && this.availableCrystals > 0) {
+        if (this.keyboard.THROW && this.availableCrystals > 0 && this.canThrow) {
+            this.canThrow = false;
             let direction = this.character.otherDirection ? -1 : 1;
             let crystal = new ThrowableObject(this.character.x + (direction === 1 ? 80 : -20), this.character.y + 65, direction);
             this.throwableObjects.push(crystal);
             this.availableCrystals -= 1;
             this.statusBarCrystal.setPercentage(this.availableCrystals * 20);
             if (this.sound) this.sound.play('throw');
+            setTimeout(() => {
+                this.canThrow = true;
+            }, 500);
         }
     }
 
