@@ -36,7 +36,7 @@ class Bear extends MovableObject {
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_ATTACK);
-        this.x = 1400 + Math.random() * 1600;
+        this.x = 2000 + Math.random() * 700;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 398;
         this.animate();

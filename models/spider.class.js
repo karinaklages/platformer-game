@@ -29,7 +29,7 @@ class Spider extends MovableObject {
         this.loadImage('img/spider/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_ATTACK);
-        this.x = 400 + Math.random() * 900;
+        this.x = 400 + Math.random() * 500;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 436;
         this.animate();
