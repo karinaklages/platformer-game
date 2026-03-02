@@ -32,7 +32,7 @@ class Spider extends MovableObject {
         this.x = 400 + Math.random() * 500;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 436;
-        this.animate();
+        // this.animate();
     }
 
     animate() {

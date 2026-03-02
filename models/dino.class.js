@@ -32,7 +32,6 @@ class Dino extends MovableObject {
         this.x = 1200 + Math.random() * 800;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 434;
-        this.animate();
     }
 
     animate() {

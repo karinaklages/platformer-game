@@ -44,7 +44,6 @@ class Endboss extends MovableObject {
         this.x = 3200;
         this.speed = 0.2 + Math.random() * 0.4; 
         this.y = 342;
-        this.animate();
         this.canAttack = true;
     }
 
