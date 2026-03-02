@@ -1,13 +1,13 @@
 class World {
-    character = new Character();
+    character;
     level = level1;
     canvas;
     ctx;
     keyboard;
     camera_x = 0;
-    statusBarHeart = new StatusBarHeart();
-    statusBarCoin = new StatusBarCoin();
-    statusBarCrystal = new StatusBarCrystal();
+    statusBarHeart;
+    statusBarCoin;
+    statusBarCrystal;
     throwableObjects = [];
     gameOver = false;
     availableCrystals = 0;
@@ -17,7 +17,12 @@ class World {
         this.canvas = canvas;
         this.keyboard = keyboard;
         this.sound = sound;
-        this.canThrow = true; 
+        this.canThrow = true;
+        this.character = new Character(this);
+        this.statusBarHeart = new StatusBar(HEART_IMAGES, 30, 50, 130, 24, 100);
+        this.statusBarCrystal = new StatusBar(CRYSTAL_IMAGES, 30, 20, 130, 24, 0);
+        this.statusBarCoin = new StatusBar(COIN_IMAGES, 30, 80, 130, 23, 0);
+        this.level = level1;
         this.setWorld();
         this.draw();
         this.run();

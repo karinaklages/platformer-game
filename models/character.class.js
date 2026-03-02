@@ -54,7 +54,7 @@ class Character extends MovableObject {
         'img/viking/death5.png'
     ];
 
-    constructor() {
+    constructor(world) {
         super();
         this.world = world; 
         this.loadImage('img/viking/idle1.png');
