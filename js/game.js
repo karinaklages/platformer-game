@@ -5,6 +5,10 @@ let sound;
 let dialog;
 let intervalIds = [];
 
+const fullscreenIcon = document.getElementById("fullscreenIcon");
+const miniscreenIcon = document.getElementById("miniscreenIcon");
+const fullscreenElement = document.getElementById("fullscreen");
+
 window.addEventListener("load", () => {
     canvas = document.getElementById("canvas");
     dialog = document.getElementById("dialog");
@@ -166,3 +170,15 @@ function exitFullscreen() {
         document.msExitFullscreen();
     }
 }
+
+fullscreenIcon.addEventListener("click", () => {
+    enterFullscreen(fullscreenElement);
+    fullscreenIcon.classList.add("d-none");
+    miniscreenIcon.classList.remove("d-none");
+});
+
+miniscreenIcon.addEventListener("click", () => {
+    exitFullscreen();
+    miniscreenIcon.classList.add("d-none");
+    fullscreenIcon.classList.remove("d-none");
+});

@@ -43,6 +43,16 @@
     cursor: pointer;
 }
 
+.fullscreen-icon,
+.miniscreen-icon {
+    width: 23px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .button-area svg {
     height: 30px;
     width: 30px;
