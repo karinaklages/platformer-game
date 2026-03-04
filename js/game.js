@@ -163,6 +163,7 @@ function exitFullscreen() {
 
 fullscreenIcon.addEventListener("click", () => {
     enterFullscreen(fullscreenElement);
+    // fullscreenCanvas(fullscreenElement);
 });
 
 miniscreenIcon.addEventListener("click", () => {
@@ -179,3 +180,10 @@ function updateFullscreenIcon() {
     fullscreenIcon.classList.toggle("d-none", isFullscreen);
     miniscreenIcon.classList.toggle("d-none", !isFullscreen);
 }
+
+// function fullscreenCanvas() {
+//     const canvas = document.getElementById("canvas");
+//     const wrapper = document.getElementById("fullscreen");
+//     canvas.classList.remove("d-none");
+//     enterFullscreen(wrapper);
+// }
