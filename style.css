@@ -6,8 +6,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(90deg,rgba(133, 109, 101, 1) 0%, rgba(196, 159, 120, 1) 50%, rgba(247, 224, 178, 1) 100%);
+}
+
+.game-wrapper {
+    width: 100%;
+    max-width: 960px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .d-none {
@@ -50,8 +58,10 @@ a:hover {
 }
 
 canvas {
-    /* background-color: black; */
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 24px;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
 }
@@ -73,8 +83,8 @@ dialog::backdrop {
 }
 
 .startscreen {
-    width: 960px;
-    height: 540px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     margin-bottom: 24px;
     position: relative;
     overflow: hidden;

@@ -13,67 +13,69 @@
     <title>Roots & Dust</title>
 </head>
 <body onload="init()">
-    <section class="startscreen" id="startScreen">
-        <img src="./img/ui/startscreen.png" alt="Start Screen">
-        <div class="content-start">
-            <img class="beige-background" src="./img/ui/beige-area-small.png" alt="Beige Background">
-            <h1>Roots & Dust</h1>
-            <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
-            <div class="button" id="startInformationButton">
+    <div class="game-wrapper" id="fullscreen">
+        <section class="startscreen" id="startScreen">
+            <img src="./img/ui/startscreen.png" alt="Start Screen">
+            <div class="content-start">
+                <img class="beige-background" src="./img/ui/beige-area-small.png" alt="Beige Background">
+                <h1>Roots & Dust</h1>
+                <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
+                <div class="button" id="startInformationButton">
+                    <img src="./img/ui/button-background-small.png" alt="">
+                    <span>More</span>
+                </div>
+            </div>
+            <div class="content-game-information d-none">
+                <img class="beige-background-game-information" src="./img/ui/beige-area-big.png" alt="Beige Background">
+                <div class="character-image">
+                    <img class="viking-icon-game-information" src="./img/ui/viking.png" alt="Viking Icon">
+                </div>
+                <div class="character-text">
+                    <h2>Brave Viking</h2>
+                    <p>He once tried to defeat the Dark Knight by challenging him to a beard-growing contest.</p>
+                </div>
+                <table>
+                    <tr>
+                        <td>D | ▸</td>
+                        <td><i>Move to the right</i></td>
+                    </tr>
+                    <tr>
+                        <td>A | ◂</td>
+                        <td><i>Move to the left</i></td>
+                    </tr>
+                    <tr>
+                        <td>W | ▴ | Space</td>
+                        <td><i>Jump over obstacles</i></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td><i>Throw crystals</i></td>
+                    </tr>
+                </table>
+                <div class="button-game-information" id="startGame">
+                    <img src="./img/ui/button-background-small.png" alt="">
+                    <span onclick="initLevel()">Play</span>
+                </div>
+            </div>
+        </section>
+        <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
+        <section class="button-area">
+            <div id="soundIconOff" class="sound-icon">
+                <img src="./img/ui/sound-off.svg" alt="Sound Icon">
+            </div>
+            <div id="soundIconOn" class="sound-icon d-none">
+                <img src="./img/ui/sound-on.svg" alt="Sound Icon">
+            </div>
+            <div class="button" onclick="restartGame()">
                 <img src="./img/ui/button-background-small.png" alt="">
-                <span>More</span>
+                <span onclick="initLevel()">Restart</span>
             </div>
-        </div>
-        <div class="content-game-information d-none">
-            <img class="beige-background-game-information" src="./img/ui/beige-area-big.png" alt="Beige Background">
-            <div class="character-image">
-                <img class="viking-icon-game-information" src="./img/ui/viking.png" alt="Viking Icon">
-            </div>
-            <div class="character-text">
-                <h2>Brave Viking</h2>
-                <p>He once tried to defeat the Dark Knight by challenging him to a beard-growing contest.</p>
-            </div>
-            <table>
-                <tr>
-                    <td>D | ▸</td>
-                    <td><i>Move to the right</i></td>
-                </tr>
-                <tr>
-                    <td>A | ◂</td>
-                    <td><i>Move to the left</i></td>
-                </tr>
-                <tr>
-                    <td>W | ▴ | Space</td>
-                    <td><i>Jump over obstacles</i></td>
-                </tr>
-                <tr>
-                    <td>F</td>
-                    <td><i>Throw crystals</i></td>
-                </tr>
-            </table>
-            <div class="button-game-information" id="startGame">
+            <div class="button" onclick="openDialog()">
                 <img src="./img/ui/button-background-small.png" alt="">
-                <span onclick="initLevel()">Play</span>
+                <span>Imprint</span>
             </div>
-        </div>
-    </section>
-    <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
-    <section class="button-area">
-        <div id="soundIconOff" class="sound-icon">
-            <img src="./img/ui/sound-off.svg" alt="Sound Icon">
-        </div>
-        <div id="soundIconOn" class="sound-icon d-none">
-            <img src="./img/ui/sound-on.svg" alt="Sound Icon">
-        </div>
-        <div class="button" onclick="restartGame()">
-            <img src="./img/ui/button-background-small.png" alt="">
-            <span onclick="initLevel()">Restart</span>
-        </div>
-        <div class="button" onclick="openDialog()">
-            <img src="./img/ui/button-background-small.png" alt="">
-            <span>Imprint</span>
-        </div>
-    </section>
+        </section>
+    </div>
     <dialog id="dialog" onclick="closeDialog()">
         <h2>Imprint</h2>
         <p>Angaben gemäß §5 TMG<br><br>Dipl.-Des. (FH) Karina Klages<br>Rehbockstraße 3<br>31552 Apelern<br>E-Mail: klagesdesign@web.de<br><br><br>

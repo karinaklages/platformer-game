@@ -1,11 +1,84 @@
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
+    .game-wrapper {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+
+    .startscreen {
+        margin-bottom: 18px;
+    }
+
+    .button-area {
+        gap: 14px !important;
+    }
+}
+
+@media (max-width: 730px) {
+    .game-wrapper {
+        width: calc(100% - 20px);
+        max-width: none;
+    }
+
+    .startscreen {
+        margin-bottom: 12px;
+    }
+
+    dialog {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    dialog {
+        padding: 18px;
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+        dialog {
+        padding: 12px;
+        height: 360px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+/* @media only screen and (max-width: 960px) {
     canvas {
         width: 100%;
     }
 }
 
-@media (max-height: 540px) {
+@media only screen and (max-height: 540px) {
     canvas {
         height: 100vh;
     }
-}
+} */
