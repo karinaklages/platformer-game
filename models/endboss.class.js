@@ -48,17 +48,18 @@ class Endboss extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        if (this.world.gameOver) return;
+        this.addInterval(() => {
             if (this.state === 'walk') {
                 this.moveLeft();
             }
         }, 1000 / 400);
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.state === 'magic') {
                 this.playAnimation(this.IMAGES_MAGIC_LIGHTNING);
                 if (this.world.character && this.world.character.x > 2750 && !this.magicTimerStarted) {
                     this.magicTimerStarted = true;
-                    setTimeout(() => {
+                    this.addTimeout(() => {
                         this.state = 'walk';
                     }, 500);
                 }
@@ -68,22 +69,22 @@ class Endboss extends MovableObject {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
         }, 170);
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.isCollidingWithCharacter()) {
                 this.startAttack();
             }
         }, 100);
     }
 
-    startAttack() {
-        if (!this.canAttack) return;
-        this.canAttack = false;
-        this.state = 'attack';
-        setTimeout(() => {
-            this.state = 'walk';
-            this.canAttack = true;
-        }, 800);
-    }
+    // startAttack() {
+    //     if (!this.canAttack) return;
+    //     this.canAttack = false;
+    //     this.state = 'attack';
+    //     this.addTimeout(() => {
+    //         this.state = 'walk';
+    //         this.canAttack = true;
+    //     }, 800);
+    // }
 
     isCollidingWithCharacter() {
         const c = this.world.character;

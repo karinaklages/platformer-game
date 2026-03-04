@@ -1,4 +1,6 @@
 class MovableObject extends DrawableObject{
+    intervals = [];
+    timeouts = [];
     speed= 0.15;
     otherDirection = false;
     speedY = 0;
@@ -29,10 +31,10 @@ class MovableObject extends DrawableObject{
     }
 
     applyGravity() {
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
                 this.y -= this.speedY;
-                this.speedY -= this.acceleration;  
+                this.speedY -= this.acceleration;
             }
         }, 1000 / 25);
     }
@@ -76,5 +78,33 @@ class MovableObject extends DrawableObject{
     jump() {
         this.speedY = 20;
         sound.play('jump');
+    }
+
+    addInterval(fn, time) {
+        const id = setInterval(fn, time);
+        this.intervals.push(id);
+        return id;
+    }
+
+    addTimeout(fn, time) {
+        const id = setTimeout(fn, time);
+        this.timeouts.push(id);
+        return id;
+    }
+
+    stopAllTimers() {
+        this.intervals.forEach(id => clearInterval(id));
+        this.timeouts.forEach(id => clearTimeout(id));
+
+        this.intervals = [];
+        this.timeouts = [];
+    }
+
+    startAttack(duration = 800) {
+        if (this.state === 'attack') return;
+        this.state = 'attack';
+        this.addTimeout(() => {
+            this.state = 'walk';
+        }, duration);
     }
 }

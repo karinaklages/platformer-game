@@ -2,6 +2,7 @@ class Character extends MovableObject {
     world;
     currentImage = 0;
     speed = 5;
+    deadAnimationFinished = false;
 
     offset = {
         top: 50,
@@ -68,22 +69,27 @@ class Character extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
-            if (this.world.gameOver) return;
-            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.moveRight();
-                this.otherDirection = false;
+        this.addInterval(() => {
+            if (this.world.gameOver) {
+                this.stopAllTimers();
+                return;
             }
-            if (this.world.keyboard.LEFT && this.x -10) {
-                this.moveLeft();
-                this.otherDirection = true;
+            if (!this.isDead() && !this.world.gameOver) {
+                if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
+                    this.moveRight();
+                    this.otherDirection = false;
+                }
+                if (this.world.keyboard.LEFT && this.x -10) {
+                    this.moveLeft();
+                    this.otherDirection = true;
+                }
+                if (this.world.keyboard.UP && !this.isAboveGround()) {
+                    this.jump();
+                }
+                this.world.camera_x = -this.x + 70;
             }
-            if (this.world.keyboard.UP && !this.isAboveGround()) {
-                this.jump();
-            }
-            this.world.camera_x = -this.x + 70;
         }, 1000 / 60);
-        setInterval(() => {
+        this.addInterval(() => {
             if(this.isDead()){
                 this.playDeadAnimation();
                 return;
@@ -105,6 +111,7 @@ class Character extends MovableObject {
             this.img = this.imageCache[path];
             this.currentImage++;
         } else {
+            this.deadAnimationFinished = true;
             let lastImage = this.IMAGES_DEAD[this.IMAGES_DEAD.length - 1];
             this.img = this.imageCache[lastImage];
         }

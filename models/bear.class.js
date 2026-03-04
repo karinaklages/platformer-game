@@ -42,7 +42,8 @@ class Bear extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        if (this.world.gameOver) return;
+        this.addInterval(() => {
             if (this.state === 'walk') {
                 this.moveLeft();
             }
@@ -50,7 +51,7 @@ class Bear extends MovableObject {
                 this.startAttack();
             }
         }, 1000 / 60);
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.state === 'attack') {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
@@ -61,7 +62,7 @@ class Bear extends MovableObject {
                 this.playAnimation(this.IMAGES_IDLE);
             }
         }, 170);
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.state === 'attack') return;
             let random = Math.random();
             if (random < 0.3) {
@@ -70,13 +71,5 @@ class Bear extends MovableObject {
                 this.state = 'walk';
             }
         }, 3000);
-    }
-
-    startAttack() {
-        if (this.state === 'attack') return;
-        this.state = 'attack';
-        setTimeout(() => {
-            this.state = 'walk';
-        }, 800);
     }
 }

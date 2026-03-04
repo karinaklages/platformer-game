@@ -18,6 +18,7 @@ class World {
         this.keyboard = keyboard;
         this.sound = sound;
         this.canThrow = true;
+        this.intervals = [];
         this.character = new Character(this);
         this.statusBarHeart = new StatusBar(HEART_IMAGES, 30, 50, 130, 24, 100);
         this.statusBarCrystal = new StatusBar(CRYSTAL_IMAGES, 30, 20, 130, 24, 0);
@@ -28,7 +29,43 @@ class World {
         this.run();
     }
 
+    // draw() {
+    //     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    //     this.ctx.translate(this.camera_x, 0);
+    //     this.addObjectsToMap(this.level.backgroundObjects);
+    //     this.addObjectsToMap(this.level.clouds);
+    //     this.addObjectsToMap(this.level.groundTiles);
+    //     this.addObjectsToMap(this.level.flyingTiles);
+    //     this.addObjectsToMap(this.level.natureObjects);
+    //     this.addToMap(this.character);
+    //     this.addObjectsToMap(this.throwableObjects);
+    //     this.addObjectsToMap(this.level.enemies);
+    //     this.addObjectsToMap(this.level.coins);
+    //     this.addObjectsToMap(this.level.crystals);
+    //     this.ctx.translate(-this.camera_x, 0);
+    //     this.addToMap(this.statusBarHeart);
+    //     this.addToMap(this.statusBarCoin);
+    //     this.addToMap(this.statusBarCrystal);
+    //     requestAnimationFrame(() => this.draw()); 
+
+    //     if (this.gameOver) {
+    //         this.ctx.font = "42px VT323";
+    //         this.ctx.fillStyle = "rgb(62, 57, 53)";
+    //         this.ctx.textAlign = "center";
+    //         this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
+    //     }  
+    // }
+
     draw() {
+        if (this.gameOver) {
+            if (!this.character.deadAnimationFinished) {
+                this.character.playDeadAnimation();
+            } else {
+                this.stopGame();
+                this.drawGameOverScreen();
+                return;
+            }
+        }
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.level.backgroundObjects);
@@ -45,14 +82,14 @@ class World {
         this.addToMap(this.statusBarHeart);
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarCrystal);
-        requestAnimationFrame(() => this.draw()); 
+        this.animationFrameId = requestAnimationFrame(() => this.draw());
+    }
 
-        if (this.gameOver) {
-            this.ctx.font = "42px VT323";
-            this.ctx.fillStyle = "rgb(62, 57, 53)";
-            this.ctx.textAlign = "center";
-            this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
-        }  
+    drawGameOverScreen() {
+        this.ctx.font = "42px VT323";
+        this.ctx.fillStyle = "rgb(62, 57, 53)";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
     }
 
     setWorld() {
@@ -62,9 +99,20 @@ class World {
             if (enemy.animate) enemy.animate();
         });
     }
-    
+
+    stopGame() {
+        clearInterval(this.runInterval);
+        cancelAnimationFrame(this.animationFrameId);
+        this.level.enemies.forEach(enemy => {
+            if (enemy.stopAllTimers) {
+                enemy.stopAllTimers();
+            }
+        });
+        this.character.stopAllTimers();
+    }
+
     run() {
-        setInterval(() => {
+        this.runInterval = setInterval(() => {
             this.checkCollisions();
             this.checkThrowObjects();
         }, 100);

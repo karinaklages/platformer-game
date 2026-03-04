@@ -117,16 +117,6 @@ function restartGame() {
     init();
 }
 
-// function setStoppableInterval(func, time) {
-//     let id = setInterval(func, time);
-//     intervalIds.push(id);
-// }
-
-// function stopGame() {
-//     intervalIds.forEach(clearInterval);
-//     intervalIds = [];
-// }
-
 function openDialog() {
     dialog.showModal();
     sound.play('button');
@@ -173,12 +163,19 @@ function exitFullscreen() {
 
 fullscreenIcon.addEventListener("click", () => {
     enterFullscreen(fullscreenElement);
-    fullscreenIcon.classList.add("d-none");
-    miniscreenIcon.classList.remove("d-none");
 });
 
 miniscreenIcon.addEventListener("click", () => {
     exitFullscreen();
-    miniscreenIcon.classList.add("d-none");
-    fullscreenIcon.classList.remove("d-none");
 });
+
+document.addEventListener("fullscreenchange", updateFullscreenIcon);
+document.addEventListener("webkitfullscreenchange", updateFullscreenIcon);
+document.addEventListener("mozfullscreenchange", updateFullscreenIcon);
+document.addEventListener("MSFullscreenChange", updateFullscreenIcon);
+
+function updateFullscreenIcon() {
+    const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+    fullscreenIcon.classList.toggle("d-none", isFullscreen);
+    miniscreenIcon.classList.toggle("d-none", !isFullscreen);
+}

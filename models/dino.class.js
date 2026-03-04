@@ -35,7 +35,8 @@ class Dino extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        if (this.world.gameOver) return;
+        this.addInterval(() => {
             if (this.state === 'walk') {
                 this.moveLeft();
             }
@@ -43,7 +44,7 @@ class Dino extends MovableObject {
                 this.startAttack();
             }
         }, 1000 / 60);
-        setInterval(() => {
+        this.addInterval(() => {
             if (this.state === 'attack') {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
@@ -51,13 +52,5 @@ class Dino extends MovableObject {
                 this.playAnimation(this.IMAGES_WALK);
             }
         }, 170);
-    }
-
-    startAttack() {
-        if (this.state === 'attack') return;
-        this.state = 'attack';
-        setTimeout(() => {
-            this.state = 'walk';
-        }, 800);
     }
 }
