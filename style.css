@@ -25,7 +25,7 @@ body {
 h1 {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 38px;
+    /* font-size: 38px; */
     color:rgb(62, 57, 53);
     margin-bottom: 30px;
     text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);
@@ -34,7 +34,7 @@ h1 {
 h2 {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 24px;
+    /* font-size: 24px; */
     color:rgb(62, 57, 53);
     margin-bottom: 30px;
     text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);
@@ -43,7 +43,7 @@ h2 {
 p {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 19px;
+    /* font-size: 19px; */
     color:rgb(62, 57, 53);
 }
 
@@ -61,34 +61,18 @@ canvas {
     width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
-}
-
-dialog {
-    background-color: #dfca99;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    padding: 0; 
-    width: 600px;
-    height: 500px;
-    padding: 30px 30px 30px 30px; 
-}
-
-dialog::backdrop {
-  background: rgba(158, 151, 136, 0.3);
-  backdrop-filter: blur(6px);
+    margin-bottom: 16px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 7px 10px rgba(0, 0, 0, 0.25);
 }
 
 .startscreen {
     width: 100%;
     aspect-ratio: 16 / 9;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 10px 15px rgba(0, 0, 0, 0.25);
 }
 
@@ -98,13 +82,27 @@ dialog::backdrop {
     object-fit: cover;
 }
 
-.startscreen .content-start {
+.content-start {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 2;
 }
+
+/* .startscreen .content-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
 
 .beige-background {
     position: absolute;
@@ -113,17 +111,39 @@ dialog::backdrop {
     transform: translateX(-50%);
     width: 330px;
     height: auto;
-    z-index: 1;
+    z-index: -1;
 }
 
-.startscreen h1,
+.start-text-area {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-text-area h1 {
+    margin: 0;
+}
+
+.start-text-area p {
+    width: 260px;
+    text-align: center;
+}
+
+/* .startscreen h1,
 .startscreen h2,
 .startscreen p,
 .startscreen .button {
     z-index: 2;
-}
+} */
 
-.startscreen h1 {
+/* .startscreen h1 {
     position: absolute;
     top: 26%;
     left: 50%;
@@ -137,12 +157,39 @@ dialog::backdrop {
     top: 37%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
-.startscreen .button {
+/* .startscreen .button {
     position: absolute;
     top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+} */
+
+
+
+dialog {
+    background-color: #dfca99;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 0; 
+    width: 80%;
+    padding: 40px 30px 40px 30px; 
+}
+
+dialog::backdrop {
+  background: rgba(158, 151, 136, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.imprint-headline {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.imprint-text {
+    font-size: 18px;
 }

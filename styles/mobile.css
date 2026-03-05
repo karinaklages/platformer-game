@@ -3,82 +3,58 @@
         width: calc(100% - 40px);
         max-width: none;
     }
-
-    .startscreen {
-        margin-bottom: 18px;
-    }
-
-    .button-area {
-        gap: 14px !important;
-    }
 }
 
-@media (max-width: 730px) {
+@media (max-width: 750px) {
     .game-wrapper {
         width: calc(100% - 20px);
         max-width: none;
     }
 
-    .startscreen {
-        margin-bottom: 12px;
-    }
-
-    dialog {
-        width: 60%;
-    }
-
-    h1 {
-        font-size: 34px;
-    }
-
-    h2 {
-        font-size: 22px;
-        margin-bottom: 22px;
-    }
-
-    p {
-        font-size: 18px;
+    .startscreen,
+    canvas {
+        margin-bottom: 10px;
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 660px) {
     dialog {
-        padding: 18px;
-        height: 400px;
+        padding: 30px 20px 30px 20px; 
     }
 
-    h1 {
-        font-size: 32px;
-    }
-
-    h2 {
+    .imprint-headline {
         font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 20px;
     }
 
-    p {
-        font-size: 14px;
+    .imprint-text {
+        font-size: 16px;
     }
 }
 
-@media (max-width: 420px) {
-        dialog {
-        padding: 12px;
-        height: 360px;
+@media (max-width: 450px) {
+    .sound-icon {
+        width: 24px !important;;
+        height: 24px !important;
     }
 
-    p {
-        font-size: 12px;
+    .fullscreen-icon,
+    .miniscreen-icon {
+        width: 17px !important;
+        height: 17px !important;
+    }
+
+    .home-icon {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    .icon-area {
+        gap: 4px !important;
+    }
+
+    .space {
+        width: 0px !important;
     }
 }
-
-/* @media only screen and (max-width: 960px) {
-    canvas {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-height: 540px) {
-    canvas {
-        height: 100vh;
-    }
-} */

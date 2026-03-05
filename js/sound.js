@@ -30,7 +30,6 @@ class Sound {
         this.isMuted = !this.isMuted;
         const onIcon = document.getElementById('soundIconOn');
         const offIcon = document.getElementById('soundIconOff');
-
         if (this.isMuted) {
             onIcon.classList.add('d-none');
             offIcon.classList.remove('d-none');

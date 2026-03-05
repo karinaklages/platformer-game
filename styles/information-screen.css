@@ -67,7 +67,7 @@ td,
 th {
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 19px;
+    font-size: 18px;
     color:rgb(62, 57, 53);
 }
 
@@ -80,7 +80,7 @@ td {
     border: none;
     padding: 0;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 7px;
     box-shadow: 0 4px 10px rgba(78, 70, 70, 0.25);
     z-index: 3;
 }
@@ -88,7 +88,7 @@ td {
 .button-game-information img {
     display: block;
     height: auto;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .button-game-information span {
@@ -99,5 +99,5 @@ td {
     color: rgb(62, 57, 53);
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 19px;
+    font-size: 18px;
 }

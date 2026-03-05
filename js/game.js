@@ -9,6 +9,13 @@ const fullscreenIcon = document.getElementById("fullscreenIcon");
 const miniscreenIcon = document.getElementById("miniscreenIcon");
 const fullscreenElement = document.getElementById("fullscreen");
 
+function init() {
+    initLevel();
+    canvas = document.getElementById("canvas");
+    keyboard = new Keyboard();
+    world = new World(canvas, keyboard, sound);
+}
+
 window.addEventListener("load", () => {
     canvas = document.getElementById("canvas");
     dialog = document.getElementById("dialog");
@@ -20,23 +27,18 @@ window.addEventListener("load", () => {
     canvas.style.height = "540px";
     ctx.scale(dpr, dpr);
     sound = new Sound();
+    registerButtonSounds();
     document.getElementById('soundIconOff').addEventListener('click', () => sound.toggleMute());
     document.getElementById('soundIconOn').addEventListener('click', () => sound.toggleMute());
+    dialog.addEventListener("close", () => { document.body.style.overflow = "";});
 });
 
-window.addEventListener("load", () => {
-    dialog = document.getElementById("dialog");
-    dialog.addEventListener("close", () => {
-        document.body.style.overflow = "";
-    });
-});
-
-function init() {
-    initLevel();
-    canvas = document.getElementById("canvas");
-    keyboard = new Keyboard();
-    world = new World(canvas, keyboard, sound);
-}
+// window.addEventListener("load", () => {
+//     dialog = document.getElementById("dialog");
+//     dialog.addEventListener("close", () => {
+//         document.body.style.overflow = "";
+//     });
+// });
 
 window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight" || event.key === "d") {
@@ -114,7 +116,33 @@ function restartGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    sound.play('button');
     init();
+}
+
+function registerButtonSounds() {
+    const buttons = [ "homeIcon", "fullscreenIcon", "miniscreenIcon", "soundIconOff", "soundIconOn"];
+    buttons.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener("click", () => {
+                sound.play('button');
+            });
+        }
+    });
+}
+
+document.getElementById("homeIcon").addEventListener("click", (event) => {
+    event.preventDefault();
+    sound.play('button');
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 300);
+});
+
+function toggleSound() {
+    if (!sound) return;
+    sound.toggleMute();
 }
 
 function openDialog() {
@@ -125,11 +153,6 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
     sound.play('button');
-}
-
-function toggleSound() {
-    if (!sound) return;
-    sound.toggleMute();
 }
 
 function fullscreen() {

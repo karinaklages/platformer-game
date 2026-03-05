@@ -1,11 +1,23 @@
 .button-area {
-    /* width: 960px; */
     width: 100%;
     height: auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+}
+
+.icon-area {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.space {
+    width: 30px;
 }
 
 .button {
@@ -13,14 +25,14 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 7px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .button img {
     display: block;
     height: auto;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .button span {
@@ -31,12 +43,12 @@
     color: rgb(62, 57, 53);
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 19px;
+    font-size: 18px;
 }
 
 .sound-icon {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,17 +57,26 @@
 
 .fullscreen-icon,
 .miniscreen-icon {
-    width: 23px;
-    height: 23px;
+    width: 21px;
+    height: 21px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
-.button-area svg {
-    height: 30px;
-    width: 30px;
+.home-icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* .button-area svg {
+    height: 28px;
+    width: 28px;
     display: block;
     margin: auto 0;
-}
+} */
