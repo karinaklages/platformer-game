@@ -17,13 +17,11 @@
             <img src="./img/ui/startscreen.png" alt="Start Screen">
             <div class="content-start">
                 <img class="beige-background" src="./img/ui/beige-area-small.png" alt="Beige Background">
-                <div class="start-text-area">
-                    <h1>Roots & Dust</h1>
-                    <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
-                    <div class="button" id="startInformationButton">
-                        <img src="./img/ui/button-background-small.png" alt="">
-                        <span>More</span>
-                    </div>
+                <h1>Roots & Dust</h1>
+                <p>You guide Brave Viking on his quest to defeat the Dark Knight.</p>
+                <div class="button" id="startInformationButton">
+                    <img src="./img/ui/button-background-small.png" alt="">
+                    <span>More</span>
                 </div>
             </div>
             <div class="content-game-information d-none">
@@ -55,14 +53,21 @@
                 </table>
                 <div class="button-game-information" id="startGame">
                     <img src="./img/ui/button-background-small.png" alt="">
-                    <!-- <span onclick="initLevel()">Play</span> -->
                     <span>Play</span>
                 </div>
             </div>
         </section>
         <canvas id="canvas" class="d-none" width="960" height="540"></canvas>
         <section class="button-area">
-            <div class="icon-area">
+            <div class="link-area-left">
+                <div class="link" onclick="restartGame()">
+                    <span>Restart</span>
+                </div>
+                <div class="link" onclick="openDialog()">
+                    <span>Imprint</span>
+                </div>
+            </div>
+            <div class="icon-area-right">
                 <a id="homeIcon" class="home-icon" href="index.html">
                     <img src="./img/ui/home.svg" alt="Home Icon">
                 </a>
@@ -78,16 +83,6 @@
                 <div id="soundIconOn" class="sound-icon d-none">
                     <img src="./img/ui/sound-on.svg" alt="Sound Icon">
                 </div>
-            </div>
-            <div class="space"></div>
-            <div class="button" onclick="restartGame()">
-                <img src="./img/ui/button-background-small.png" alt="">
-                <!-- <span onclick="initLevel()">Restart</span> -->
-                <span>Restart</span>
-            </div>
-            <div class="button" onclick="openDialog()">
-                <img src="./img/ui/button-background-small.png" alt="">
-                <span>Imprint</span>
             </div>
         </section>
     </div>

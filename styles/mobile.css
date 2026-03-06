@@ -10,10 +10,65 @@
         width: calc(100% - 20px);
         max-width: none;
     }
+    
+    canvas,
+    .startscreen {
+        margin-bottom: 6px;
+    }
 
-    .startscreen,
-    canvas {
-        margin-bottom: 10px;
+    .beige-background {
+        width: 90% !important;
+    }
+
+    .content-start h1 {
+        font-size: 30px;
+    }
+
+    .content-start p {
+        width: 230px;
+        font-size: 16px;
+    }
+
+    .content-start span {
+        font-size: 16px !important;
+    }
+
+    .button {
+        margin-bottom: 8px !important;
+    }
+
+    .button img {
+        width: 65px !important;
+        height: auto !important;
+        border-radius: 5px !important;
+    }
+
+    .link-area-left span {
+        font-size: 16px !important;
+    }
+
+    .link-area-left {
+        gap: 10px !important;
+    }
+
+    .icon-area-right {
+        gap: 8px !important;
+    }
+
+    .home-icon {
+        width: 19px !important;
+        height: 19px !important;
+    }
+
+    .fullscreen-icon,
+    .miniscreen-icon {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    .sound-icon {
+        width: 22px !important;
+        height: 22px !important;
     }
 }
 
@@ -33,28 +88,59 @@
     }
 }
 
-@media (max-width: 450px) {
-    .sound-icon {
-        width: 24px !important;;
-        height: 24px !important;
+@media (max-width: 480px) {
+    .beige-background {
+        width: 74% !important;
+    }
+
+    .content-start h1 {
+        font-size: 24px;
+    }
+
+    .content-start p {
+        width: 200px;
+        font-size: 14px;
+    }
+
+    .content-start span {
+        font-size: 14px !important;
+    }
+
+    .button {
+        margin-bottom: 5px !important;
+    }
+
+    .button img {
+        width: 50px !important;
+        height: auto !important;
+        border-radius: 4px !important;
+    }
+
+    .link-area-left span {
+        font-size: 14px !important;
+    }
+
+    .link-area-left {
+        gap: 8px !important;
+    }
+
+    .icon-area-right {
+        gap: 6px !important;
+    }
+
+    .home-icon {
+        width: 16px !important;
+        height: 16px !important;
     }
 
     .fullscreen-icon,
     .miniscreen-icon {
-        width: 17px !important;
-        height: 17px !important;
+        width: 12px !important;
+        height: 12px !important;
     }
 
-    .home-icon {
-        width: 22px !important;
-        height: 22px !important;
-    }
-
-    .icon-area {
-        gap: 4px !important;
-    }
-
-    .space {
-        width: 0px !important;
+    .sound-icon {
+        width: 19px !important;
+        height: 19px !important;
     }
 }
