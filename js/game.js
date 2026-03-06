@@ -9,16 +9,17 @@ const fullscreenIcon = document.getElementById("fullscreenIcon");
 const miniscreenIcon = document.getElementById("miniscreenIcon");
 const fullscreenElement = document.getElementById("fullscreen");
 
-function init() {
-    initLevel();
-    canvas = document.getElementById("canvas");
-    keyboard = new Keyboard();
-    world = new World(canvas, keyboard, sound);
+function initApp() {
+    setupCanvas();
+    setupDialog();
+    setupSound();
+    setupSoundButtons();
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", initApp);
+
+function setupCanvas() {
     canvas = document.getElementById("canvas");
-    dialog = document.getElementById("dialog");
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     canvas.width = 960 * dpr;
@@ -26,19 +27,32 @@ window.addEventListener("load", () => {
     canvas.style.width = "960px";
     canvas.style.height = "540px";
     ctx.scale(dpr, dpr);
+}
+
+function setupDialog() {
+    dialog = document.getElementById("dialog");
+    dialog.addEventListener("close", () => {
+        document.body.style.overflow = "";
+    });
+}
+
+function setupSound() {
     sound = new Sound();
     registerButtonSounds();
-    document.getElementById('soundIconOff').addEventListener('click', () => sound.toggleMute());
-    document.getElementById('soundIconOn').addEventListener('click', () => sound.toggleMute());
-    dialog.addEventListener("close", () => { document.body.style.overflow = "";});
-});
+}
 
-// window.addEventListener("load", () => {
-//     dialog = document.getElementById("dialog");
-//     dialog.addEventListener("close", () => {
-//         document.body.style.overflow = "";
-//     });
-// });
+function setupSoundButtons() {
+    document.getElementById("soundIconOff")
+        .addEventListener("click", () => sound.toggleMute());
+    document.getElementById("soundIconOn")
+        .addEventListener("click", () => sound.toggleMute());
+}
+
+function initGame() {
+    initLevel();
+    keyboard = new Keyboard();
+    world = new World(canvas, keyboard, sound);
+}
 
 window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight" || event.key === "d") {
@@ -102,7 +116,7 @@ function startGame() {
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
     if (!sound.isMuted) sound.sounds.gameSound.play();
-    init();
+    initGame();
 }
 
 document.getElementById("startGame").addEventListener("click", startGame);
@@ -117,11 +131,11 @@ function restartGame() {
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
     sound.play('button');
-    init();
+    initGame();
 }
 
 function registerButtonSounds() {
-    const buttons = [ "homeIcon", "fullscreenIcon", "miniscreenIcon", "soundIconOff", "soundIconOn"];
+    const buttons = [ "homeIcon", "fullscreenIcon", "miniscreenIcon"];
     buttons.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
