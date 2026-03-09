@@ -14,6 +14,7 @@ function initApp() {
     setupDialog();
     setupSound();
     setupSoundButtons();
+    initMobileControls();
 }
 
 window.addEventListener("load", initApp);
@@ -52,6 +53,20 @@ function initGame() {
     initLevel();
     keyboard = new Keyboard();
     world = new World(canvas, keyboard, sound);
+}
+
+function initMobileControls() {
+    bindButton("mobileButtonLeft", "LEFT");
+    bindButton("mobileButtonRight", "RIGHT");
+    bindButton("mobileButtonUp", "UP");
+    bindButton("mobileButtonThrow", "THROW");
+}
+
+function bindButton(buttonId, key) {
+    const button = document.getElementById(buttonId);
+    button.addEventListener("pointerdown", (e) => { e.preventDefault(); keyboard[key] = true; });
+    button.addEventListener("pointerup", () => { keyboard[key] = false; });
+    button.addEventListener("pointerleave", () => { keyboard[key] = false; });
 }
 
 window.addEventListener("keydown", (event) => {

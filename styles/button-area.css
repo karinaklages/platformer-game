@@ -15,15 +15,10 @@
     gap: 20px;
 }
 
-/* .icon-area-middle {
-    width: 700px;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-} */
+.icon-area-middle {
+    touch-action: none;
+    user-select: none;
+}
 
 .icon-area-right {
     width: 100%;
