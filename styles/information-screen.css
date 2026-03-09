@@ -19,6 +19,14 @@
     z-index: -1;
 }
 
+.content-game-information .beige-background-game-information-small {
+    position: absolute;
+    width: 56%;
+    height: auto;
+    z-index: -1;
+    display: none;
+}
+
 .content-game-information .button {
     display: flex;
     align-items: center;
@@ -105,5 +113,5 @@ td:first-child {
     color: rgb(62, 57, 53);
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 18px;
+    font-size: 17px;
 }
