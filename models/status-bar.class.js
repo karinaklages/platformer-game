@@ -30,9 +30,6 @@ const COIN_IMAGES = [
  * Extends DrawableObject for rendering on the canvas.
  */
 class StatusBar extends DrawableObject { 
-    /**
-     * Current percentage value displayed by the status bar.
-     */
     percentage = 100;
 
     /**
