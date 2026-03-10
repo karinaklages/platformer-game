@@ -14,6 +14,12 @@ function initApp() {
     setupDialog();
     setupSound();
     setupSoundButtons();
+}
+
+function initGame() {
+    initLevel();
+    keyboard = new Keyboard();
+    world = new World(canvas, keyboard, sound);
     initMobileControls();
 }
 
@@ -47,12 +53,6 @@ function setupSoundButtons() {
         .addEventListener("click", () => sound.toggleMute());
     document.getElementById("soundIconOn")
         .addEventListener("click", () => sound.toggleMute());
-}
-
-function initGame() {
-    initLevel();
-    keyboard = new Keyboard();
-    world = new World(canvas, keyboard, sound);
 }
 
 function initMobileControls() {
