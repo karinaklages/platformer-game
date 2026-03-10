@@ -51,10 +51,8 @@ function setupSound() {
 }
 
 function setupSoundButtons() {
-    document.getElementById("soundIconOff")
-        .addEventListener("click", () => sound.toggleMute());
-    document.getElementById("soundIconOn")
-        .addEventListener("click", () => sound.toggleMute());
+    document.getElementById("soundIconOff").addEventListener("click", () => sound.toggleMute());
+    document.getElementById("soundIconOn").addEventListener("click", () => sound.toggleMute());
 }
 
 function initMobileControls() {

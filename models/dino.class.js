@@ -2,8 +2,9 @@ class Dino extends MovableObject {
     width = 100;
     height = 100;
     state = 'walk';
-    energy = 5;
     currentImage = 0;
+    inDeadAnimation = false;
+    deleteImages = false;
 
     offset = {
         top: 25,
@@ -36,6 +37,8 @@ class Dino extends MovableObject {
 
     constructor() {
         super();
+        this.world = world;
+        this.energy = 8;
         this.loadImage('img/dino/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_ATTACK);
@@ -48,6 +51,10 @@ class Dino extends MovableObject {
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
+            if (this.isDead()) {
+                this.state = 'dead';
+                return;
+            }
             if (this.state === 'walk') {
                 this.moveLeft();
             }
@@ -56,12 +63,31 @@ class Dino extends MovableObject {
             }
         }, 1000 / 60);
         this.addInterval(() => {
-            if (this.state === 'attack') {
+            if (this.state === 'dead' && !this.deleteImages) {
+                this.enemyDeadAnimation();
+            }
+            else if (this.state === 'attack') {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
             else if (this.state === 'walk') {
                 this.playAnimation(this.IMAGES_WALK);
             }
         }, 170);
+    }
+
+    enemyDeadAnimation() {
+        if (!this.inDeadAnimation) {
+            this.currentImage = 0;
+            this.inDeadAnimation = true;
+            this.state = 'dead';
+        }
+        if (this.currentImage < this.IMAGES_DEAD.length) {
+            let path = this.IMAGES_DEAD[this.currentImage];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+            sound.play('dinoDeath');
+        } else {
+            this.deleteImages = true;
+        }
     }
 }

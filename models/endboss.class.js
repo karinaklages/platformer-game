@@ -2,8 +2,9 @@ class Endboss extends MovableObject {
     width = 200;
     height = 200;
     state = 'magic';
-    energy = 12;
     currentImage = 0;
+    inDeadAnimation = false;
+    deleteImages = false;
 
     offset = {
         top: 60,
@@ -47,6 +48,8 @@ class Endboss extends MovableObject {
 
     constructor() {
         super();
+        this.world = world;
+        this.energy = 12;
         this.loadImage('img/boss/magic_lightning1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_MAGIC_LIGHTNING);

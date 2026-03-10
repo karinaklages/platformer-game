@@ -2,8 +2,9 @@ class Bear extends MovableObject {
     width = 120;
     height = 120;
     state = 'walk';
-    energy = 7;
     currentImage = 0;
+    inDeadAnimation = false;
+    deleteImages = false;
 
     offset = {
         top: 50,
@@ -40,6 +41,8 @@ class Bear extends MovableObject {
 
     constructor() {
         super();
+        this.world = world;
+        this.energy = 10;
         this.loadImage('img/bear/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_IDLE);
@@ -53,6 +56,10 @@ class Bear extends MovableObject {
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
+            if (this.isDead()) {
+                this.state = 'dead';
+                return;
+            }
             if (this.state === 'walk') {
                 this.moveLeft();
             }
@@ -61,7 +68,10 @@ class Bear extends MovableObject {
             }
         }, 1000 / 60);
         this.addInterval(() => {
-            if (this.state === 'attack') {
+            if (this.state === 'dead' && !this.deleteImages) {
+                this.enemyDeadAnimation();
+            }
+            else if (this.state === 'attack') {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
             else if (this.state === 'walk') {
@@ -80,5 +90,21 @@ class Bear extends MovableObject {
                 this.state = 'walk';
             }
         }, 3000);
+    }
+
+    enemyDeadAnimation() {
+        if (!this.inDeadAnimation) {
+            this.currentImage = 0;
+            this.inDeadAnimation = true;
+            this.state = 'dead';
+        }
+        if (this.currentImage < this.IMAGES_DEAD.length) {
+            let path = this.IMAGES_DEAD[this.currentImage];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+            sound.play('bearDeath');
+        } else {
+            this.deleteImages = true;
+        }
     }
 }

@@ -3,6 +3,13 @@
  * Inherits from MovableObject and handles its own movement and gravity.
  */
 class ThrowableObject extends MovableObject {
+    offset = {
+        top: 5,
+        left: 5,
+        right: 5,
+        bottom: 5
+    };
+
     /**
      * Creates a new ThrowableObject instance and initiates its throw action.
      */
@@ -21,10 +28,10 @@ class ThrowableObject extends MovableObject {
      * Initiates the throw action, applying gravity and moving the object in the specified direction.
      */
     throw() {
-        this.speedY = 30;
+        this.speedY = 27;
         this.applyGravity();
         this.addInterval(() => {
-            this.x += 10 * this.direction; 
+            this.x += 8 * this.direction; 
         }, 25);
     }
 }

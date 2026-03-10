@@ -14,7 +14,10 @@ class Sound {
             collision: this.createSound('audio/floraphonic-collision.mp3', 0.6),
             gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.7),
             button: this.createSound('audio/floraphonic-arcade-click.mp3', 1.0),
-            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9)
+            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9),
+            spiderDeath: this.createSound('audio/floraphonic-animal-squeak.mp3', 0.7),
+            dinoDeath: this.createSound('audio/floraphonic-animal-dying.mp3', 0.8),
+            bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.9)
         };
     }
 

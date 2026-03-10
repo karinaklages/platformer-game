@@ -115,11 +115,13 @@ class World {
         this.runInterval = setInterval(() => {
             this.checkCollisions();
             this.checkThrowObjects();
+            this.level.enemies = this.level.enemies.filter(e => !e.deleteImages);
         }, 100);
     }
 
     checkCollisions() {
         if (this.gameOver) return;
+        // Character vs Enemy
         this.level.enemies.forEach((enemy) => {
             if(this.character.isColliding(enemy)) {
                 this.character.hit();
@@ -130,6 +132,22 @@ class World {
                 }
             }
         });
+        // Offset
+        this.throwableObjects.forEach((crystal, cIndex) => {
+            this.level.enemies.forEach(enemy => {
+                const collides = (
+                    crystal.x + crystal.width > enemy.x + enemy.offset.left &&
+                    crystal.x < enemy.x + enemy.width - enemy.offset.right &&
+                    crystal.y + crystal.height > enemy.y + enemy.offset.top &&
+                    crystal.y < enemy.y + enemy.height - enemy.offset.bottom
+                );
+                if (collides) {
+                    enemy.hit();
+                    this.throwableObjects.splice(cIndex, 1);
+                }
+            });
+        });
+        // Coins
         this.level.coins.forEach((coin, index) => {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(index, 1);
@@ -137,12 +155,13 @@ class World {
                 if (this.sound) this.sound.play('collect');
             }
         });
+        // Crystals
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
                 this.availableCrystals += 1;
-                this.statusBarCrystal.setPercentage(Math.min(this.availableCrystals * 20, 100)); 
-                if (this.sound) this.sound.play('collect');   
+                this.statusBarCrystal.setPercentage(Math.min(this.availableCrystals * 20, 100));
+                if (this.sound) this.sound.play('collect');
             }
         });
     }
