@@ -21,6 +21,8 @@ function initGame() {
     keyboard = new Keyboard();
     world = new World(canvas, keyboard, sound);
     initMobileControls();
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 }
 
 window.addEventListener("load", initApp);
@@ -69,49 +71,25 @@ function bindButton(buttonId, key) {
     button.addEventListener("pointerleave", () => { keyboard[key] = false; });
 }
 
-window.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight" || event.key === "d") {
-        keyboard.RIGHT = true;
-    } 
-    if (event.key === "ArrowLeft" || event.key === "a") {
-        keyboard.LEFT = true;
-    } 
-    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") {
-        keyboard.UP = true;
-    }
-    if (event.key === "ArrowDown" || event.key === "s") {
-        keyboard.DOWN = true;
-    }
-    if (event.key === "f") {
-        keyboard.THROW = true;
-    }
-    if (event.key === "Space") {
-        keyboard.SPACE = true;
-    }
-    // console.log(keyboard);
-});
+function handleKeyDown(event) {
+    if (!keyboard) return;
+    if (event.key === "ArrowRight" || event.key === "d") keyboard.RIGHT = true;
+    if (event.key === "ArrowLeft" || event.key === "a") keyboard.LEFT = true;
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") keyboard.UP = true;
+    if (event.key === "ArrowDown" || event.key === "s") keyboard.DOWN = true;
+    if (event.key === "f") keyboard.THROW = true;
+    if (event.key === "Space") keyboard.SPACE = true;
+}
 
-window.addEventListener("keyup", (event) => {
-    if (event.key === "ArrowRight" || event.key === "d") {
-        keyboard.RIGHT = false;
-    } 
-    if (event.key === "ArrowLeft" || event.key === "a") {
-        keyboard.LEFT = false;
-    } 
-    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") {
-        keyboard.UP = false;
-    }
-    if (event.key === "ArrowDown" || event.key === "s") {
-        keyboard.DOWN = false;
-    }
-    if (event.key === "f") {
-        keyboard.THROW = false;
-    }
-    if (event.key === "Space") {
-        keyboard.SPACE = false;
-    }
-    // console.log(keyboard);
-});
+function handleKeyUp(event) {
+    if (!keyboard) return;
+    if (event.key === "ArrowRight" || event.key === "d") keyboard.RIGHT = false;
+    if (event.key === "ArrowLeft" || event.key === "a") keyboard.LEFT = false;
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") keyboard.UP = false;
+    if (event.key === "ArrowDown" || event.key === "s") keyboard.DOWN = false;
+    if (event.key === "f") keyboard.THROW = false;
+    if (event.key === "Space") keyboard.SPACE = false;
+}
 
 function showGameInformation() {
     const startContent = document.querySelector(".content-start");
