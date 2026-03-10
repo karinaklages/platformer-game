@@ -184,7 +184,6 @@ function closeDialog() {
     sound.play('button');
 }
 
-
 function fullscreen() {
     const fullscreen = document.getElementById("fullscreen");
     enterFullscreen(fullscreen);

@@ -2,6 +2,8 @@ class Endboss extends MovableObject {
     width = 200;
     height = 200;
     state = 'magic';
+    energy = 12;
+    currentImage = 0;
 
     offset = {
         top: 60,
@@ -33,6 +35,14 @@ class Endboss extends MovableObject {
         'img/boss/attack5.png',
         'img/boss/attack6.png',
         'img/boss/attack7.png'
+    ];
+    IMAGES_DEAD = [
+        'img/boss/death1.png',
+        'img/boss/death2.png',
+        'img/boss/death3.png',
+        'img/boss/death4.png',
+        'img/boss/death5.png',
+        'img/boss/death6.png'
     ];
 
     constructor() {

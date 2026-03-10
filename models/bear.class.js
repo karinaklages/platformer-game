@@ -2,6 +2,8 @@ class Bear extends MovableObject {
     width = 120;
     height = 120;
     state = 'walk';
+    energy = 7;
+    currentImage = 0;
 
     offset = {
         top: 50,
@@ -28,6 +30,12 @@ class Bear extends MovableObject {
         'img/bear/attack3.png',
         'img/bear/attack4.png',
         'img/bear/attack5.png'
+    ];
+    IMAGES_DEAD = [
+        'img/bear/death1.png',
+        'img/bear/death2.png',
+        'img/bear/death3.png',
+        'img/bear/death4.png'
     ];
 
     constructor() {

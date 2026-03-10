@@ -2,6 +2,8 @@ class Dino extends MovableObject {
     width = 100;
     height = 100;
     state = 'walk';
+    energy = 5;
+    currentImage = 0;
 
     offset = {
         top: 25,
@@ -22,6 +24,14 @@ class Dino extends MovableObject {
         'img/dino/attack3.png',
         'img/dino/attack4.png',
         'img/dino/attack5.png'
+    ];
+    IMAGES_DEAD = [
+        'img/dino/death1.png',
+        'img/dino/death2.png',
+        'img/dino/death3.png',
+        'img/dino/death4.png',
+        'img/dino/death5.png',
+        'img/dino/death6.png'
     ];
 
     constructor() {
