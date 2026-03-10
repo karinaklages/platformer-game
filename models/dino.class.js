@@ -39,6 +39,7 @@ class Dino extends MovableObject {
         this.loadImage('img/dino/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_ATTACK);
+        this.loadImages(this.IMAGES_DEAD);
         this.x = 1200 + Math.random() * 800;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 434;
