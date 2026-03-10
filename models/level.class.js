@@ -1,3 +1,6 @@
+/**
+ * Represents a game level containing all objects and entities.
+ */
 class Level {
     enemies;
     clouds;
@@ -9,6 +12,9 @@ class Level {
     crystals;
     level_end_x = 2800;
 
+    /**
+     * Creates a new Level instance.
+     */
     constructor(enemies, clouds, backgroundObjects, groundTiles, flyingTiles, natureObjects, coins, crystals) {
         this.enemies = enemies;
         this.clouds = clouds;
