@@ -2,6 +2,8 @@ class Spider extends MovableObject {
     width = 100;
     height = 100;
     state = 'walk';
+    energy = 2;
+    currentImage = 0;
 
     offset = {
         top: 30,
@@ -23,12 +25,21 @@ class Spider extends MovableObject {
         'img/spider/attack2.png',
         'img/spider/attack3.png'
     ];
+    IMAGES_DEAD = [
+        'img/spider/death1.png',
+        'img/spider/death2.png',
+        'img/spider/death3.png',
+        'img/spider/death4.png'
+    ];
 
-    constructor() {
+    constructor(world) {
         super();
+        this.world = world;
         this.loadImage('img/spider/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_ATTACK);
+        this.loadImages(this.IMAGES_DEAD);
+        this.animate();
         this.x = 400 + Math.random() * 500;
         this.speed = 0.15 + Math.random() * 0.4; 
         this.y = 436;
@@ -37,6 +48,7 @@ class Spider extends MovableObject {
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
+            if (this.state === 'dead') return;
             if (this.state === 'walk') {
                 this.moveLeft();
             }
@@ -45,7 +57,10 @@ class Spider extends MovableObject {
             }
         }, 1000 / 60);
         this.addInterval(() => {
-            if (this.state === 'attack') {
+            if (this.state === 'dead') {
+                this.playDeadAnimation();
+            }
+            else if (this.state === 'attack') {
                 this.playAnimation(this.IMAGES_ATTACK);
             }
             else if (this.state === 'walk') {

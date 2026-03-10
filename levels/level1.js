@@ -3,16 +3,16 @@ let level1;
 function initLevel() {
     level1 = new Level(
         [
-        new Spider(),
-        new Spider(),
-        new Spider(),
-        new Dino(),
-        new Dino(),
-        new Dino(),
-        new Dino(),
-        new Bear(),
-        new Bear(),
-        new Endboss()
+        new Spider(this),
+        new Spider(this),
+        new Spider(this),
+        new Dino(this),
+        new Dino(this),
+        new Dino(this),
+        new Dino(this),
+        new Bear(this),
+        new Bear(this),
+        new Endboss(this)
         ],
         [
         new Clouds()
