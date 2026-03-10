@@ -1,4 +1,10 @@
+/**
+ * Handles all game sound effects and background music.
+ */
 class Sound {
+    /**
+     * Initializes the sound system and loads all audio files.
+     */
     constructor() {
         this.isMuted = false;
         this.sounds = {
@@ -12,12 +18,18 @@ class Sound {
         };
     }
 
+    /**
+     * Creates an audio object with the given path and volume.
+     */
     createSound(path, volume) {
         const sound = new Audio(path);
         sound.volume = volume;
         return sound;
     }
 
+    /**
+     * Plays a sound by its name.
+     */
     play(name) {
         const sound = this.sounds[name];
         if (!sound) return;
@@ -26,6 +38,9 @@ class Sound {
         sound.play();
     }
 
+    /**
+     * Toggles the mute state for all sounds and updates the sound icon.
+     */
     toggleMute() {
         this.isMuted = !this.isMuted;
         const onIcon = document.getElementById('soundIconOn');

@@ -25,9 +25,19 @@ const COIN_IMAGES = [
     'img/ui/coin-100.png'
 ];
 
+/**
+ * StatusBar displays a visual indicator (hearts, coins, crystals) for a given percentage value.
+ * Extends DrawableObject for rendering on the canvas.
+ */
 class StatusBar extends DrawableObject { 
+    /**
+     * Current percentage value displayed by the status bar.
+     */
     percentage = 100;
 
+    /**
+     * Creates a new StatusBar instance.
+     */
     constructor(images, x, y, width, height, initialPercentage = 0) {
         super();
         this.images = images;
@@ -40,12 +50,18 @@ class StatusBar extends DrawableObject {
         this.setPercentage(initialPercentage);
     }
 
+    /**
+     * Sets the percentage value and updates the displayed image.
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         const path = this.images[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
     
+    /**
+     * Resolves the image index based on the current percentage.
+     */
     resolveImageIndex() {
         if (this.percentage >= 100) return 5;
         if (this.percentage >= 80) return 4;

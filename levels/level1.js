@@ -1,5 +1,9 @@
 let level1;
 
+/**
+ * Initializes level 1 with all enemies, objects, tiles, coins, and crystals.
+ * Sets up the level1 variable with a new Level instance.
+ */
 function initLevel() {
     level1 = new Level(
         [
@@ -143,6 +147,9 @@ function initLevel() {
         ]
     );
 
+    /**
+     * Creates the ground tiles for the level.
+     */
     function createGroundTiles() {
         const tileWidth = 50;
         const tileHeight = 50;
