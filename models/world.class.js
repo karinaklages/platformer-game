@@ -29,33 +29,6 @@ class World {
         this.run();
     }
 
-    // draw() {
-    //     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    //     this.ctx.translate(this.camera_x, 0);
-    //     this.addObjectsToMap(this.level.backgroundObjects);
-    //     this.addObjectsToMap(this.level.clouds);
-    //     this.addObjectsToMap(this.level.groundTiles);
-    //     this.addObjectsToMap(this.level.flyingTiles);
-    //     this.addObjectsToMap(this.level.natureObjects);
-    //     this.addToMap(this.character);
-    //     this.addObjectsToMap(this.throwableObjects);
-    //     this.addObjectsToMap(this.level.enemies);
-    //     this.addObjectsToMap(this.level.coins);
-    //     this.addObjectsToMap(this.level.crystals);
-    //     this.ctx.translate(-this.camera_x, 0);
-    //     this.addToMap(this.statusBarHeart);
-    //     this.addToMap(this.statusBarCoin);
-    //     this.addToMap(this.statusBarCrystal);
-    //     requestAnimationFrame(() => this.draw()); 
-
-    //     if (this.gameOver) {
-    //         this.ctx.font = "42px VT323";
-    //         this.ctx.fillStyle = "rgb(62, 57, 53)";
-    //         this.ctx.textAlign = "center";
-    //         this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
-    //     }  
-    // }
-
     draw() {
         if (this.gameOver) {
             if (!this.character.deadAnimationFinished) {
