@@ -71,12 +71,18 @@ class Endboss extends MovableObject {
                 return;
             }
             if (this.state === 'walk') {
-                this.moveLeft();
+                if (this.world.character.x < this.x) {
+                    this.moveLeft();
+                    this.otherDirection = false;
+                } else {
+                    this.moveRight();
+                    this.otherDirection = true;
+                }
             }
         }, 1000 / 400);
         this.addInterval(() => {
             if (this.state === 'dead' && !this.deleteImages) {
-                this.enemyDeadAnimation();
+                this.endbossDeadAnimation();
             }
             else if (this.state === 'magic') {
                 this.playAnimation(this.IMAGES_MAGIC_LIGHTNING);
@@ -95,6 +101,7 @@ class Endboss extends MovableObject {
         this.addInterval(() => {
             if (!this.isDead() && this.isCollidingWithCharacter()) {
                 this.startAttack();
+                sound.play('fight');
             }
         }, 100);
     }
@@ -110,11 +117,12 @@ class Endboss extends MovableObject {
         );
     }
 
-    enemyDeadAnimation() {
+    endbossDeadAnimation() {
         if (!this.inDeadAnimation) {
             this.currentImage = 0;
             this.inDeadAnimation = true;
             this.state = 'dead';
+            sound.play('endbossDeath');
         }
         if (this.currentImage < this.IMAGES_DEAD.length) {
             let path = this.IMAGES_DEAD[this.currentImage];

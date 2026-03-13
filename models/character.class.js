@@ -120,19 +120,6 @@ class Character extends MovableObject {
         }, 80);
     }
 
-    // startFight(endboss) {
-    //     if (this.isFighting) return;
-    //     this.isFighting = true;
-    //     this.addInterval(() => {
-    //         if (!this.isColliding(endboss) || endboss.isDead()) {
-    //             this.isFighting = false;
-    //             return;
-    //         }
-    //         this.hit();
-    //         endboss.hit();
-    //     }, 800);
-    // }
-
     startFight(endboss) {
         if (this.isFighting) return;
         this.isFighting = true;
