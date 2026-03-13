@@ -104,6 +104,9 @@ class Endboss extends MovableObject {
                 sound.play('fight');
             }
         }, 100);
+        this.addInterval(() => {
+            this.checkPlayerHit(this.world.character);
+        }, 100);
     }
 
     isCollidingWithCharacter() {
@@ -115,6 +118,12 @@ class Endboss extends MovableObject {
             this.y + this.height - this.offset.bottom > c.y + c.offset.top &&
             this.y + this.offset.top < c.y + c.height - c.offset.bottom
         );
+    }
+
+    checkPlayerHit(player) {
+        if (player.isAttacking && this.isCollidingWithCharacter()) {
+            this.fightEndboss();
+        }
     }
 
     endbossDeadAnimation() {
@@ -130,6 +139,18 @@ class Endboss extends MovableObject {
             this.currentImage++;
         } else {
             this.deleteImages = true;
+        }
+    }
+
+    fightEndboss() {
+        const damage = 2;
+        this.energy -= damage;
+        if (this.energy <= 0) {
+            this.energy = 0;
+            this.state = 'dead';
+            this.endbossDeadAnimation();
+        } else {
+            this.lastHit = new Date().getTime();
         }
     }
 }
