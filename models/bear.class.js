@@ -42,7 +42,7 @@ class Bear extends MovableObject {
     constructor() {
         super();
         this.world = world;
-        this.energy = 10;
+        this.energy = 16;
         this.loadImage('img/bear/walk1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_IDLE);
