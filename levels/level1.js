@@ -156,11 +156,9 @@ function initLevel() {
         const y = 490;
         const level_end_x = 2800;
         let tiles = [];
-        const numTiles = Math.ceil(level_end_x + 5 / tileWidth);
-        for (let i = -5; i < numTiles; i++) {
-            tiles.push(
-                new GroundTile("img/tiles_ground/ground_tile07.png", i * tileWidth, y, tileWidth, tileHeight)
-            );
+        const numTiles = Math.ceil((level_end_x + 5) / tileWidth);
+        for (let i = -5; i < numTiles + 20; i++) {
+            tiles.push(new GroundTile("img/tiles_ground/ground_tile07.png", i * tileWidth, y, tileWidth, tileHeight));
         }
         return tiles;
     }
