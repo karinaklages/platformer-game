@@ -5,6 +5,8 @@ class Endboss extends MovableObject {
     currentImage = 0;
     inDeadAnimation = false;
     deleteImages = false;
+    magicTimerStarted = false;
+    canAttack = true;
 
     offset = {
         top: 60,
@@ -64,12 +66,19 @@ class Endboss extends MovableObject {
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
+            if (this.isDead()) {
+                this.state = 'dead';
+                return;
+            }
             if (this.state === 'walk') {
                 this.moveLeft();
             }
         }, 1000 / 400);
         this.addInterval(() => {
-            if (this.state === 'magic') {
+            if (this.state === 'dead' && !this.deleteImages) {
+                this.enemyDeadAnimation();
+            }
+            else if (this.state === 'magic') {
                 this.playAnimation(this.IMAGES_MAGIC_LIGHTNING);
                 if (this.world.character && this.world.character.x > 2750 && !this.magicTimerStarted) {
                     this.magicTimerStarted = true;
@@ -84,21 +93,11 @@ class Endboss extends MovableObject {
             }
         }, 170);
         this.addInterval(() => {
-            if (this.isCollidingWithCharacter()) {
+            if (!this.isDead() && this.isCollidingWithCharacter()) {
                 this.startAttack();
             }
         }, 100);
     }
-
-    // startAttack() {
-    //     if (!this.canAttack) return;
-    //     this.canAttack = false;
-    //     this.state = 'attack';
-    //     this.addTimeout(() => {
-    //         this.state = 'walk';
-    //         this.canAttack = true;
-    //     }, 800);
-    // }
 
     isCollidingWithCharacter() {
         const c = this.world.character;
@@ -109,5 +108,20 @@ class Endboss extends MovableObject {
             this.y + this.height - this.offset.bottom > c.y + c.offset.top &&
             this.y + this.offset.top < c.y + c.height - c.offset.bottom
         );
+    }
+
+    enemyDeadAnimation() {
+        if (!this.inDeadAnimation) {
+            this.currentImage = 0;
+            this.inDeadAnimation = true;
+            this.state = 'dead';
+        }
+        if (this.currentImage < this.IMAGES_DEAD.length) {
+            let path = this.IMAGES_DEAD[this.currentImage];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+        } else {
+            this.deleteImages = true;
+        }
     }
 }

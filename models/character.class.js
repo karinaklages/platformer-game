@@ -2,7 +2,9 @@ class Character extends MovableObject {
     world;
     currentImage = 0;
     speed = 5;
+    isFighting = false;
     deadAnimationFinished = false;
+
 
     offset = {
         top: 50,
@@ -47,6 +49,16 @@ class Character extends MovableObject {
         'img/viking/hurt3.png',
         'img/viking/hurt4.png'
     ];
+    IMAGES_FIGHT = [
+        'img/viking/attack1.png',
+        'img/viking/attack2.png',
+        'img/viking/attack3.png',
+        'img/viking/attack4.png',
+        'img/viking/attack5.png',
+        'img/viking/attack6.png',
+        'img/viking/attack7.png',
+        'img/viking/attack8.png'
+    ];
     IMAGES_DEAD = [
         'img/viking/death1.png',
         'img/viking/death2.png',
@@ -63,6 +75,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_JUMP);
         this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_FIGHT);
         this.loadImages(this.IMAGES_DEAD);
         this.applyGravity();
         this.animate();
@@ -95,6 +108,8 @@ class Character extends MovableObject {
                 return;
             } else if(this.isHurt()){
                 this.playAnimation(this.IMAGES_HURT);
+            } else if(this.isFighting){
+                this.playAnimation(this.IMAGES_FIGHT);
             } else if(this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMP);
             } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
@@ -103,6 +118,36 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_IDLE);
             }
         }, 80);
+    }
+
+    // startFight(endboss) {
+    //     if (this.isFighting) return;
+    //     this.isFighting = true;
+    //     this.addInterval(() => {
+    //         if (!this.isColliding(endboss) || endboss.isDead()) {
+    //             this.isFighting = false;
+    //             return;
+    //         }
+    //         this.hit();
+    //         endboss.hit();
+    //     }, 800);
+    // }
+
+    startFight(endboss) {
+        if (this.isFighting) return;
+        this.isFighting = true;
+        this.addInterval(() => {
+            if (!this.isColliding(endboss) || endboss.isDead() || this.isDead()) {
+                this.isFighting = false;
+                return;
+            }
+            this.hit();
+            endboss.hit();
+            this.world.statusBarHeart.setPercentage(this.energy);
+            if (endboss.isDead()) {
+                this.isFighting = false;
+            }
+        }, 800);
     }
 
     playDeadAnimation() {
