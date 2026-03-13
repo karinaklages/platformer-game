@@ -95,18 +95,8 @@ class World {
     checkCollisions() {
         if (this.gameOver) return;
         // Character vs Enemy
-        // this.level.enemies.forEach((enemy) => {
-        //     if(this.character.isColliding(enemy)) {
-        //         this.character.hit();
-        //         this.statusBarHeart.setPercentage(this.character.energy);
-        //         if (this.sound) this.sound.play('collision');
-        //         if (this.character.isDead()) {
-        //             this.triggerGameOver();
-        //         }
-        //     }
-        // });
-            this.level.enemies.forEach((enemy) => {
-                if(this.character.isColliding(enemy)) {
+        this.level.enemies.forEach((enemy) => {
+            if(this.character.isColliding(enemy)) {
                     if (enemy instanceof Endboss) {
                     this.character.startFight(enemy);
                 } 

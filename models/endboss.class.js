@@ -1,3 +1,6 @@
+/**
+ * Represents the Endboss enemy in the game.
+ */
 class Endboss extends MovableObject {
     width = 200;
     height = 200;
@@ -7,6 +10,7 @@ class Endboss extends MovableObject {
     deleteImages = false;
     magicTimerStarted = false;
     canAttack = true;
+    DEATH_SOUND = 'endbossDeath';
 
     offset = {
         top: 60,
@@ -48,7 +52,10 @@ class Endboss extends MovableObject {
         'img/boss/death6.png'
     ];
 
-    constructor() {
+    /**
+     * Creates a new Endboss instance.
+     */
+    constructor(world) {
         super();
         this.world = world;
         this.energy = 20;
@@ -63,52 +70,28 @@ class Endboss extends MovableObject {
         this.canAttack = true;
     }
 
+    /**
+     * Starts the animation intervals for the endboss.
+     */
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
-            if (this.isDead()) {
-                this.state = 'dead';
-                return;
-            }
-            if (this.state === 'walk') {
-                if (this.world.character.x < this.x) {
-                    this.moveLeft();
-                    this.otherDirection = false;
-                } else {
-                    this.moveRight();
-                    this.otherDirection = true;
-                }
-            }
+            this.handleEndbossStartAnimation();
         }, 1000 / 400);
         this.addInterval(() => {
-            if (this.state === 'dead' && !this.deleteImages) {
-                this.endbossDeadAnimation();
-            }
-            else if (this.state === 'magic') {
-                this.playAnimation(this.IMAGES_MAGIC_LIGHTNING);
-                if (this.world.character && this.world.character.x > 2750 && !this.magicTimerStarted) {
-                    this.magicTimerStarted = true;
-                    this.addTimeout(() => {
-                        this.state = 'walk';
-                    }, 500);
-                }
-            } else if (this.state === 'walk') {
-                this.playAnimation(this.IMAGES_WALK);
-            } else if (this.state === 'attack') {
-                this.playAnimation(this.IMAGES_ATTACK);
-            }
+            this.handleEndbossStateAnimation();
         }, 170);
         this.addInterval(() => {
-            if (!this.isDead() && this.isCollidingWithCharacter()) {
-                this.startAttack();
-                sound.play('fight');
-            }
+            this.endbossAttackAnimation();
         }, 100);
         this.addInterval(() => {
             this.checkPlayerHit(this.world.character);
         }, 100);
     }
 
+    /**
+     * Checks collision with the character.
+     */
     isCollidingWithCharacter() {
         const c = this.world.character;
         if (!c) return false;
@@ -120,12 +103,28 @@ class Endboss extends MovableObject {
         );
     }
 
+    /**
+     * Checks if the player hits the endboss.
+     */
     checkPlayerHit(player) {
         if (player.isAttacking && this.isCollidingWithCharacter()) {
             this.fightEndboss();
         }
     }
 
+    /**
+     * Handles the endboss attack animation.
+     */
+    endbossAttackAnimation() {
+        if (!this.isDead() && this.isCollidingWithCharacter()) {
+            this.startAttack();
+            sound.play('fight');
+        }
+    }
+
+    /**
+     * Handles the endboss dead animation.
+     */
     endbossDeadAnimation() {
         if (!this.inDeadAnimation) {
             this.currentImage = 0;
@@ -142,6 +141,9 @@ class Endboss extends MovableObject {
         }
     }
 
+    /**
+     * Handles the fight logic for the endboss.
+     */
     fightEndboss() {
         const damage = 2;
         this.energy -= damage;

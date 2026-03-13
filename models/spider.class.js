@@ -1,3 +1,6 @@
+/**
+ * Represents a Spider enemy in the game.
+ */
 class Spider extends MovableObject {
     width = 100;
     height = 100;
@@ -5,6 +8,7 @@ class Spider extends MovableObject {
     currentImage = 0;
     inDeadAnimation = false;
     deleteImages = false;
+    DEATH_SOUND = 'spiderDeath';
 
     offset = {
         top: 30,
@@ -33,6 +37,9 @@ class Spider extends MovableObject {
         'img/spider/death4.png'
     ];
 
+    /**
+     * Creates a new Spider instance.
+     */
     constructor(world) {
         super();
         this.world = world;
@@ -47,46 +54,16 @@ class Spider extends MovableObject {
         this.animate();
     }
 
+    /**
+     * Starts the animation intervals for the spider.
+     */
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
-            if (this.isDead()) {
-                this.state = 'dead';
-                return;
-            }
-            if (this.state === 'walk') {
-                this.moveLeft();
-            }
-            if (this.world.character && this.isColliding(this.world.character)) {
-                this.startAttack();
-            }
+            this.handleStartAnimation();
         }, 1000 / 60);
         this.addInterval(() => {
-            if (this.state === 'dead' && !this.deleteImages) {
-                this.enemyDeadAnimation();
-            }
-            else if (this.state === 'attack') {
-                this.playAnimation(this.IMAGES_ATTACK);
-            }
-            else if (this.state === 'walk') {
-                this.playAnimation(this.IMAGES_WALK);
-            }
+            this.handleStateAnimation();
         }, 170);
-    }
-
-    enemyDeadAnimation() {
-        if (!this.inDeadAnimation) {
-            this.currentImage = 0;
-            this.inDeadAnimation = true;
-            this.state = 'dead';
-        }
-        if (this.currentImage < this.IMAGES_DEAD.length) {
-            let path = this.IMAGES_DEAD[this.currentImage];
-            this.img = this.imageCache[path];
-            this.currentImage++;
-            sound.play('spiderDeath');
-        } else {
-            this.deleteImages = true;
-        }
     }
 }

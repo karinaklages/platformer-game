@@ -1,3 +1,6 @@
+/**
+ * Represents a Bear enemy in the game.
+ */
 class Bear extends MovableObject {
     width = 120;
     height = 120;
@@ -5,6 +8,7 @@ class Bear extends MovableObject {
     currentImage = 0;
     inDeadAnimation = false;
     deleteImages = false;
+    DEATH_SOUND = 'bearDeath';
 
     offset = {
         top: 50,
@@ -39,7 +43,10 @@ class Bear extends MovableObject {
         'img/bear/death4.png'
     ];
 
-    constructor() {
+    /**
+     * Creates a new Bear instance.
+     */
+    constructor(world) {
         super();
         this.world = world;
         this.energy = 16;
@@ -53,58 +60,19 @@ class Bear extends MovableObject {
         this.y = 398;
     }
 
+    /**
+     * Starts the animation intervals for the bear.
+     */
     animate() {
         if (this.world.gameOver) return;
         this.addInterval(() => {
-            if (this.isDead()) {
-                this.state = 'dead';
-                return;
-            }
-            if (this.state === 'walk') {
-                this.moveLeft();
-            }
-            if (this.world.character && this.isColliding(this.world.character)) {
-                this.startAttack();
-            }
+            this.handleBearStartAnimation();
         }, 1000 / 60);
         this.addInterval(() => {
-            if (this.state === 'dead' && !this.deleteImages) {
-                this.enemyDeadAnimation();
-            }
-            else if (this.state === 'attack') {
-                this.playAnimation(this.IMAGES_ATTACK);
-            }
-            else if (this.state === 'walk') {
-                this.playAnimation(this.IMAGES_WALK);
-            }
-            else if (this.state === 'idle') {
-                this.playAnimation(this.IMAGES_IDLE);
-            }
+            this.handleBearStateAnimation();
         }, 170);
         this.addInterval(() => {
-            if (this.state === 'attack') return;
-            let random = Math.random();
-            if (random < 0.3) {
-                this.state = 'idle';
-            } else {
-                this.state = 'walk';
-            }
+            this.handleBearAttackAnimation();
         }, 3000);
-    }
-
-    enemyDeadAnimation() {
-        if (!this.inDeadAnimation) {
-            this.currentImage = 0;
-            this.inDeadAnimation = true;
-            this.state = 'dead';
-        }
-        if (this.currentImage < this.IMAGES_DEAD.length) {
-            let path = this.IMAGES_DEAD[this.currentImage];
-            this.img = this.imageCache[path];
-            this.currentImage++;
-            sound.play('bearDeath');
-        } else {
-            this.deleteImages = true;
-        }
     }
 }
