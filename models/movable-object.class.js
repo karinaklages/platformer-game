@@ -216,6 +216,10 @@ class MovableObject extends DrawableObject{
             this.state = 'dead';
             return;
         }
+        if (this.world.character.isDead()) {
+            this.stopAllTimers();
+            return;
+        }
         if (this.state === 'walk') {
             if (this.world.character.x < this.x) {
                 this.moveLeft();
