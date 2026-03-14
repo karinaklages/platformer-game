@@ -142,6 +142,7 @@ class Endboss extends MovableObject {
             this.currentImage++;
         } else {
             this.deleteImages = true;
+            this.showWinnerScreen();
         }
     }
 
@@ -158,5 +159,19 @@ class Endboss extends MovableObject {
         } else {
             this.lastHit = new Date().getTime();
         }
+    }
+
+    /**
+     * Displays the winner screen and sets up button event listeners.
+     */
+    showWinnerScreen() {
+        document.getElementById('contentWinner').classList.remove('d-none');
+        document.getElementById('winnerHomeButton').addEventListener('click', () => {
+            window.location.href = './index.html';
+        });
+        document.getElementById('winnerRestartButton').addEventListener('click', () => {
+            restartGame();
+            document.getElementById('contentWinner').classList.add('d-none');
+        });
     }
 }

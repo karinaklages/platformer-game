@@ -92,29 +92,52 @@ canvas {
     justify-content: center;
 }
 
-.content-start .beige-background {
+.content-winner {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-start .beige-background,
+.content-winner .beige-background {
     position: absolute;
     width: 100%;
     height: auto;
     z-index: -1;
 }
 
-.content-start .button {
+.content-start .button,
+.content-winner .button {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.content-start h1 {
+.content-start h1,
+.content-winner h1 {
     font-size: 34px;
     margin: 0;
 }
 
-.content-start p {
+.content-start p,
+.content-winner p {
     width: 250px;
     font-size: 17px;
     text-align: center;
+}
+
+.winner-button-area {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
 }
 
 .button {
