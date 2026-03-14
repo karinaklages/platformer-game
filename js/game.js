@@ -303,3 +303,18 @@ function enterFullscreen(element) {
     canvas.style.maxWidth = "";
     canvas.style.maxHeight = "";
 }
+
+/**
+ * Draws a debug frame around movable objects for collision visualization.
+ */
+function drawFrame() {
+    if (motive instanceof Character || motive instanceof Spider || motive instanceof Dino || motive instanceof Bear || motive instanceof Endboss) {
+        let offsetLeft = motive.otherDirection ? motive.offset.right : motive.offset.left;
+        let offsetRight = motive.otherDirection ? motive.offset.left : motive.offset.right;
+        this.ctx.beginPath();
+        this.ctx.lineWidth = "2";
+        this.ctx.strokeStyle = "#9446c1";
+        this.ctx.rect(motive.x + offsetLeft, motive.y + motive.offset.top, motive.width - offsetLeft - offsetRight, motive.height - motive.offset.top - motive.offset.bottom);
+        this.ctx.stroke();
+    }
+}
