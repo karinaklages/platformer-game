@@ -58,7 +58,7 @@ class Endboss extends MovableObject {
     constructor(world) {
         super();
         this.world = world;
-        this.energy = 20;
+        this.energy = 24;
         this.loadImage('img/boss/magic_lightning1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_MAGIC_LIGHTNING);

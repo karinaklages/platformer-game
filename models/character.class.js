@@ -1,3 +1,6 @@
+/**
+ * Represents the main character in the game.
+ */
 class Character extends MovableObject {
     world;
     currentImage = 0;
@@ -66,6 +69,9 @@ class Character extends MovableObject {
         'img/viking/death5.png'
     ];
 
+    /**
+     * Creates a new Character instance.
+     */
     constructor(world) {
         super();
         this.world = world; 
@@ -79,7 +85,10 @@ class Character extends MovableObject {
         this.applyGravity();
         this.animate();
     }
-
+    
+    /**
+     * Starts the animation intervals for movement and state updates.
+     */
     animate() {
         this.addInterval(() => {
             if (this.world.gameOver) {
@@ -87,42 +96,66 @@ class Character extends MovableObject {
                 return;
             }
             if (!this.isDead() && !this.world.gameOver) {
-                if (this.world.keyboard.RIGHT && this.x < this.world.level.character_end_x) {
-                    this.moveRight();
-                    this.otherDirection = false;
-                }
-                if (this.world.keyboard.LEFT && this.x > 0) {
-                    this.moveLeft();
-                    this.otherDirection = true;
-                }
-                if (this.world.keyboard.UP && !this.isAboveGround()) {
-                    this.jump();
-                }
-                const logicalWidth = 70;
-                this.world.camera_x = -this.x + 70;
-                if (this.world.camera_x < -(this.world.level.level_end_x - logicalWidth)) {
-                    this.world.camera_x = -(this.world.level.level_end_x - logicalWidth);
-                }
+                this.handleMovement();
+                this.updateCamera();
             }
         }, 1000 / 60);
         this.addInterval(() => {
-            if(this.isDead()){
-                this.playDeadAnimation();
-                return;
-            } else if(this.isHurt()){
-                this.playAnimation(this.IMAGES_HURT);
-            } else if(this.isFighting){
-                this.playAnimation(this.IMAGES_FIGHT);
-            } else if(this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMP);
-            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                this.playAnimation(this.IMAGES_WALK);
-            } else {
-                this.playAnimation(this.IMAGES_IDLE);
-            }
+            this.handleAnimationState();
         }, 80);
     }
 
+    /**
+     * Handles character movement based on keyboard input.
+     */
+    handleMovement() {
+        if (this.world.keyboard.RIGHT && this.x < this.world.level.character_end_x) {
+            this.moveRight();
+            this.otherDirection = false;
+        }
+        if (this.world.keyboard.LEFT && this.x > 0) {
+            this.moveLeft();
+            this.otherDirection = true;
+        }
+        if (this.world.keyboard.UP && !this.isAboveGround()) {
+            this.jump();
+        }
+    }
+
+    /**
+     * Updates the camera position and clamps it to the level boundary.
+     */
+    updateCamera() {
+        const logicalWidth = 70;
+        this.world.camera_x = -this.x + 70;
+        if (this.world.camera_x < -(this.world.level.level_end_x - logicalWidth)) {
+            this.world.camera_x = -(this.world.level.level_end_x - logicalWidth);
+        }
+    }
+
+    /**
+     * Plays the appropriate animation based on the current character state.
+     */
+    handleAnimationState() {
+        if (this.isDead()) {
+            this.playDeadAnimation();
+            return;
+        } else if (this.isHurt()) {
+            this.playAnimation(this.IMAGES_HURT);
+        } else if (this.isFighting) {
+            this.playAnimation(this.IMAGES_FIGHT);
+        } else if (this.isAboveGround()) {
+            this.playAnimation(this.IMAGES_JUMP);
+        } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+            this.playAnimation(this.IMAGES_WALK);
+        } else {
+            this.playAnimation(this.IMAGES_IDLE);
+        }
+    }
+
+    /**
+     * Initiates a fight sequence with the endboss.
+     */
     startFight(endboss) {
         if (this.isFighting) return;
         this.isFighting = true;
@@ -141,6 +174,9 @@ class Character extends MovableObject {
         }, 800);
     }
 
+    /**
+     * Plays the dead animation for the character.
+     */
     playDeadAnimation() {
         if (this.currentImage < this.IMAGES_DEAD.length) {
             let path = this.IMAGES_DEAD[this.currentImage];

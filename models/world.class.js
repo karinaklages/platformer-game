@@ -1,3 +1,6 @@
+/**
+ * Represents the game world, manages game state, rendering, and interactions.
+ */
 class World {
     character;
     level = level1;
@@ -12,6 +15,9 @@ class World {
     gameOver = false;
     availableCrystals = 0;
 
+    /**
+     * Creates a new World instance.
+     */
     constructor (canvas, keyboard, sound) {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
@@ -29,6 +35,9 @@ class World {
         this.run();
     }
 
+    /**
+     * Draws the game world and all objects to the canvas.
+     */
     draw() {
         if (this.gameOver) {
             if (!this.character.deadAnimationFinished) {
@@ -58,6 +67,9 @@ class World {
         this.animationFrameId = requestAnimationFrame(() => this.draw());
     }
 
+    /**
+     * Draws the game over screen.
+     */
     drawGameOverScreen() {
         this.ctx.font = "42px VT323";
         this.ctx.fillStyle = "rgb(62, 57, 53)";
@@ -65,6 +77,9 @@ class World {
         this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
     }
 
+    /**
+     * Sets the world reference for character and enemies.
+     */
     setWorld() {
         this.character.world = this;
         this.level.enemies.forEach(enemy => {
@@ -73,6 +88,9 @@ class World {
         });
     }
 
+    /**
+     * Stops the game loop and all enemy timers.
+     */
     stopGame() {
         clearInterval(this.runInterval);
         cancelAnimationFrame(this.animationFrameId);
@@ -84,6 +102,9 @@ class World {
         this.character.stopAllTimers();
     }
 
+    /**
+     * Starts the game loop interval for collision checks and updates.
+     */
     run() {
         this.runInterval = setInterval(() => {
             this.checkCollisions();
@@ -92,9 +113,21 @@ class World {
         }, 100);
     }
 
+    /**
+     * Checks all collision types in the game world.
+     */
     checkCollisions() {
         if (this.gameOver) return;
-        // Character vs Enemy
+        this.characterEnemyCollision();
+        this.offsetCollision();
+        this.coinsCollision();
+        this.crystalsCollision();
+    }
+
+    /**
+     * Handles collision between character and enemies.
+     */
+    characterEnemyCollision() {
         this.level.enemies.forEach((enemy) => {
             if(this.character.isColliding(enemy)) {
                     if (enemy instanceof Endboss) {
@@ -110,7 +143,12 @@ class World {
                 }
             }
         });
-        // Offset
+    }
+
+    /**
+     * Handles collision between throwable objects and enemies.
+     */
+    offsetCollision() {
         this.throwableObjects.forEach((crystal, cIndex) => {
             this.level.enemies.forEach(enemy => {
                 const collides = (
@@ -124,8 +162,13 @@ class World {
                     this.throwableObjects.splice(cIndex, 1);
                 }
             });
-        });
-        // Coins
+        }); 
+    }
+
+    /**
+     * Handles collision between character and coins.
+     */
+    coinsCollision() {
         this.level.coins.forEach((coin, index) => {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(index, 1);
@@ -133,7 +176,12 @@ class World {
                 if (this.sound) this.sound.play('collect');
             }
         });
-        // Crystals
+    }
+
+    /**
+     * Handles collision between character and crystals.
+     */
+    crystalsCollision() {
         this.level.crystals.forEach((crystal, index) => {
             if (this.character.isColliding(crystal)) {
                 this.level.crystals.splice(index, 1);
@@ -144,6 +192,9 @@ class World {
         });
     }
 
+    /**
+     * Checks if the character can throw objects and handles throwing logic.
+     */
     checkThrowObjects() {
         if (this.gameOver) return;
         if (this.keyboard.THROW && this.availableCrystals > 0 && this.canThrow) {
@@ -160,12 +211,20 @@ class World {
         }
     }
 
+    /**
+     * Adds multiple objects to the map for rendering.
+     * @param {object[]} objects - Array of objects to add.
+     */
     addObjectsToMap(objects) {
         objects.forEach(object => {
             this.addToMap(object);
         });
     }
 
+    /**
+     * Adds a single object to the map, flipping image if needed.
+     * @param {object} motive - The object to add.
+     */
     addToMap(motive) {
         if (motive.otherDirection) {
             this.flipImageLeft(motive);
@@ -174,6 +233,10 @@ class World {
         }
     }
 
+    /**
+     * Flips the motive's image to the left and draws it.
+     * @param {object} motive - The object to flip.
+     */
     flipImageLeft(motive) {
         this.ctx.save();
         let centerX = motive.x + motive.width / 2;
@@ -184,10 +247,17 @@ class World {
         this.ctx.restore();
     }
 
+    /**
+     * Draws the motive's image to the right.
+     * @param {object} motive - The object to draw.
+     */
     flipImageRight(motive) {
         this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
     }
 
+    /**
+     * Triggers the game over state and plays sound.
+     */
     triggerGameOver() {
         this.gameOver = true;
         this.character.speed = 0;

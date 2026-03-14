@@ -1,3 +1,6 @@
+/**
+ * Represents a movable object in the game world.
+ */
 class MovableObject extends DrawableObject{
     intervals = [];
     timeouts = [];
@@ -15,14 +18,24 @@ class MovableObject extends DrawableObject{
         bottom: 0
     };
 
+    /**
+     * Moves the object to the right by its speed.
+     */
     moveRight() {
         this.x += this.speed;
     }
 
+    /**
+     * Moves the object to the left by its speed.
+     */
     moveLeft() {
         this.x -= this.speed;
     }
 
+    /**
+     * Plays an animation from the given images array.
+     * @param {string[]} images - Array of image paths.
+     */
     playAnimation(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
@@ -30,6 +43,9 @@ class MovableObject extends DrawableObject{
         this.currentImage++;
     }
 
+    /**
+     * Applies gravity to the object, updating its vertical position and speed.
+     */
     applyGravity() {
         this.addInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -39,6 +55,9 @@ class MovableObject extends DrawableObject{
         }, 1000 / 25);
     }
 
+    /**
+     * Checks if the object is above the ground.
+     */
     isAboveGround() {
         if(this instanceof ThrowableObject) {
             return true;
@@ -47,6 +66,11 @@ class MovableObject extends DrawableObject{
         }
     }
     
+    /**
+     * Checks if this object is colliding with another motive object.
+     * @param {object} motive - The object to check collision against.
+     * @returns {boolean} True if colliding, otherwise false.
+     */
     isColliding(motive) {
         return (
             this.x + this.width - this.offset.right > motive.x + motive.offset.left &&
@@ -56,16 +80,27 @@ class MovableObject extends DrawableObject{
         );
     }
 
+    /**
+     * Checks if the object is currently hurt (recently hit).
+     * @returns {boolean} True if hurt, otherwise false.
+     */
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
         return timePassed < 1;
     }
 
+    /**
+     * Checks if the object is dead (energy is zero).
+     * @returns {boolean} True if dead, otherwise false.
+     */
     isDead() {
         return this.energy == 0;
     }
 
+    /**
+     * Reduces the object's energy when hit and plays sound if dead.
+     */
     hit() {
         this.energy -= 5;
         if(this.energy < 0) {
@@ -76,11 +111,17 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Makes the object jump by setting vertical speed and playing sound.
+     */
     jump() {
         this.speedY = 20;
         sound.play('jump');
     }
 
+    /**
+     * Starts the attack state for a given duration.
+     */
     startAttack(duration = 800) {
         if (this.state === 'attack') return;
         this.state = 'attack';
@@ -89,6 +130,9 @@ class MovableObject extends DrawableObject{
         }, duration);
     }
 
+    /**
+     * Handles the start animation logic for the object.
+     */
     handleStartAnimation() {
         if (this.isDead()) {
             this.state = 'dead';
@@ -102,6 +146,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the state animation logic for the object.
+     */
     handleStateAnimation() {
         if (this.state === 'dead' && !this.deleteImages) {
             this.enemyDeadAnimation();
@@ -114,6 +161,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the start animation logic for bear objects.
+     */
     handleBearStartAnimation() {
         if (this.isDead()) {
             this.state = 'dead';
@@ -127,6 +177,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the state animation logic for bear objects.
+     */
     handleBearStateAnimation() {
         if (this.state === 'dead' && !this.deleteImages) {
             this.enemyDeadAnimation();
@@ -142,6 +195,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the attack animation logic for bear objects.
+     */
     handleBearAttackAnimation() {
         if (this.state === 'attack') return;
         let random = Math.random();
@@ -152,6 +208,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the start animation logic for endboss objects.
+     */
     handleEndbossStartAnimation(){
         if (this.isDead()) {
             this.state = 'dead';
@@ -168,6 +227,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Handles the state animation logic for endboss objects.
+     */
     handleEndbossStateAnimation() {
         if (this.state === 'dead' && !this.deleteImages) {
             this.endbossDeadAnimation();
@@ -187,6 +249,9 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Plays the dead animation for enemy objects.
+     */
     enemyDeadAnimation() {
         if (!this.inDeadAnimation) {
             this.currentImage = 0;
@@ -205,18 +270,33 @@ class MovableObject extends DrawableObject{
         }
     }
 
+    /**
+     * Adds an interval timer and stores its ID.
+     * @param {function} fn - Function to execute.
+     * @param {number} time - Interval time in ms.
+     * @returns {number} Interval ID.
+     */
     addInterval(fn, time) {
         const id = setInterval(fn, time);
         this.intervals.push(id);
         return id;
     }
 
+    /**
+     * Adds a timeout timer and stores its ID.
+     * @param {function} fn - Function to execute.
+     * @param {number} time - Timeout time in ms.
+     * @returns {number} Timeout ID.
+     */
     addTimeout(fn, time) {
         const id = setTimeout(fn, time);
         this.timeouts.push(id);
         return id;
     }
 
+    /**
+     * Stops all interval and timeout timers for this object.
+     */
     stopAllTimers() {
         this.intervals.forEach(id => clearInterval(id));
         this.timeouts.forEach(id => clearTimeout(id));
