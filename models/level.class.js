@@ -10,7 +10,8 @@ class Level {
     natureObjects;
     coins;
     crystals;
-    level_end_x = 2800;
+    level_end_x = 2920;
+    character_end_x = 3750;
 
     /**
      * Creates a new Level instance.

@@ -85,11 +85,15 @@ function initLevel() {
         new FlyingTile("img/tiles_ground/ground_tile06.png", 3575, 453, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile06.png", 3625, 453, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile06.png", 3675, 453, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3725, 453, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3775, 453, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile01.png", 3475, 403, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile07.png", 3525, 403, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile07.png", 3575, 403, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile07.png", 3625, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3675, 403, 50, 50)
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3675, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3725, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3775, 403, 50, 50)
         ],
         createGroundTiles(),
         [
@@ -105,7 +109,7 @@ function initLevel() {
         new NatureObjects("img/dino/sleep1.png", 1480, 196, 100, 100),
         new NatureObjects("img/objects/tree2.png", 2290, 223, 100, 100),
         new NatureObjects("img/dino/sleep1.png", 2500, 146, 100, 100),
-        new NatureObjects("img/objects/tree2.png", 3600, 325, 100, 100),
+        new NatureObjects("img/objects/tree1.png", 3620, 265, 200, 200),
         new NatureObjects("img/bear/attack3.png", 3490, 330, 100, 100)
         ],
         [
@@ -154,7 +158,7 @@ function initLevel() {
         const tileWidth = 50;
         const tileHeight = 50;
         const y = 490;
-        const level_end_x = 2800;
+        const level_end_x = 2920;
         let tiles = [];
         const numTiles = Math.ceil((level_end_x + 5) / tileWidth);
         for (let i = -5; i < numTiles + 20; i++) {

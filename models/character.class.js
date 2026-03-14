@@ -5,7 +5,6 @@ class Character extends MovableObject {
     isFighting = false;
     deadAnimationFinished = false;
 
-
     offset = {
         top: 50,
         left: 20,
@@ -88,18 +87,22 @@ class Character extends MovableObject {
                 return;
             }
             if (!this.isDead() && !this.world.gameOver) {
-                if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
+                if (this.world.keyboard.RIGHT && this.x < this.world.level.character_end_x) {
                     this.moveRight();
                     this.otherDirection = false;
                 }
-                if (this.world.keyboard.LEFT && this.x -10) {
+                if (this.world.keyboard.LEFT && this.x > 0) {
                     this.moveLeft();
                     this.otherDirection = true;
                 }
                 if (this.world.keyboard.UP && !this.isAboveGround()) {
                     this.jump();
                 }
+                const logicalWidth = 70;
                 this.world.camera_x = -this.x + 70;
+                if (this.world.camera_x < -(this.world.level.level_end_x - logicalWidth)) {
+                    this.world.camera_x = -(this.world.level.level_end_x - logicalWidth);
+                }
             }
         }, 1000 / 60);
         this.addInterval(() => {
