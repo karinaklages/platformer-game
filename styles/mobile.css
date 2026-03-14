@@ -25,17 +25,24 @@
         width: 90% !important;
     }
 
-    .content-start h1 {
+    .content-start h1,
+    .content-winner h1 {
         font-size: 30px !important;
     }
 
-    .content-start p {
+    .content-start p,
+    .content-winner p {
         width: 230px !important;
         font-size: 16px !important;
     }
 
-    .content-start span {
+    .content-start span,
+    .content-winner span {
         font-size: 16px !important;
+    }
+
+    .winner-button-area {
+        gap: 12px !important;
     }
 
     .button {
@@ -189,17 +196,24 @@
         width: 74% !important;
     }
 
-    .content-start h1 {
+    .content-start h1,
+    .content-winner h1 {
         font-size: 24px !important;
     }
 
-    .content-start p {
+    .content-start p,
+    .content-winner p {
         width: 200px !important;
         font-size: 14px !important;
     }
 
-    .content-start span {
+    .content-start span,
+    .content-winner span {
         font-size: 14px !important;
+    }
+
+    .winner-button-area {
+        gap: 8px !important;
     }
 
     .button {
