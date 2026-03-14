@@ -133,6 +133,7 @@ class Character extends MovableObject {
             }
             this.hit();
             endboss.hit();
+            sound.play('collision');
             this.world.statusBarHeart.setPercentage(this.energy);
             if (endboss.isDead()) {
                 this.isFighting = false;

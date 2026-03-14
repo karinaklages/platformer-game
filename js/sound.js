@@ -8,18 +8,18 @@ class Sound {
     constructor() {
         this.isMuted = false;
         this.sounds = {
+            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9),
+            button: this.createSound('audio/floraphonic-arcade-click.mp3', 1.0),
             jump: this.createSound('audio/freesound-jump.mp3', 0.4),
             collect: this.createSound('audio/floraphonic-game-collect.mp3', 0.5),
             throw: this.createSound('audio/floraphonic-throw.mp3', 0.5),
             collision: this.createSound('audio/floraphonic-collision.mp3', 0.6),
             fight: this.createSound('audio/floraphonic-metal-whoosh-hit.mp3', 0.7),
-            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.7),
-            button: this.createSound('audio/floraphonic-arcade-click.mp3', 1.0),
-            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9),
             spiderDeath: this.createSound('audio/floraphonic-animal-squeak.mp3', 0.7),
             dinoDeath: this.createSound('audio/floraphonic-animal-dying.mp3', 0.8),
             bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.9),
-            endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.7)
+            endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.7),
+            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.7)
         };
     }
 
