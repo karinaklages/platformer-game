@@ -85,6 +85,26 @@ function initMobileControls() {
 }
 
 /**
+ * Disables all mobile control buttons by setting pointer events to none.
+ */
+function disableMobileControls() {
+    ["mobileButtonLeft", "mobileButtonRight", "mobileButtonUp", "mobileButtonThrow"].forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.pointerEvents = 'none';
+    });
+}
+
+/**
+ * Re-enables all mobile control buttons by restoring pointer events.
+ */
+function enableMobileControls() {
+    ["mobileButtonLeft", "mobileButtonRight", "mobileButtonUp", "mobileButtonThrow"].forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.pointerEvents = 'auto';
+    });
+}
+
+/**
  * Binds a mobile button to a keyboard key for touch controls.
  * @param {string} buttonId - The ID of the button element.
  * @param {string} key - The keyboard key to bind.
@@ -167,7 +187,9 @@ function restartGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    document.getElementById('contentWinner').classList.add('d-none');
     sound.play('button');
+    enableMobileControls();
     initGame();
 }
 

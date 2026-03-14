@@ -166,6 +166,7 @@ class Endboss extends MovableObject {
      */
     showWinnerScreen() {
         document.getElementById('contentWinner').classList.remove('d-none');
+        disableMobileControls();
         document.getElementById('winnerHomeButton').addEventListener('click', () => {
             window.location.href = './index.html';
         });
