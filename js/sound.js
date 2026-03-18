@@ -6,20 +6,21 @@ class Sound {
      * Initializes the sound system and loads all audio files.
      */
     constructor() {
-        this.isMuted = false;
+        this.isMuted = localStorage.getItem('isMuted') === 'true';
+        // this.isMuted = false;
         this.sounds = {
-            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.9),
-            button: this.createSound('audio/floraphonic-arcade-click.mp3', 1.0),
-            jump: this.createSound('audio/freesound-jump.mp3', 0.4),
-            collect: this.createSound('audio/floraphonic-game-collect.mp3', 0.5),
-            throw: this.createSound('audio/floraphonic-throw.mp3', 0.5),
-            collision: this.createSound('audio/floraphonic-collision.mp3', 0.6),
-            fight: this.createSound('audio/floraphonic-metal-whoosh-hit.mp3', 0.7),
-            spiderDeath: this.createSound('audio/floraphonic-animal-squeak.mp3', 0.7),
-            dinoDeath: this.createSound('audio/floraphonic-animal-dying.mp3', 0.8),
-            bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.9),
-            endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.7),
-            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.7)
+            gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.08),
+            button: this.createSound('audio/floraphonic-arcade-click.mp3', 0.09),
+            jump: this.createSound('audio/freesound-jump.mp3', 0.07),
+            collect: this.createSound('audio/floraphonic-game-collect.mp3', 0.03),
+            throw: this.createSound('audio/floraphonic-throw.mp3', 0.04),
+            collision: this.createSound('audio/floraphonic-collision.mp3', 0.05),
+            fight: this.createSound('audio/floraphonic-metal-whoosh-hit.mp3', 0.05),
+            spiderDeath: this.createSound('audio/floraphonic-animal-squeak.mp3', 0.05),
+            dinoDeath: this.createSound('audio/floraphonic-animal-dying.mp3', 0.07),
+            bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.09),
+            endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.05),
+            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.05)
         };
     }
 
@@ -48,6 +49,7 @@ class Sound {
      */
     toggleMute() {
         this.isMuted = !this.isMuted;
+        localStorage.setItem('isMuted', this.isMuted);
         const onIcon = document.getElementById('soundIconOn');
         const offIcon = document.getElementById('soundIconOff');
         if (this.isMuted) {
