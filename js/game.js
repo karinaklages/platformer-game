@@ -63,6 +63,7 @@ function setupDialog() {
  */
 function setupSound() {
     sound = new Sound();
+    sound.applyMuteState();
     registerButtonSounds();
 }
 
