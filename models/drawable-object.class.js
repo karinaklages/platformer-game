@@ -23,6 +23,7 @@ class DrawableObject {
      * Loads multiple images and stores them in the image cache.
      */
     loadImages(arr) {
+        if (!arr || arr.length === 0) return;
         arr.forEach(path => {
             let img = new Image();
             img.src = path;

@@ -58,7 +58,7 @@ class Endboss extends MovableObject {
     constructor(world) {
         super();
         this.world = world;
-        this.energy = 24;
+        this.energy = 40;
         this.loadImage('img/boss/magic_lightning1.png');
         this.loadImages(this.IMAGES_WALK);
         this.loadImages(this.IMAGES_MAGIC_LIGHTNING);
@@ -152,6 +152,8 @@ class Endboss extends MovableObject {
     fightEndboss() {
         const damage = 2;
         this.energy -= damage;
+        const percentage = (this.energy / 40) * 100;
+        this.world.statusBarEndboss.setPercentage(percentage);
         if (this.energy <= 0) {
             this.energy = 0;
             this.state = 'dead';

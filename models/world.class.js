@@ -26,6 +26,7 @@ class World {
         this.canThrow = true;
         this.intervals = [];
         this.character = new Character(this);
+        this.statusBarEndboss = new EndbossStatusBar();
         this.statusBarHeart = new StatusBar(HEART_IMAGES, 30, 50, 130, 24, 100);
         this.statusBarCrystal = new StatusBar(CRYSTAL_IMAGES, 30, 20, 130, 24, 0);
         this.statusBarCoin = new StatusBar(COIN_IMAGES, 30, 80, 130, 23, 0);
@@ -58,6 +59,11 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.level.enemies);
+        const endboss = this.level.enemies.find(e => e instanceof Endboss);
+            if (endboss && !endboss.isDead()) {
+                this.statusBarEndboss.updatePosition(endboss);
+                this.addToMap(this.statusBarEndboss);
+            }
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.crystals);
         this.ctx.translate(-this.camera_x, 0);
