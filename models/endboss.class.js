@@ -14,7 +14,7 @@ class Endboss extends MovableObject {
 
     offset = {
         top: 60,
-        left: 95,
+        left: 40,
         right: 40,
         bottom: 30
     };
@@ -107,7 +107,7 @@ class Endboss extends MovableObject {
      * Checks if the player hits the endboss.
      */
     checkPlayerHit(player) {
-        if (player.isAttacking && this.isCollidingWithCharacter()) {
+        if (player.world.keyboard.FIGHT && this.isCollidingWithCharacter()) {
             this.fightEndboss();
         }
     }

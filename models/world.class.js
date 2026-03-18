@@ -164,7 +164,11 @@ class World {
                     crystal.y < enemy.y + enemy.height - enemy.offset.bottom
                 );
                 if (collides) {
-                    enemy.hit();
+                    if (enemy instanceof Endboss) {
+                        enemy.fightEndboss();
+                    } else {
+                        enemy.hit();
+                    }
                     this.throwableObjects.splice(cIndex, 1);
                 }
             });

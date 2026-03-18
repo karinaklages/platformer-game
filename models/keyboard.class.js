@@ -9,4 +9,5 @@ class Keyboard {
     DOWN = false;
     SPACE = false;
     THROW = false;
+    FIGHT = false;
 }

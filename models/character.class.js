@@ -140,17 +140,27 @@ class Character extends MovableObject {
         if (this.isDead()) {
             this.playDeadAnimation();
             return;
+        } else if (this.isFighting || this.world.keyboard.FIGHT) {
+            this.playAnimation(this.IMAGES_FIGHT);
         } else if (this.isHurt()) {
             this.playAnimation(this.IMAGES_HURT);
-        } else if (this.isFighting) {
-            this.playAnimation(this.IMAGES_FIGHT);
         } else if (this.isAboveGround()) {
             this.playAnimation(this.IMAGES_JUMP);
         } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
             this.playAnimation(this.IMAGES_WALK);
+        } else if (this.isNearEndboss()) {
+            this.playAnimation(this.IMAGES_FIGHT);
         } else {
             this.playAnimation(this.IMAGES_IDLE);
         }
+    }
+
+    /**
+     * Checks if the character is colliding with the endboss.
+     */
+    isNearEndboss() {
+        const endboss = this.world.level.enemies.find(e => e instanceof Endboss);
+        return endboss && !endboss.isDead() && this.isColliding(endboss);
     }
 
     /**
@@ -159,13 +169,14 @@ class Character extends MovableObject {
     startFight(endboss) {
         if (this.isFighting) return;
         this.isFighting = true;
-        this.addInterval(() => {
+        const intervalId = this.addInterval(() => {
             if (!this.isColliding(endboss) || endboss.isDead() || this.isDead()) {
                 this.isFighting = false;
+                clearInterval(intervalId);
                 return;
             }
             this.hit();
-            endboss.hit();
+            endboss.fightEndboss();
             sound.play('collision');
             this.world.statusBarHeart.setPercentage(this.energy);
             if (endboss.isDead()) {

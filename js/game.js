@@ -128,6 +128,7 @@ function handleKeyDown(event) {
     if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") keyboard.UP = true;
     if (event.key === "ArrowDown" || event.key === "s") keyboard.DOWN = true;
     if (event.key === "f") keyboard.THROW = true;
+    if (event.key === "g") keyboard.FIGHT = true;
     if (event.key === "Space") keyboard.SPACE = true;
 }
 
@@ -142,6 +143,7 @@ function handleKeyUp(event) {
     if (event.key === "ArrowUp" || event.key === "w" || event.key === " ") keyboard.UP = false;
     if (event.key === "ArrowDown" || event.key === "s") keyboard.DOWN = false;
     if (event.key === "f") keyboard.THROW = false;
+    if (event.key === "g") keyboard.FIGHT = false;
     if (event.key === "Space") keyboard.SPACE = false;
 }
 

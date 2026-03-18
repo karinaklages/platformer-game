@@ -211,7 +211,7 @@ class MovableObject extends DrawableObject{
     /**
      * Handles the start animation logic for endboss objects.
      */
-    handleEndbossStartAnimation(){
+    handleEndbossStartAnimation() {
         if (this.isDead()) {
             this.state = 'dead';
             return;
@@ -221,6 +221,7 @@ class MovableObject extends DrawableObject{
             return;
         }
         if (this.state === 'walk') {
+            if (this.isCollidingWithCharacter()) return;
             if (this.world.character.x < this.x) {
                 this.moveLeft();
                 this.otherDirection = false;
