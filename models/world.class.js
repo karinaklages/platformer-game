@@ -95,6 +95,7 @@ class World {
             }
         });
         this.character.stopAllTimers();
+        if (this.sound) this.sound.sounds.gameSound.pause();
         document.getElementById('contentGameOver').classList.remove('d-none');
     }
 

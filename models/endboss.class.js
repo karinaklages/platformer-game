@@ -121,6 +121,9 @@ class Endboss extends MovableObject {
                 this.world.character.hit();
                 this.world.statusBarHeart.setPercentage(this.world.character.energy);
             }
+            if (this.world.character.isDead()) {
+                this.world.triggerGameOver();
+            }   
             this.startAttack();
             sound.play('fight');
         }

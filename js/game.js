@@ -27,6 +27,8 @@ function initGame() {
     keyboard = new Keyboard();
     world = new World(canvas, keyboard, sound);
     initMobileControls();
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp); 
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
 }
@@ -194,6 +196,12 @@ function restartGame() {
     document.getElementById('contentGameOver').classList.add('d-none');
     sound.play('button');
     enableMobileControls();
+    // if (sound && !sound.isMuted) sound.sounds.gameSound.play();
+    if (sound && !sound.isMuted) {
+        sound.sounds.gameSound.pause();
+        sound.sounds.gameSound.currentTime = 0;
+        sound.sounds.gameSound.play();
+    }
     initGame();
 }
 
