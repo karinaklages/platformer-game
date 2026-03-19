@@ -45,7 +45,6 @@ class World {
                 this.character.playDeadAnimation();
             } else {
                 this.stopGame();
-                this.drawGameOverScreen();
                 return;
             }
         }
@@ -74,16 +73,6 @@ class World {
     }
 
     /**
-     * Draws the game over screen.
-     */
-    drawGameOverScreen() {
-        this.ctx.font = "42px VT323";
-        this.ctx.fillStyle = "rgb(62, 57, 53)";
-        this.ctx.textAlign = "center";
-        this.ctx.fillText("G A M E  O V E R", 960 / 2, 100);
-    }
-
-    /**
      * Sets the world reference for character and enemies.
      */
     setWorld() {
@@ -106,6 +95,7 @@ class World {
             }
         });
         this.character.stopAllTimers();
+        document.getElementById('contentGameOver').classList.remove('d-none');
     }
 
     /**

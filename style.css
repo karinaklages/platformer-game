@@ -95,12 +95,12 @@ canvas {
 .canvas-wrapper {
     position: relative;
     width: 100%;
-    /* max-width: 960px; */
 }
 
-.content-winner {
+.content-winner,
+.content-game-over {
     position: absolute;
-    top: 47%;
+    top: 48.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 330px;
@@ -112,7 +112,8 @@ canvas {
 }
 
 .content-start .beige-background,
-.content-winner .beige-background {
+.content-winner .beige-background,
+.content-game-over .beige-background {
     position: absolute;
     width: 100%;
     height: auto;
@@ -120,7 +121,8 @@ canvas {
 }
 
 .content-start .button,
-.content-winner .button {
+.content-winner .button,
+.content-game-over .button {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
@@ -128,13 +130,15 @@ canvas {
 }
 
 .content-start h1,
-.content-winner h1 {
+.content-winner h1,
+.content-game-over h1 {
     font-size: 34px;
     margin: 0;
 }
 
 .content-start p,
-.content-winner p {
+.content-winner p,
+.content-game-over p {
     width: 250px;
     font-size: 17px;
     text-align: center;

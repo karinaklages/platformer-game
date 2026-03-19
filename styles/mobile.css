@@ -26,18 +26,21 @@
     }
 
     .content-start h1,
-    .content-winner h1 {
+    .content-winner h1,
+    .content-game-over h1 {
         font-size: 30px !important;
     }
 
     .content-start p,
-    .content-winner p {
+    .content-winner p,
+    .content-game-over p {
         width: 230px !important;
         font-size: 16px !important;
     }
 
     .content-start span,
-    .content-winner span {
+    .content-winner span,
+    .content-game-over span {
         font-size: 16px !important;
     }
 
@@ -197,18 +200,21 @@
     }
 
     .content-start h1,
-    .content-winner h1 {
+    .content-winner h1,
+    .content-game-over h1 {
         font-size: 24px !important;
     }
 
     .content-start p,
-    .content-winner p {
+    .content-winner p,
+    .content-game-over p {
         width: 200px !important;
         font-size: 14px !important;
     }
 
     .content-start span,
-    .content-winner span {
+    .content-winner span,
+    .content-game-over span {
         font-size: 14px !important;
     }
 

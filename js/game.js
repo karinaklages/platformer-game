@@ -191,10 +191,28 @@ function restartGame() {
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
     document.getElementById('contentWinner').classList.add('d-none');
+    document.getElementById('contentGameOver').classList.add('d-none');
     sound.play('button');
     enableMobileControls();
     initGame();
 }
+
+/**
+ * Handles the Home button click on the Game Over screen. Plays a button sound and redirects to the home page after a short delay.
+ */
+document.getElementById("gameOverHomeButton").addEventListener("click", (event) => {
+    sound.play('button');
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 300);
+});
+
+/**
+ * Handles the Restart button click on the Game Over screen. Restarts the game by calling restartGame().
+ */
+document.getElementById("gameOverRestartButton").addEventListener("click", () => {
+    restartGame();
+});
 
 /**
  * Registers click sounds for specified UI buttons.
