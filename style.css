@@ -92,6 +92,12 @@ canvas {
     justify-content: center;
 }
 
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    /* max-width: 960px; */
+}
+
 .content-winner {
     position: absolute;
     top: 47%;
