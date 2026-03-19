@@ -6,13 +6,13 @@
     align-items: center;
 }
 
-.link-area-left {
+.icon-area-left {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .icon-area-middle {
@@ -20,7 +20,7 @@
     user-select: none;
 }
 
-.icon-area-right {
+.link-area-right {
     width: 100%;
     height: auto;
     display: flex;
@@ -38,8 +38,8 @@
 }
 
 .home-icon {
-    width: 22px;
-    height: 22px;
+    width: 27px;
+    height: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,8 +48,8 @@
 
 .fullscreen-icon,
 .miniscreen-icon {
-    width: 18px;
-    height: 18px;
+    width: 23px;
+    height: 23px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,8 +57,8 @@
 }
 
 .sound-icon {
-    width: 25px;
-    height: 25px;
+    width: 29px;
+    height: 29px;
     display: flex;
     align-items: center;
     justify-content: center;

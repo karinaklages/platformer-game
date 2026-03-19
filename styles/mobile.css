@@ -1,11 +1,27 @@
-@media (max-width: 1000px) {
+@media (max-width: 1366px) {
     .game-wrapper {
-        width: calc(100% - 40px);
+        width: calc(100% - 80px) !important;
         max-width: none;
     }
 
     canvas {
         width: calc(100% - 0px) !important;
+        height: auto !important;
+    }
+
+    .icon-area-middle {
+        width: 700px;
+        height: auto;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        gap: 0px !important; 
+    }
+    
+    .icon-area-middle img {
+        width: 80px !important;
         height: auto !important;
     }
 }
@@ -58,34 +74,6 @@
         border-radius: 5px !important;
     }
 
-    .link-area-left span {
-        font-size: 16px !important;
-    }
-
-    .link-area-left {
-        gap: 10px !important;
-    }
-
-    .icon-area-right {
-        gap: 8px !important;
-    }
-
-    .home-icon {
-        width: 19px !important;
-        height: 19px !important;
-    }
-
-    .fullscreen-icon,
-    .miniscreen-icon {
-        width: 15px !important;
-        height: 15px !important;
-    }
-
-    .sound-icon {
-        width: 22px !important;
-        height: 22px !important;
-    }
-
     .content-game-information {
         width: 580px !important;
         gap: 10px !important;
@@ -93,6 +81,7 @@
 
     .left-area {
         width: 270px !important;
+        margin-top: 35px !important;
     }
 
     .viking-icon-game-information {
@@ -124,6 +113,7 @@
 
     table {
         width: 240px !important;
+        margin-top: 26px !important;
     }
 
     td,
@@ -176,22 +166,6 @@
     .left-area {
         margin-top: 32px !important;
     }
-
-    .icon-area-middle {
-        width: 700px;
-        height: auto;
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-        gap: 0px !important; 
-    }
-    
-    .icon-area-middle img {
-        width: 46px !important;
-        height: auto !important;
-    }
 }
 
 @media (max-width: 480px) {
@@ -232,32 +206,8 @@
         border-radius: 4px !important;
     }
 
-    .link-area-left span {
+    .link-area-right span {
         font-size: 14px !important;
-    }
-
-    .link-area-left {
-        gap: 8px !important;
-    }
-
-    .icon-area-right {
-        gap: 6px !important;
-    }
-
-    .home-icon {
-        width: 16px !important;
-        height: 16px !important;
-    }
-
-    .fullscreen-icon,
-    .miniscreen-icon {
-        width: 12px !important;
-        height: 12px !important;
-    }
-
-    .sound-icon {
-        width: 19px !important;
-        height: 19px !important;
     }
 
     .left-area {
@@ -309,15 +259,13 @@
         margin: 0 -15px !important; 
     }
     
-    .icon-area-middle img {
-        width: 32px !important;
-    }
-
-    .link-area-left span {
-        font-size: 12px !important;
-    }
-
-    .link-area-left {
+    .icon-area-left {
         gap: 5px !important;
+    }
+}
+
+@media (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .rotate-overlay {
+        display: flex;
     }
 }

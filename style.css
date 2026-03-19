@@ -10,6 +10,29 @@ body {
     background: linear-gradient(90deg,rgba(133, 109, 101, 1) 0%, rgba(196, 159, 120, 1) 50%, rgba(247, 224, 178, 1) 100%);
 }
 
+.rotate-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,rgba(133, 109, 101, 1) 0%, rgba(196, 159, 120, 1) 50%, rgba(247, 224, 178, 1) 100%);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate-overlay h1 {
+    font-family: 'VT323';
+    font-weight: 400;
+    color:rgb(62, 57, 53);
+    text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);
+    font-size: 34px;
+    text-align: center;
+}
+
 .game-wrapper {
     width: 100%;
     max-width: 960px;
@@ -32,7 +55,6 @@ h1 {
 h2 {
     font-family: 'VT323';
     font-weight: 400;
-    /* font-size: 24px; */
     color:rgb(62, 57, 53);
     margin-bottom: 30px;
     text-shadow: 2px 2px 3px rgba(30, 30, 30, 0.4);

@@ -12,6 +12,9 @@
     <title>Roots & Dust</title>
 </head>
 <body>
+    <div class="rotate-overlay">
+        <h1>Please rotate your device.</h1>
+    </div>
     <div class="game-wrapper" id="fullscreen">
         <section class="startscreen" id="startScreen">
             <img src="./img/ui/startscreen.png" alt="Start Screen">
@@ -98,21 +101,7 @@
             </div>
         </div>
         <section class="button-area">
-            <div class="link-area-left">
-                <div class="link" onclick="restartGame()">
-                    <span>Restart</span>
-                </div>
-                <div class="link" onclick="openDialog()">
-                    <span>Imprint</span>
-                </div>
-            </div>
-            <div class="icon-area-middle d-none">
-                <img src="./img/ui/button-left.svg" alt="Arrow Left Icon" id="mobileButtonLeft">
-                <img src="./img/ui/button-right.svg" alt="Arrow Right Icon" id="mobileButtonRight">
-                <img src="./img/ui/button-up.svg" alt="Arrow Jump Icon" id="mobileButtonUp">
-                <img src="./img/ui/button-throw.svg" alt="Arrow Throw Icon" id="mobileButtonThrow">
-            </div>
-            <div class="icon-area-right">
+            <div class="icon-area-left">
                 <a id="homeIcon" class="home-icon" href="index.html">
                     <img src="./img/ui/home.svg" alt="Home Icon">
                 </a>
@@ -127,6 +116,17 @@
                 </div>
                 <div id="soundIconOn" class="sound-icon d-none">
                     <img src="./img/ui/sound-on.svg" alt="Sound Icon">
+                </div>
+            </div>
+            <div class="icon-area-middle d-none">
+                <img src="./img/ui/button-left.svg" alt="Arrow Left Icon" id="mobileButtonLeft">
+                <img src="./img/ui/button-right.svg" alt="Arrow Right Icon" id="mobileButtonRight">
+                <img src="./img/ui/button-up.svg" alt="Arrow Jump Icon" id="mobileButtonUp">
+                <img src="./img/ui/button-throw.svg" alt="Arrow Throw Icon" id="mobileButtonThrow">
+            </div>
+            <div class="link-area-right">
+                <div class="link" onclick="openDialog()">
+                    <span>Imprint</span>
                 </div>
             </div>
         </section>
