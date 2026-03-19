@@ -179,6 +179,9 @@ class Character extends MovableObject {
             endboss.fightEndboss();
             sound.play('collision');
             this.world.statusBarHeart.setPercentage(this.energy);
+            if (this.isDead()) {
+                this.world.triggerGameOver();
+            }
             if (endboss.isDead()) {
                 this.isFighting = false;
             }
