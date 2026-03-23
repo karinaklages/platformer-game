@@ -7,7 +7,6 @@ class Sound {
      */
     constructor() {
         this.isMuted = localStorage.getItem('isMuted') === 'true';
-        // this.isMuted = false;
         this.sounds = {
             gameSound: this.createSound('audio/moodmode-that-game-arcade.mp3', 0.08),
             button: this.createSound('audio/floraphonic-arcade-click.mp3', 0.09),
@@ -20,7 +19,8 @@ class Sound {
             dinoDeath: this.createSound('audio/floraphonic-animal-dying.mp3', 0.07),
             bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.09),
             endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.05),
-            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.05)
+            gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.05),
+            win: this.createSound('audio/floraphonic-you-win.mp3', 0.08)
         };
     }
 

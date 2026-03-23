@@ -179,5 +179,7 @@ class Endboss extends MovableObject {
             restartGame();
             document.getElementById('contentWinner').classList.add('d-none');
         });
+        sound.sounds.gameSound.pause();
+        sound.play('win');
     }
 }
