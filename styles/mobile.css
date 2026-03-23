@@ -8,22 +8,6 @@
         width: calc(100% - 0px) !important;
         height: auto !important;
     }
-
-    /* .mobile-button-area {
-        width: 100%;
-        height: auto;
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-        gap: 0px !important; 
-    } */
-    
-    /* .mobile-button-area img {
-        width: 80px !important;
-        height: auto !important;
-    } */
 }
 
 @media (max-width: 750px) {
@@ -254,11 +238,6 @@
 }
 
 @media (max-width: 380px) {
-    /* .mobile-button-area {
-        width: 500px;
-        margin: 0 -15px !important; 
-    } */
-    
     .link-area {
         gap: 5px !important;
     }
