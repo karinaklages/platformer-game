@@ -20,7 +20,7 @@ class Sound {
             bearDeath: this.createSound('audio/floraphonic-growl.mp3', 0.09),
             endbossDeath: this.createSound('audio/endboss-dying.mp3', 0.05),
             gameOver: this.createSound('audio/floraphonic-game-over.mp3', 0.05),
-            win: this.createSound('audio/floraphonic-you-win.mp3', 0.08)
+            win: this.createSound('audio/floraphonic-you-win.mp3', 0.2)
         };
     }
 

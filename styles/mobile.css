@@ -1,6 +1,6 @@
 @media (max-width: 1366px) {
     .game-wrapper {
-        width: calc(100% - 80px) !important;
+        width: calc(100% - 20px);
         max-width: none;
     }
 
@@ -10,108 +10,208 @@
     }
 }
 
-@media (max-width: 750px) {
-    .game-wrapper {
-        width: calc(100% - 20px);
-        max-width: none;
-    }
-    
-    canvas,
-    .startscreen {
-        margin-bottom: 6px !important;
-    }
-
+@media (max-width: 850px) {
     .beige-background {
-        width: 90% !important;
+        width: 85% !important;
     }
 
     .content-start h1,
     .content-winner h1,
     .content-game-over h1 {
-        font-size: 30px !important;
+        font-size: 28px;
     }
 
     .content-start p,
     .content-winner p,
     .content-game-over p {
-        width: 230px !important;
-        font-size: 16px !important;
+        width: 225px;
+        font-size: 15px;
     }
 
     .content-start span,
     .content-winner span,
     .content-game-over span {
-        font-size: 16px !important;
+        font-size: 15px;
     }
 
     .winner-button-area {
-        gap: 12px !important;
+        gap: 12px;
     }
 
-    .button {
-        margin-bottom: 8px !important;
+    .button,
+    .button-game-information {
+        margin-bottom: 8px;
     }
 
-    .button img {
-        width: 65px !important;
-        height: auto !important;
-        border-radius: 5px !important;
+    .button img,
+    .button-game-information img {
+        width: 65px;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .beige-background-game-information {
+        height: 165px !important;
+        width: 565px !important;
     }
 
     .content-game-information {
-        width: 580px !important;
-        gap: 10px !important;
+        width: 570px;
+        gap: 15px;
     }
 
     .left-area {
-        width: 270px !important;
-        margin-top: 35px !important;
+        width: 250px;
+        margin-top: 27px;
     }
 
     .viking-icon-game-information {
-        width: 50px !important;
-        margin-top: -2px !important;
+        width: 50px;
+        margin-top: -2px;
     }
 
     .content-game-information h2 {
-        font-size: 20px !important;
+        font-size: 20px;
     }
 
     .content-game-information p {
-        font-size: 16px !important;
+        font-size: 15px;
     }
 
     .button-game-information span {
-        font-size: 16px !important;
-    }
-
-    .button-game-information {
-        margin-bottom: 8px !important;
-    }
-
-    .button-game-information img {
-        width: 65px !important;
-        height: auto !important;
-        border-radius: 5px !important;
+        font-size: 15px;
     }
 
     table {
-        width: 240px !important;
-        margin-top: 26px !important;
+        width: 230px;
+        margin-top: 18px;
     }
 
     td,
     th {
-        font-size: 16px !important;
+        font-size: 15px;
     }
 
     td:first-child {
-        padding-right: 10px !important;
+        padding-right: 10px;
+    }
+
+    .link-area {
+        width: 25%;
     }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 768px) and (orientation: portrait) {
+    .rotate-overlay {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-wrapper {
+        height: 100vh;
+        width: auto;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+    }
+
+    .canvas-wrapper {
+        height: 100%;
+        width: auto;
+    }
+
+    canvas {
+        height: 100% !important;
+        width: auto !important;
+    }
+
+    .startscreen {
+        height: 100vh;
+        width: auto;
+        aspect-ratio: 16 / 9;
+        margin-bottom: 0;
+    }
+}
+
+/* @media (max-width: 768px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .rotate-overlay {
+        display: flex;
+    }
+} */
+
+/* @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .rotate-overlay {
+        display: flex;
+    }
+} */
+
+
+
+
+
+/* @media (max-width: 650px) {
+    .link-area {
+        width: 32%;
+    }
+} */
+
+
+
+
+
+/* @media (max-width: 550px) {
+    .beige-background {
+        width: 70% !important;
+    }
+
+    .content-start h1,
+    .content-winner h1,
+    .content-game-over h1 {
+        font-size: 24px;
+    }
+
+    .content-start p,
+    .content-winner p,
+    .content-game-over p {
+        width: 210px;
+        font-size: 14px;
+    }
+
+    .content-start span,
+    .content-winner span,
+    .content-game-over span {
+        font-size: 14px;
+    }
+
+    .winner-button-area {
+        gap: 10px;
+    }
+
+    .button {
+        margin-bottom: 8px;
+    }
+
+    .button img {
+        width: 60px;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .link-area {
+        width: 37%;
+    }
+
+    .link span {
+        font-size: 16px;
+    }
+
     dialog {
+        width: 75%;
         padding: 30px 20px 30px 20px; 
     }
 
@@ -122,129 +222,6 @@
     }
 
     .imprint-text {
-        font-size: 16px !important;
+        font-size: 16px;
     }
-
-    table {
-        display: none;
-    } 
-
-    .content-game-information .beige-background-game-information {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        z-index: -1;
-        display: none !important;
-    }
-
-    .content-game-information .beige-background-game-information-small {
-        width: 55% !important;
-        display: block !important;
-    }
-
-    .viking-icon-game-information {
-        width: 50px !important;
-        margin-top: -1px !important;
-    }
-
-    .left-area {
-        margin-top: 32px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .beige-background {
-        width: 74% !important;
-    }
-
-    .content-start h1,
-    .content-winner h1,
-    .content-game-over h1 {
-        font-size: 24px !important;
-    }
-
-    .content-start p,
-    .content-winner p,
-    .content-game-over p {
-        width: 200px !important;
-        font-size: 14px !important;
-    }
-
-    .content-start span,
-    .content-winner span,
-    .content-game-over span {
-        font-size: 14px !important;
-    }
-
-    .winner-button-area {
-        gap: 8px !important;
-    }
-
-    .button {
-        margin-bottom: 5px !important;
-    }
-
-    .button img {
-        width: 50px !important;
-        height: auto !important;
-        border-radius: 4px !important;
-    }
-
-    .link-area-right span {
-        font-size: 14px !important;
-    }
-
-    .left-area {
-        width: 240px !important;
-        margin-top: 28px !important;
-    }
-
-    .content-game-information h2 {
-        font-size: 18px !important;
-    }
-
-    .content-game-information p {
-        font-size: 14px !important;
-    }
-
-    .button-game-information span {
-        font-size: 14px !important;
-    }
-
-    .content-game-information .beige-background-game-information-small {
-        width: 45% !important;
-        display: block !important;
-    }
-
-    .viking-icon-game-information {
-        width: 45px !important;
-        margin-top: -2px !important;
-        margin-left: 4px !important;
-    }
-
-    .button-game-information span {
-        font-size: 14px !important;
-    }
-
-    .button-game-information {
-        margin-bottom: 5px !important;
-    }
-
-    .button-game-information img {
-        width: 50px !important;
-        height: auto !important;
-        border-radius: 4px !important;
-    }
-}
-
-@media (max-width: 380px) {
-    .link-area {
-        gap: 5px !important;
-    }
-}
-
-@media (orientation: portrait) and (hover: none) and (pointer: coarse) {
-    .rotate-overlay {
-        display: flex;
-    }
-}
+} */

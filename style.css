@@ -81,15 +81,40 @@ canvas {
     width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 12px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 7px 10px rgba(0, 0, 0, 0.25);
 }
 
+dialog {
+    background-color: #dfca99;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 0; 
+    width: 80%;
+    padding: 40px 30px 40px 30px; 
+}
+
+dialog::backdrop {
+  background: rgba(158, 151, 136, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.imprint-headline {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.imprint-text {
+    font-size: 18px;
+}
+
+/* Start Screen */
+
 .startscreen {
     width: 100%;
     aspect-ratio: 16 / 9;
-    margin-bottom: 12px;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -114,6 +139,128 @@ canvas {
     align-items: center;
     justify-content: center;
 }
+
+/* Information Screen */
+
+.content-game-information {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 645px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 16px;
+}
+
+.content-game-information .beige-background-game-information {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.content-game-information .beige-background-game-information-small {
+    position: absolute;
+    width: 56%;
+    height: auto;
+    z-index: -1;
+    display: none;
+}
+
+.content-game-information .button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.left-area {
+    width: 290px;
+    display: flex;
+    align-items: start;
+    gap: 14px;
+    margin-top: 36px;
+    margin-bottom: 14px;
+}
+
+.viking-icon-game-information {
+    width: 58px;
+    border: 1.5px solid rgba(68, 61, 54, 0.3);
+    border-radius: 8px;
+}
+
+.content-game-information h2 {
+    font-size: 24px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
+.content-game-information p {
+    font-size: 17px;
+    text-align: left;
+}
+
+.character-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+table {
+    width: 265px;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+td,
+th {
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 17px;
+    color:rgb(62, 57, 53);
+}
+
+td {
+    border-bottom: 1px solid rgba(62,57,53,0.3);
+    padding: 3px 0;
+}
+
+td:first-child {
+    padding-right: 20px;
+}
+
+.button-game-information {
+    position: relative;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 7px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.button-game-information img {
+    display: block;
+    height: auto;
+    border-radius: 7px;
+}
+
+.button-game-information span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(62, 57, 53);
+    font-family: 'VT323';
+    font-weight: 400;
+    font-size: 17px;
+}
+
+/* Canvas */
 
 .canvas-wrapper {
     position: relative;
@@ -198,30 +345,5 @@ canvas {
     color: rgb(62, 57, 53);
     font-family: 'VT323';
     font-weight: 400;
-    font-size: 18px;
-}
-
-dialog {
-    background-color: #dfca99;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    padding: 0; 
-    width: 80%;
-    padding: 40px 30px 40px 30px; 
-}
-
-dialog::backdrop {
-  background: rgba(158, 151, 136, 0.3);
-  backdrop-filter: blur(6px);
-}
-
-.imprint-headline {
-    font-size: 26px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.imprint-text {
     font-size: 18px;
 }
