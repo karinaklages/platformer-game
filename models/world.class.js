@@ -49,7 +49,7 @@ class World {
             }
         }
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.translate(this.camera_x, 0);
+        this.ctx.translate(Math.round(this.camera_x), 0);
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.groundTiles);
@@ -65,7 +65,7 @@ class World {
             }
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.crystals);
-        this.ctx.translate(-this.camera_x, 0);
+        this.ctx.translate(-Math.round(this.camera_x), 0);
         this.addToMap(this.statusBarHeart);
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarCrystal);
@@ -240,8 +240,8 @@ class World {
      */
     flipImageLeft(motive) {
         this.ctx.save();
-        let centerX = motive.x + motive.width / 2;
-        let centerY = motive.y;
+        let centerX = Math.round(motive.x + motive.width / 2);
+        let centerY = Math.round(motive.y);
         this.ctx.translate(centerX, centerY);
         this.ctx.scale(-1, 1);
         this.ctx.drawImage(motive.img, -motive.width / 2, 0, motive.width, motive.height);
@@ -253,7 +253,7 @@ class World {
      * @param {object} motive - The object to draw.
      */
     flipImageRight(motive) {
-        this.ctx.drawImage(motive.img, motive.x, motive.y, motive.width, motive.height);
+        this.ctx.drawImage(motive.img, Math.round(motive.x), Math.round(motive.y), motive.width, motive.height);
     }
 
     /**

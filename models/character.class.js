@@ -74,7 +74,8 @@ class Character extends MovableObject {
      */
     constructor(world) {
         super();
-        this.world = world; 
+        this.world = world;
+        this.y = 349;
         this.loadImage('img/viking/idle1.png');
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_WALK);
@@ -127,7 +128,7 @@ class Character extends MovableObject {
      */
     updateCamera() {
         const logicalWidth = 70;
-        this.world.camera_x = -this.x + 70;
+        this.world.camera_x = Math.round(-this.x + 70);
         if (this.world.camera_x < -(this.world.level.level_end_x - logicalWidth)) {
             this.world.camera_x = -(this.world.level.level_end_x - logicalWidth);
         }

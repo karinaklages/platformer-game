@@ -79,74 +79,74 @@ function initLevel() {
         new FlyingTile("img/tiles_ground/ground_tile08.png", 2600, 100, 50, 50),
         new FlyingTile("img/tiles_ground/ground_tile09.png", 2650, 100, 50, 50),
         
-        new FlyingTile("img/tiles_ground/ground_tile01.png", 3425, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile23.png", 3475, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3525, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3575, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3625, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3675, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3725, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile06.png", 3775, 453, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile01.png", 3475, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3525, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3575, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3625, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3675, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3725, 403, 50, 50),
-        new FlyingTile("img/tiles_ground/ground_tile07.png", 3775, 403, 50, 50)
+        new FlyingTile("img/tiles_ground/ground_tile01.png", 3425, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile23.png", 3475, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3525, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3575, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3625, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3675, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3725, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile06.png", 3775, 403, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile01.png", 3475, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3525, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3575, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3625, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3675, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3725, 353, 50, 50),
+        new FlyingTile("img/tiles_ground/ground_tile07.png", 3775, 353, 50, 50)
         ],
         createGroundTiles(),
         [
         new NatureObjects("img/dino/sleep2.png", 320, 195, 100, 100),
-        new NatureObjects("img/objects/tree3.png", 620, 135, 100, 100),
-        new NatureObjects("img/objects/tree1.png", 700, 350, 200, 200),
-        new NatureObjects("img/objects/tree1.png", 1750, 350, 200, 200),
-        new NatureObjects("img/objects/tree2.png", 1670, 413, 100, 100),
-        new NatureObjects("img/objects/tree1.png", 2850, 350, 200, 200),
-        new NatureObjects("img/objects/tree2.png", 3030, 413, 100, 100),
+        new NatureObjects("img/objects/tree3.png", 620, 85, 100, 100),
+        new NatureObjects("img/objects/tree1.png", 700, 300, 200, 200),
+        new NatureObjects("img/objects/tree1.png", 1750, 300, 200, 200),
+        new NatureObjects("img/objects/tree2.png", 1670, 363, 100, 100),
+        new NatureObjects("img/objects/tree1.png", 2850, 300, 200, 200),
+        new NatureObjects("img/objects/tree2.png", 3030, 363, 100, 100),
         new NatureObjects("img/objects/door2.png", 1400, 119, 115, 115),
         new NatureObjects("img/dino/sleep1.png", 1480, 146, 100, 100),
         new NatureObjects("img/objects/tree2.png", 2290, 123, 100, 100),
         new NatureObjects("img/dino/sleep1.png", 2500, 96, 100, 100),
-        new NatureObjects("img/objects/tree1.png", 3620, 265, 200, 200),
-        new NatureObjects("img/bear/attack3.png", 3490, 330, 100, 100)
+        new NatureObjects("img/objects/tree1.png", 3620, 213, 200, 200),
+        new NatureObjects("img/bear/attack3.png", 3490, 280, 100, 100)
         ],
         [
-            new Coin(120, 420),
-            new Coin(250, 460),
-            new Coin(250, 380),
-            new Coin(1050, 380),
-            new Coin(1100, 420),
-            new Coin(1540, 460),
-            new Coin(2000, 380),
-            new Coin(2050, 420),
-            new Coin(2100, 380),
-            new Coin(2100, 420)
+        new Coin(120, 370),
+        new Coin(250, 410),
+        new Coin(250, 330),
+        new Coin(1050, 330),
+        new Coin(1100, 370),
+        new Coin(1540, 410),
+        new Coin(2000, 330),
+        new Coin(2050, 370),
+        new Coin(2100, 330),
+        new Coin(2100, 370)
         ],
         [
-            new Crystal(120, 460),
-            new Crystal(120, 380),
-            new Crystal(250, 420),
-            new Crystal(580, 460),
-            new Crystal(620, 460),
-            new Crystal(660, 460),
-            new Crystal(1050, 460),
-            new Crystal(1050, 420),
-            new Crystal(1100, 460),
-            new Crystal(1100, 380),
-            new Crystal(1500, 460),
-            new Crystal(1580, 460),
-            new Crystal(2000, 460),
-            new Crystal(2000, 420),
-            new Crystal(2050, 460),
-            new Crystal(2050, 380),
-            new Crystal(2100, 460),
-            new Crystal(2500, 460),
-            new Crystal(2540, 460),
-            new Crystal(2580, 460),
-            new Crystal(2760, 460),
-            new Crystal(2800, 460),
-            new Crystal(2840, 460)
+        new Crystal(120, 410),
+        new Crystal(120, 330),
+        new Crystal(250, 370),
+        new Crystal(580, 410),
+        new Crystal(620, 410),
+        new Crystal(660, 410),
+        new Crystal(1050, 410),
+        new Crystal(1050, 370),
+        new Crystal(1100, 410),
+        new Crystal(1100, 330),
+        new Crystal(1500, 410),
+        new Crystal(1580, 410),
+        new Crystal(2000, 410),
+        new Crystal(2000, 370),
+        new Crystal(2050, 410),
+        new Crystal(2050, 330),
+        new Crystal(2100, 410),
+        new Crystal(2500, 410),
+        new Crystal(2540, 410),
+        new Crystal(2580, 410),
+        new Crystal(2760, 410),
+        new Crystal(2800, 410),
+        new Crystal(2840, 410)
         ]
     );
 
@@ -156,12 +156,14 @@ function initLevel() {
     function createGroundTiles() {
         const tileWidth = 50;
         const tileHeight = 50;
-        const y = 490;
+        const y_top = 440;
+        const y_bottom = 490;
         const level_end_x = 2920;
         let tiles = [];
         const numTiles = Math.ceil((level_end_x + 5) / tileWidth);
         for (let i = -5; i < numTiles + 20; i++) {
-            tiles.push(new GroundTile("img/tiles_ground/ground_tile07.png", i * tileWidth, y, tileWidth, tileHeight));
+            tiles.push(new GroundTile("img/tiles_ground/ground_tile07.png", Math.round(i * tileWidth), y_top, tileWidth, tileHeight));
+            tiles.push(new GroundTile("img/tiles_ground/ground_tile06.png", Math.round(i * tileWidth), y_bottom, tileWidth, tileHeight));
         }
         return tiles;
     }

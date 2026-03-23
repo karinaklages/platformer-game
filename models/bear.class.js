@@ -57,7 +57,7 @@ class Bear extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.x = 2000 + Math.random() * 700;
         this.speed = 0.2 + Math.random() * 0.4; 
-        this.y = 398;
+        this.y = 348;
     }
 
     /**

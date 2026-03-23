@@ -196,7 +196,6 @@ function restartGame() {
     document.getElementById('contentGameOver').classList.add('d-none');
     sound.play('button');
     enableMobileControls();
-    // if (sound && !sound.isMuted) sound.sounds.gameSound.play();
     if (sound && !sound.isMuted) {
         sound.sounds.gameSound.pause();
         sound.sounds.gameSound.currentTime = 0;
