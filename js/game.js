@@ -170,9 +170,11 @@ function startGame() {
     const infoContent = document.querySelector(".content-game-information");
     const startScreen = document.getElementById("startScreen");
     const canvas = document.getElementById("canvas");
+    const mobileButtonArea = document.querySelector(".mobile-button-area");
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    mobileButtonArea.classList.remove("d-none");
     if (!sound.isMuted) sound.sounds.gameSound.play();
     initGame();
 }
@@ -188,10 +190,12 @@ function restartGame() {
     const infoContent = document.querySelector(".content-game-information");
     const startScreen = document.getElementById("startScreen");
     const canvas = document.getElementById("canvas");
+    const mobileButtonArea = document.querySelector(".mobile-button-area");
     startContent.classList.add("d-none");
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
+    mobileButtonArea.classList.remove("d-none");
     document.getElementById('contentWinner').classList.add('d-none');
     document.getElementById('contentGameOver').classList.add('d-none');
     sound.play('button');

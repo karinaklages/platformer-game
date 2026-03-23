@@ -172,6 +172,12 @@ class Endboss extends MovableObject {
     showWinnerScreen() {
         document.getElementById('contentWinner').classList.remove('d-none');
         disableMobileControls();
+        this.world.won = true;
+        this.world.keyboard.RIGHT = false;
+        this.world.keyboard.LEFT = false;
+        this.world.keyboard.UP = false;
+        this.world.keyboard.FIGHT = false;
+        this.world.keyboard.THROW = false;
         document.getElementById('winnerHomeButton').addEventListener('click', () => {
             window.location.href = './index.html';
         });

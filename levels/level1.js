@@ -98,7 +98,7 @@ function initLevel() {
         createGroundTiles(),
         [
         new NatureObjects("img/dino/sleep2.png", 320, 195, 100, 100),
-        new NatureObjects("img/objects/tree3.png", 620, 85, 100, 100),
+        new NatureObjects("img/objects/tree3.png", 620, 135, 100, 100),
         new NatureObjects("img/objects/tree1.png", 700, 300, 200, 200),
         new NatureObjects("img/objects/tree1.png", 1750, 300, 200, 200),
         new NatureObjects("img/objects/tree2.png", 1670, 363, 100, 100),
