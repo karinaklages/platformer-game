@@ -1,32 +1,28 @@
 .button-area {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icon-area-left {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-}
-
-.icon-area-middle {
-    touch-action: none;
-    user-select: none;
-}
-
-.link-area-right {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
     height: auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 14px;
+    z-index: 99;
+    padding: 18px;
+}
+
+.link-area {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-button-area {
+    touch-action: none;
+    user-select: none;
 }
 
 .link span {

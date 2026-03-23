@@ -9,7 +9,7 @@
         height: auto !important;
     }
 
-    .icon-area-middle {
+    .mobile-button-area {
         width: 700px;
         height: auto;
         display: flex !important;
@@ -20,7 +20,7 @@
         gap: 0px !important; 
     }
     
-    .icon-area-middle img {
+    .mobile-button-area img {
         width: 80px !important;
         height: auto !important;
     }
@@ -254,12 +254,12 @@
 }
 
 @media (max-width: 380px) {
-    .icon-area-middle {
+    .mobile-button-area {
         width: 500px;
         margin: 0 -15px !important; 
     }
     
-    .icon-area-left {
+    .link-area {
         gap: 5px !important;
     }
 }
