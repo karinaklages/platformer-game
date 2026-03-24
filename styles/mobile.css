@@ -10,6 +10,26 @@
     }
 }
 
+@media (max-width: 1024px) and (orientation: portrait) {
+    .rotate-overlay {
+        display: flex;
+    }
+}
+
+/* @media (max-width: 1024px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .rotate-overlay {
+        display: flex;
+    }
+} */
+
+/* @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .rotate-overlay {
+        display: flex;
+    }
+} */
+
+/* Fullscreen View */
+
 @media (max-width: 850px) {
     .beige-background {
         width: 85% !important;
@@ -101,70 +121,27 @@
     }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-    .rotate-overlay {
-        display: flex;
-    }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-    body {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .game-wrapper {
-        height: 100vh;
-        width: auto;
-        max-width: none;
-        aspect-ratio: 16 / 9;
-    }
-
-    .canvas-wrapper {
-        height: 100%;
-        width: auto;
-    }
-
-    canvas {
-        height: 100% !important;
-        width: auto !important;
-    }
-
-    .startscreen {
-        height: 100vh;
-        width: auto;
-        aspect-ratio: 16 / 9;
-        margin-bottom: 0;
-    }
-}
-
-/* @media (max-width: 768px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
-    .rotate-overlay {
-        display: flex;
-    }
-} */
-
-/* @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
-    .rotate-overlay {
-        display: flex;
-    }
-} */
-
-
-
-
-
-/* @media (max-width: 650px) {
+@media (max-width: 650px) {
     .link-area {
         width: 32%;
     }
-} */
 
+    table {
+        display: none;
+    }
 
+    .beige-background-game-information {
+        display: none !important;
+    }
 
+    .beige-background-game-information-small {
+        display: block !important;
+        height: 160px !important;
+        width: 305px !important;
+    }
+}
 
-
-/* @media (max-width: 550px) {
+@media (max-width: 550px) {
     .beige-background {
         width: 70% !important;
     }
@@ -224,4 +201,100 @@
     .imprint-text {
         font-size: 16px;
     }
-} */
+}
+
+@media (max-width: 470px) {
+    .button-area {
+        padding: 8px 16px;
+    }
+
+    .link-area {
+        width: 40%;     
+    }
+
+    .link-area img{
+        width: 135%;     
+    }
+
+    .link span {
+        font-size: 12px;
+    }
+
+    .beige-background {
+        width: 50% !important;
+    }
+
+    .content-start h1,
+    .content-winner h1,
+    .content-game-over h1 {
+        font-size: 18px;
+        margin-top: 4px;
+    }
+
+    .content-start p,
+    .content-winner p,
+    .content-game-over p {
+        width: 130px;
+        font-size: 10px;
+    }
+
+    .content-start span,
+    .content-winner span,
+    .content-game-over span {
+        font-size: 10px;
+    }
+
+    .winner-button-area {
+        gap: 8px;
+    }
+
+    .button,
+    .button-game-information {
+        margin-bottom: 0px;
+    }
+
+    .button img,
+    .button-game-information img {
+        width: 40px;
+        height: auto;
+        border-radius: 3px;
+    }
+
+    .beige-background-game-information-small {
+        height: 108px !important;
+        width: 210px !important;
+    }
+
+    .left-area {
+        width: 180px;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .viking-icon-game-information {
+        width: 38px;
+        margin-top: -2px;
+    }
+
+    .content-game-information h2 {
+        font-size: 18px;
+    }
+
+    .content-game-information p {
+        font-size: 10px;
+    }
+
+    .button-game-information span {
+        font-size: 10px;
+    }
+
+    .imprint-headline {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .imprint-text {
+        font-size: 14px;
+    }
+}
