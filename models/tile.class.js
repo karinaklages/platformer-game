@@ -1,9 +1,9 @@
 /**
- * Represents a flying tile object in the game world.
+ * Represents a ground tile object in the game world.
  */
-class FlyingTile {
+class Tile {
     /**
-     * Creates a new FlyingTile instance.
+     * Creates a new GroundTile instance.
      * @param {string} path - The file path or URL of the tile image.
      * @param {number} x - The horizontal position of the tile.
      * @param {number} y - The vertical position of the tile.

@@ -5,8 +5,7 @@ class Level {
     enemies;
     clouds;
     backgroundObjects;
-    groundTiles;
-    flyingTiles;
+    tiles;
     natureObjects;
     coins;
     crystals;
@@ -16,12 +15,11 @@ class Level {
     /**
      * Creates a new Level instance.
      */
-    constructor(enemies, clouds, backgroundObjects, groundTiles, flyingTiles, natureObjects, coins, crystals) {
+    constructor(enemies, clouds, backgroundObjects, tiles, natureObjects, coins, crystals) {
         this.enemies = enemies;
         this.clouds = clouds;
         this.backgroundObjects = backgroundObjects;
-        this.groundTiles = groundTiles;
-        this.flyingTiles = flyingTiles;
+        this.tiles = tiles;
         this.natureObjects = natureObjects;
         this.coins = coins;
         this.crystals = crystals;

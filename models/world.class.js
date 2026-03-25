@@ -66,8 +66,7 @@ class World {
     drawBackgroundAndObjects() {
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
-        this.addObjectsToMap(this.level.groundTiles);
-        this.addObjectsToMap(this.level.flyingTiles);
+        this.addObjectsToMap(this.level.tiles);
         this.addObjectsToMap(this.level.natureObjects);
         this.addToMap(this.character);
         this.addObjectsToMap(this.throwableObjects);
@@ -277,8 +276,10 @@ class World {
      * @param {object} motive - The object to draw.
      */
     flipImageRight(motive) {
+    if (motive.img instanceof HTMLImageElement && motive.img.complete && motive.img.naturalWidth > 0) {
         this.ctx.drawImage(motive.img, Math.round(motive.x), Math.round(motive.y), motive.width, motive.height);
     }
+}
 
     /**
      * Triggers the game over state and plays sound.
