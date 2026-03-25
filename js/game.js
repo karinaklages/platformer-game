@@ -110,6 +110,15 @@ function enableMobileControls() {
 }
 
 /**
+ * Suppresses the context menu on the mobile button area.
+ * Prevents the browser's default long-press context menu on touch devices.
+ * @param {MouseEvent|TouchEvent} e - The contextmenu event.
+ */
+document.querySelector('.mobile-button-area').addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
+/**
  * Binds a mobile button to a keyboard key for touch controls.
  * @param {string} buttonId - The ID of the button element.
  * @param {string} key - The keyboard key to bind.
