@@ -50,6 +50,17 @@ class World {
         }
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(Math.round(this.camera_x), 0);
+        this.drawBackgroundAndObjects();
+        this.drawCollectiblesAndEndbossBar();
+        this.ctx.translate(-Math.round(this.camera_x), 0);
+        this.drawStatusBars();
+        this.animationFrameId = requestAnimationFrame(() => this.draw());
+    }
+
+    /**
+     * Draws background layers, environment tiles, the main character, throwable objects, and all enemies in the game world.
+     */
+    drawBackgroundAndObjects() {
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.groundTiles);
@@ -58,18 +69,28 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.level.enemies);
+    }
+
+    /**
+     * Draws collectible items and endboss bar.
+     */
+    drawCollectiblesAndEndbossBar() {
         const endboss = this.level.enemies.find(e => e instanceof Endboss);
-            if (endboss && !endboss.isDead()) {
-                this.statusBarEndboss.updatePosition(endboss);
-                this.addToMap(this.statusBarEndboss);
-            }
+        if (endboss && !endboss.isDead()) {
+            this.statusBarEndboss.updatePosition(endboss);
+            this.addToMap(this.statusBarEndboss);
+        }
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.crystals);
-        this.ctx.translate(-Math.round(this.camera_x), 0);
+    }
+
+    /**
+     * Draws all fixed UI elements such as health, coin, and crystal status bars.
+     */
+    drawStatusBars() {
         this.addToMap(this.statusBarHeart);
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarCrystal);
-        this.animationFrameId = requestAnimationFrame(() => this.draw());
     }
 
     /**
