@@ -54,6 +54,7 @@ class Endboss extends MovableObject {
 
     /**
      * Creates a new Endboss instance.
+     * @param {World} world - The game world instance.
      */
     constructor(world) {
         super();
@@ -105,6 +106,7 @@ class Endboss extends MovableObject {
 
     /**
      * Checks if the player hits the endboss.
+     * @param {Character} player - The player character.
      */
     checkPlayerHit(player) {
         if (player.world.keyboard.FIGHT && this.isCollidingWithCharacter()) {

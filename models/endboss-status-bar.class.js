@@ -1,31 +1,30 @@
-const ENDBOSS_IMAGES = [
-    'img/ui/endboss-0.png',
-    'img/ui/endboss-10.png',
-    'img/ui/endboss-20.png',
-    'img/ui/endboss-30.png',
-    'img/ui/endboss-40.png',
-    'img/ui/endboss-50.png',
-    'img/ui/endboss-60.png',
-    'img/ui/endboss-70.png',
-    'img/ui/endboss-80.png',
-    'img/ui/endboss-90.png',
-    'img/ui/endboss-100.png'
-];
-
 /**
- * StatusBar displays a visual indicator for a given percentage value.
- * Extends StatusBar for rendering on the canvas.
+ * Displays a health bar above the endboss on the canvas.
+ * Extends StatusBar with endboss-specific images and positioning.
  */
 class EndbossStatusBar extends StatusBar {
     /**
      * Sets the status bar for the Endboss.
      */
     constructor() {
-        super(ENDBOSS_IMAGES, 0, 0, 100, 20, 100);
+        super([
+            'img/ui/endboss-0.png',
+            'img/ui/endboss-10.png',
+            'img/ui/endboss-20.png',
+            'img/ui/endboss-30.png',
+            'img/ui/endboss-40.png',
+            'img/ui/endboss-50.png',
+            'img/ui/endboss-60.png',
+            'img/ui/endboss-70.png',
+            'img/ui/endboss-80.png',
+            'img/ui/endboss-90.png',
+            'img/ui/endboss-100.png'
+        ], 0, 0, 100, 20, 100);
     }
 
     /**
      * Updates the bar position to follow the endboss.
+     * @param {Endboss} endboss - The endboss instance to follow.
      */
     updatePosition(endboss) {
         this.x = endboss.x + (endboss.width / 2) - (this.width / 2);
