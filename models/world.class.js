@@ -17,6 +17,9 @@ class World {
 
     /**
      * Creates a new World instance.
+     * @param {HTMLCanvasElement} canvas - The canvas element to render the game on.
+     * @param {Keyboard} keyboard - The keyboard input handler for player controls.
+     * @param {SoundManager} sound - The sound manager for playing game audio.
      */
     constructor (canvas, keyboard, sound) {
         this.ctx = canvas.getContext("2d");

@@ -13,6 +13,7 @@ class DrawableObject {
 
     /**
      * Loads a single image from the given path.
+     * @param {string} path - The file path or URL of the image to load.
      */
     loadImage(path) {
         this.img = new Image();
@@ -21,6 +22,7 @@ class DrawableObject {
 
     /**
      * Loads multiple images and stores them in the image cache.
+     * @param {string[]} arr - An array of file paths or URLs to load.
      */
     loadImages(arr) {
         if (!arr || arr.length === 0) return;
@@ -33,6 +35,7 @@ class DrawableObject {
 
     /**
      * Draws the object on the given canvas context.
+     * @param {CanvasRenderingContext2D} ctx - The canvas rendering context to draw onto.
      */
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);

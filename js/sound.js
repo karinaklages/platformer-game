@@ -26,6 +26,8 @@ class Sound {
 
     /**
      * Creates an audio object with the given path and volume.
+     * @param {string} path - The file path or URL of the audio file.
+     * @param {number} volume - The volume level (0.0 to 1.0).
      */
     createSound(path, volume) {
         const sound = new Audio(path);
@@ -35,6 +37,7 @@ class Sound {
 
     /**
      * Plays a sound by its name.
+     * @param {string} name - The key of the sound in the sounds collection.
      */
     play(name) {
         const sound = this.sounds[name];

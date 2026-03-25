@@ -57,6 +57,7 @@ class Dino extends MovableObject {
 
     /**
      * Starts the animation intervals for the dino.
+     * @param {World} world - The game world instance this dino belongs to.
      */
     animate() {
         if (this.world.gameOver) return;

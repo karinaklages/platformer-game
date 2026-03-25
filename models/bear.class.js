@@ -45,6 +45,7 @@ class Bear extends MovableObject {
 
     /**
      * Creates a new Bear instance.
+     * @param {World} world - The game world instance this bear belongs to.
      */
     constructor(world) {
         super();

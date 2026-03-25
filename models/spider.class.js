@@ -39,6 +39,7 @@ class Spider extends MovableObject {
 
     /**
      * Creates a new Spider instance.
+     * @param {World} world - The game world instance this spider belongs to.
      */
     constructor(world) {
         super();

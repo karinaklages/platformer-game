@@ -71,6 +71,7 @@ class Character extends MovableObject {
 
     /**
      * Creates a new Character instance.
+     * @param {World} world - The game world instance this character belongs to.
      */
     constructor(world) {
         super();

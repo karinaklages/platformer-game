@@ -121,6 +121,7 @@ class MovableObject extends DrawableObject{
 
     /**
      * Starts the attack state for a given duration.
+     * @param {number} [duration=800] - The duration of the attack state in milliseconds. Defaults to 800 ms.
      */
     startAttack(duration = 800) {
         if (this.state === 'attack') return;

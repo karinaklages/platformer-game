@@ -33,7 +33,9 @@ function initGame() {
     window.addEventListener("keyup", handleKeyUp);
 }
 
-// Initialize app when window loads
+/**
+ * Initialize app when window loads.
+ */
 window.addEventListener("load", initApp);
 
 /**
@@ -160,7 +162,9 @@ function showGameInformation() {
     sound.play('button');
 }
 
-// Show game information when info button is clicked
+/**
+ * Show game information when info button is clicked.
+ */
 document.getElementById("startInformationButton").addEventListener("click", showGameInformation);
 
 /**
@@ -178,7 +182,9 @@ function startGame() {
     initGame();
 }
 
-// Start game when start button is clicked
+/**
+ * Start game when start button is clicked.
+ */
 document.getElementById("startGame").addEventListener("click", startGame);
 
 /**
@@ -239,7 +245,9 @@ function registerButtonSounds() {
     });
 }
 
-// Play button sound and redirect to home after click
+/**
+ * Play button sound and redirect to home after click.
+ */
 document.getElementById("homeIcon").addEventListener("click", (event) => {
     event.preventDefault();
     sound.play('button');
@@ -311,17 +319,23 @@ function exitFullscreen() {
     }
 }
 
-// Fullscreen icon event listeners
+/**
+ * Fullscreen icon event listeners.
+ */
 fullscreenIcon.addEventListener("click", () => {
     enterFullscreen(fullscreenElement);
 });
 
-// Miniscreen icon event listeners
+/**
+ * Miniscreen icon event listeners.
+ */
 miniscreenIcon.addEventListener("click", () => {
     exitFullscreen();
 });
 
-// Listen for fullscreen changes to update icons
+/**
+ * Listen for fullscreen changes to update icons.
+ */
 document.addEventListener("fullscreenchange", updateFullscreenIcon);
 document.addEventListener("webkitfullscreenchange", updateFullscreenIcon);
 document.addEventListener("mozfullscreenchange", updateFullscreenIcon);

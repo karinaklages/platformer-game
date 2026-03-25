@@ -5,6 +5,8 @@
 class BackgroundObject extends MovableObject {
     /**
      * Creates a new BackgroundObject.
+     * @param {string} path - The file path or URL of the background image.
+     * @param {number} x - The horizontal position of the background object.
      */
     constructor(path, x) {
         super();

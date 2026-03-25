@@ -12,6 +12,9 @@ class ThrowableObject extends MovableObject {
 
     /**
      * Creates a new ThrowableObject instance and initiates its throw action.
+     * @param {number} x - The horizontal position of the crystal on the canvas.
+     * @param {number} y - The vertical position of the crystal on the canvas.
+     * @param {number} direction - The direction in which the crystal will move (e.g., 1 for right, -1 for left).
      */
     constructor(x, y, direction){
         super();

@@ -15,6 +15,8 @@ class Crystal extends DrawableObject {
 
     /**
      * Creates a new Crystal object.
+     * @param {number} x - The horizontal position of the crystal on the canvas.
+     * @param {number} y - The vertical position of the crystal on the canvas.
      */
     constructor(x, y) {
         super();

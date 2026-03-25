@@ -15,6 +15,8 @@ class Coin extends DrawableObject {
 
     /**
      * Creates a new Coin object.
+     * @param {number} x - The horizontal position of the coin on the canvas.
+     * @param {number} y - The vertical position of the coin on the canvas.
      */
     constructor(x, y) {
         super();
