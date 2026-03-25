@@ -174,7 +174,6 @@ function startGame() {
     infoContent.classList.add("d-none");
     startScreen.classList.add("d-none");
     canvas.classList.remove("d-none");
-    mobileButtonArea.classList.remove("d-none");
     if (!sound.isMuted) sound.sounds.gameSound.play();
     initGame();
 }

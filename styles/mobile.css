@@ -298,3 +298,13 @@
         font-size: 14px;
     }
 }
+
+.mobile-button-area {
+    display: none !important;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .mobile-button-area {
+        display: flex !important;
+    }
+}
