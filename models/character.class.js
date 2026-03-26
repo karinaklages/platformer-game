@@ -168,27 +168,38 @@ class Character extends MovableObject {
 
     /**
      * Initiates a fight sequence with the endboss.
+     * @param {Endboss} endboss - The endboss instance to fight against.
      */
     startFight(endboss) {
         if (this.isFighting) return;
         this.isFighting = true;
         const intervalId = this.addInterval(() => {
-            if (!this.isColliding(endboss) || endboss.isDead() || this.isDead()) {
-                this.isFighting = false;
-                clearInterval(intervalId);
-                return;
-            }
-            this.hit();
-            endboss.fightEndboss();
-            sound.play('collision');
-            this.world.statusBarHeart.setPercentage(this.energy);
-            if (this.isDead()) {
-                this.world.triggerGameOver();
-            }
-            if (endboss.isDead()) {
-                this.isFighting = false;
-            }
+            this.processFightTick(endboss, intervalId);
         }, 800);
+    }
+
+    /**
+     * Processes a single tick of the fight sequence.
+     * Checks fight conditions, applies damage, plays sounds, updates the status bar, and triggers end conditions.
+     * @param {Endboss} endboss - The endboss instance being fought.
+     * @param {number} intervalId - The interval ID used to stop the fight loop.
+     */
+    processFightTick(endboss, intervalId) {
+        if (!this.isColliding(endboss) || endboss.isDead() || this.isDead()) {
+            this.isFighting = false;
+            clearInterval(intervalId);
+            return;
+        }
+        this.hit();
+        endboss.fightEndboss();
+        sound.play('collision');
+        this.world.statusBarHeart.setPercentage(this.energy);
+        if (this.isDead()) {
+            this.world.triggerGameOver();
+        }
+        if (endboss.isDead()) {
+            this.isFighting = false;
+        }
     }
 
     /**
