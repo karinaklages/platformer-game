@@ -46,6 +46,7 @@
     width: 100%;
     touch-action: none;
     -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
     user-select: none;
     display: flex;
     flex-direction: row;
@@ -64,6 +65,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .mobile-button-area button img {
