@@ -7,6 +7,8 @@
 This platformer is part of the Developer Akademie's training programme for software developers (www.developerakademie.com). 
 <br><br>
 
+[Live View](https://platformer.karina-klages.de)</p>
+
 ###
 
 ![Join](./assets/img/platformer-1.jpg)<br>
