@@ -1,20 +1,58 @@
-<h1 align="left">Roots & Dust</h1>
+# Roots & Dust
 
-###
+Roots & Dust is a browser-based platformer game built with HTML, CSS, and JavaScript using object-oriented programming. The goal was to build a custom level and implement various background graphics, enemies, and difficulty levels. Graphics are from [CraftPix](https://craftpix.net/product/fantasy-platformer-game-kit-pixel-art/), adjusted for custom creative purposes.
 
-<p align="left">The platformer “Roots & Dust” was developed using JavaScript and object-oriented programming. The goal was to build a custom level and implement various background graphics, enemies, and difficulty levels within it. The graphics I used are from <a href="https://craftpix.net/product/fantasy-platformer-game-kit-pixel-art/" target="blank">CraftPix</a>. I adjusted them for my own creative purposes.<br>
+The game is part of the Developer Akademie's training programme for software developers ([www.developerakademie.com](https://www.developerakademie.com)).
 
-This platformer is part of the Developer Akademie's training programme for software developers (www.developerakademie.com). 
-<br><br>
+[LIVE VIEW](https://platformer.karina-klages.de)
 
-[Live View](https://platformer.karina-klages.de)</p>
+![Roots & Dust](./assets/img/platformer-1.jpg)
+![Roots & Dust](./assets/img/platformer-2.jpg)
+![Roots & Dust](./assets/img/platformer-3.jpg)
+![Roots & Dust](./assets/img/platformer-4.jpg)
 
-###
+## Table of Contents
 
-![Join](./assets/img/platformer-1.jpg)<br>
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Project Structure](#project-structure)
 
-![Join](./assets/img/platformer-2.jpg)<br>
+## Prerequisites
 
-![Join](./assets/img/platformer-3.jpg)<br>
+No build tool or server required — just a modern browser.
 
-![Join](./assets/img/platformer-4.jpg)
+## Quickstart
+
+Clone the repository:
+
+```bash
+git clone https://github.com/karinaklages/roots-and-dust.git
+cd roots-and-dust
+```
+
+Then open `index.html` directly in your browser:
+
+```text
+roots-and-dust/index.html
+```
+
+## Project Structure
+
+```text
+roots-and-dust/
+├── assets/
+│   ├── img/            # Images and screenshots
+├── audio/              # Sound effects and music
+├── fonts/              # Local font files
+├── img/                # Game graphics and sprites
+├── js/                 # Game logic and sound (OOP)
+├── levels/             # Level configuration  
+├── models/             # Game object models
+├── styles/
+│   ├── fonts.css       # Font definitions
+│   ├── mobile.css      # Responsive styles for mobile devices
+│   └── navigation.css  # Navigation styles
+├── .gitignore
+├── index.html          # Application entry point
+└── style.css           # Main stylesheet
+```
